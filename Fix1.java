@@ -9,5 +9,8 @@ public class Fix1 extends ASource {
 	public Fix1() {
 		throw new UnsupportedOperationException();
 	}
-
+    public void SetValue() {
+		throw new UnsupportedOperationException();
+	}
+	
 }
