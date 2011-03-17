@@ -16,7 +16,7 @@ public class Inverter extends AGate {
 	 * @return 
 	 */
 	public void SetValue() {
-		throw new UnsupportedOperationException();
+		value = ~(inputs[0].GetValue());
 	}
 
 }

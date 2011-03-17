@@ -7,7 +7,7 @@ public class Switch extends ASource {
 	 * @return 
 	 */
 	public Switch() {
-		throw new UnsupportedOperationException();
+		value = 1;
 	}
 
 	/**
@@ -15,7 +15,8 @@ public class Switch extends ASource {
 	 * @return 
 	 */
 	public void SetValue() {
-		throw new UnsupportedOperationException();
+		value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
+
 	}
 
 }
