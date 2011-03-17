@@ -20,7 +20,7 @@ public class Wire extends AElement {
 	 * @return 
 	 */
 	public void SetValue() {
-		value = input.Getvalue();       //nemlátja a getvalue függvényt
+		//value = input.Getvalue();       //nemlátja a getvalue függvényt
 	}
 
 }
