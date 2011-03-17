@@ -11,7 +11,9 @@ public class Generator extends ASource {
 	 * @return 
 	 */
 	public Generator(int[] output) {
-		throw new UnsupportedOperationException();
+		counter = 0;
+                outputs = output;
+                value = outputs[0];
 	}
 
 	/**
@@ -19,7 +21,7 @@ public class Generator extends ASource {
 	 * @return 
 	 */
 	public void SetValue() {
-		throw new UnsupportedOperationException();
+		value = outputs[counter];
 	}
 
 	/**
@@ -27,7 +29,9 @@ public class Generator extends ASource {
 	 * @return 
 	 */
 	public void Shift() {
-		throw new UnsupportedOperationException();
+		counter++;
+                SetValue();
+
 	}
 
 }

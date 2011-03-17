@@ -2,8 +2,8 @@ package szlab4_whitespaces;
 
 public class Wire extends AElement {
 
-	private PinIn output;
-	private PinOut input;
+	private PinIn output;           //Wire outputja az előző objektum inputja
+	private PinOut input;           //Wire inputja az előző objektum outputja
 
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class Wire extends AElement {
 	 * @return 
 	 */
 	public void SetValue() {
-		throw new UnsupportedOperationException();
+		value = input.Getvalue();       //nemlátja a getvalue függvényt
 	}
 
 }

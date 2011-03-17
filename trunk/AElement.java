@@ -2,14 +2,15 @@ package szlab4_whitespaces;
 
 public abstract class AElement {
 
-	private int value;
-
+	//private int value;
+        protected int value;
 	/**
 	 * 
 	 * @return 
 	 */
 	public int GetValue() {
-		throw new UnsupportedOperationException();
+		SetValue();
+                return value;
 	}
 
 	/**

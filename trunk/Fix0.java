@@ -7,10 +7,10 @@ public class Fix0 extends ASource {
 	 * @return 
 	 */
 	public Fix0() {
-		throw new UnsupportedOperationException();
+		value = 0;
 	}
-        public void SetValue() {
-		throw new UnsupportedOperationException();
+        public void SetValue() {        //jópofa h van ilyenje :D
+		value = 0;
 	}
 
 }

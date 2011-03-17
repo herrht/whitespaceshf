@@ -8,7 +8,7 @@ public class OR extends AGate {
 	 * @return 
 	 */
 	public OR(int inputnum) {
-		throw new UnsupportedOperationException();
+		value = 0;
 	}
 
 	/**
@@ -16,7 +16,16 @@ public class OR extends AGate {
 	 * @return 
 	 */
 	public void SetValue() {
-		throw new UnsupportedOperationException();
+		int temp = 0;
+                for (int i = 0 ; i < inputnum ; i++){               //temp értékét beállítja arra az értékre ahány input value értéke 1
+                    if (inputs[i].GetValue() == 1)
+                        temp++;
+                }
+
+		if (temp >= 1)                                  //ha temp legalább 1 -> legalább 1 bemenő jel == 1, akkor value = 1
+                        value = 1;
+                else
+                        value = 0;                              //egyébként 0
 	}
 
 }

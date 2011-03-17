@@ -10,7 +10,7 @@ public abstract class Pin {
 	 * @return 
 	 */
 	public void SetValue() {
-		throw new UnsupportedOperationException();
+		value = elem.GetValue();
 	}
 
 	/**
@@ -18,7 +18,8 @@ public abstract class Pin {
 	 * @return 
 	 */
 	public int GetValue() {
-		throw new UnsupportedOperationException();
+		SetValue();
+                return value;
 	}
 
 }
