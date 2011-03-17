@@ -21,6 +21,7 @@ public class Wire extends AElement {
 	 */
 	public void SetValue() {
 		//value = input.Getvalue();       //nemlátja a getvalue függvényt
+            System.out.printf(" | SetValue() | CALL\n");
 	}
 
 }
