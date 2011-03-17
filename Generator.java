@@ -11,9 +11,9 @@ public class Generator extends ASource {
 	 * @return 
 	 */
 	public Generator(int[] output) {
-		counter = 0;
-                outputs = output;
-                value = outputs[0];
+//		counter = 0;
+//                outputs = output;
+//                value = outputs[0];
 	}
 
 	/**
@@ -21,7 +21,8 @@ public class Generator extends ASource {
 	 * @return 
 	 */
 	public void SetValue() {
-		value = outputs[counter];
+//		value = outputs[counter];
+             System.out.printf(" | SetValue() | CALL\n");
 	}
 
 	/**
@@ -29,8 +30,9 @@ public class Generator extends ASource {
 	 * @return 
 	 */
 	public void Shift() {
-		counter++;
-                SetValue();
+//		counter++;
+//               SetValue();
+             System.out.printf(" | Shift() | CALL\n");
 
 	}
 

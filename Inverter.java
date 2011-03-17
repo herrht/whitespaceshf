@@ -16,7 +16,8 @@ public class Inverter extends AGate {
 	 * @return 
 	 */
 	public void SetValue() {
-		value = ~(inputs[0].GetValue());
+//		value = ~(inputs[0].GetValue());
+             System.out.printf(" | SetValue() | CALL\n");
 	}
 
 }

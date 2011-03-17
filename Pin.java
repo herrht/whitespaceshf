@@ -10,7 +10,8 @@ public abstract class Pin {
 	 * @return 
 	 */
 	public void SetValue() {
-		value = elem.GetValue();
+//		value = elem.GetValue();
+            
 	}
 
 	/**
@@ -18,8 +19,11 @@ public abstract class Pin {
 	 * @return 
 	 */
 	public int GetValue() {
-		SetValue();
-                return value;
+//		SetValue();
+//                return value;
+            System.out.printf(" | GetValue() | RETURN\n");
+            throw new UnsupportedOperationException();
+
 	}
 
 }

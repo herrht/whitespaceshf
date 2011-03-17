@@ -7,7 +7,7 @@ public class Switch extends ASource {
 	 * @return 
 	 */
 	public Switch() {
-		value = 1;
+//		value = 1;
 	}
 
 	/**
@@ -15,7 +15,8 @@ public class Switch extends ASource {
 	 * @return 
 	 */
 	public void SetValue() {
-		value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
+//		value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
+            System.out.printf(" | SetValue() | CALL\n");
 
 	}
 
