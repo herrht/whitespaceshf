@@ -28,9 +28,6 @@ public abstract class AElement
 	 * 
 	 * @return 
 	 */
-	public void Delete()
-        {
-		throw new UnsupportedOperationException();
-	}
+	public abstract void Delete();
 
 }

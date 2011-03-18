@@ -17,4 +17,5 @@ public abstract class AGate extends AElement
 	 */
 	public abstract void SetValue();
 
+
 }
