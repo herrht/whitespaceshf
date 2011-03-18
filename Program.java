@@ -9,7 +9,7 @@ public class Program {
 	 * @return 
 	 */
 	public Program() {
-                System.out.println("Program() | Program konstruktor | CALL ");
+                System.out.println("Program | Program() | Program konstruktor");
 	}
 
 	/**
@@ -17,7 +17,7 @@ public class Program {
 	 * @return 
 	 */
 	public void NewProject() {
-                System.out.println("NewProject() | Project konstruktor | CALL ");
+                System.out.println("Program | NewProject() | Uj projekt letrehozas");
 		Project project1 = new Project();
 	}
 

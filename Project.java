@@ -13,7 +13,9 @@ public class Project {
 	 * @return 
 	 */
 	public Project() {
-		System.out.println("Project() | Project konstruktor | CALL ");
+		System.out.println("Project | Project() | Project konstruktor");
+                ID = 0;
+                elements = new AElement[5];
 	}
 
 	/**
