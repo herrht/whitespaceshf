@@ -26,6 +26,12 @@ public class AND extends AGate
             output = new PinOut();
             this.ID = ID;
 	}
+        public int GetID()
+        {
+            System.out.printf("AND |GetID() | CALL\n");
+
+            return this.ID;
+        }
 
 
 

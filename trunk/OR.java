@@ -24,7 +24,13 @@ public class OR extends AGate {
             output = new PinOut();
             this.ID = ID;
 	}
+        
+        public int GetID()
+        {
+            System.out.printf("OR |GetID() | CALL\n");
 
+            return this.ID;
+        }
 	/**
 	 * 
 	 * @return 

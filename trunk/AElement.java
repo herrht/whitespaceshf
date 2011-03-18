@@ -16,6 +16,7 @@ public abstract class AElement
             System.out.println(" GetValue() | RETURN");
             return value;
 	}
+        public abstract int GetID();
 
 	/**
 	 * 

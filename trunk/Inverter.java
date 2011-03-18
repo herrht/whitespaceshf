@@ -17,7 +17,12 @@ public class Inverter extends AGate
             output = new PinOut();
             this.ID = ID;
 	}
+        public int GetID()
+        {
+            System.out.printf("Inverter |GetID() | CALL\n");
 
+            return this.ID;
+        }
 	/**
 	 * 
 	 * @return 

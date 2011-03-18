@@ -10,6 +10,14 @@ public class Switch extends ASource
             output = new PinOut();
             this.ID = ID;
 	}
+
+         public int GetID()
+        {
+            System.out.printf("Switch |GetID() | CALL\n");
+
+            return this.ID;
+        }
+         
 	/**
 	 * 
 	 * @return 
