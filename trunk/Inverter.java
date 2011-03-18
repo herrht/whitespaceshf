@@ -2,9 +2,11 @@ package szlab4_whitespaces;
 
 import java.util.*;
 
-public class Inverter extends AGate {
+public class Inverter extends AGate
+{
 
-	public Inverter() {
+	public Inverter()
+        {
             System.out.println("Inverter | Inverter() | Inverter konstruktor");
 
             value = 0;
@@ -19,9 +21,10 @@ public class Inverter extends AGate {
 	 * 
 	 * @return 
 	 */
-	public void SetValue() {
+	public void SetValue()
+        {
 //		value = ~(inputs[0].GetValue());
-             System.out.printf(" | SetValue() | CALL\n");
+             System.out.printf("Inverter | SetValue() | CALL\n");
 	}
 
 }

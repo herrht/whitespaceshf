@@ -1,6 +1,7 @@
 package szlab4_whitespaces;
 
-public abstract class AElement {
+public abstract class AElement
+{
 
 	//private int value;
         protected int value;
@@ -8,7 +9,8 @@ public abstract class AElement {
 	 * 
 	 * @return 
 	 */
-	public int GetValue() {
+	public int GetValue()
+        {
 //		SetValue();
             System.out.println(" GetValue() | RETURN");
             return value;
@@ -24,7 +26,8 @@ public abstract class AElement {
 	 * 
 	 * @return 
 	 */
-	public void Delete() {
+	public void Delete()
+        {
 		throw new UnsupportedOperationException();
 	}
 

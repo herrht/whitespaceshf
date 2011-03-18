@@ -2,7 +2,8 @@ package szlab4_whitespaces;
 
 import java.util.*;
 
-public abstract class AGate extends AElement {
+public abstract class AGate extends AElement
+{
 
 //      protected PinIn[] inputs;                   //ezt "tömbösítettem" mondván h nem csak 1 input van :)
         protected Map<Integer,Object> inputs;

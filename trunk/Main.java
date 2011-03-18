@@ -1,8 +1,10 @@
 package szlab4_whitespaces;
 
-public class Main {
+public class Main
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // ---- NewProject ----
         System.out.println("Main | Program | progi | Program() | CALL");
         Program progi = new Program();

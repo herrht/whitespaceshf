@@ -39,7 +39,7 @@ public class OR extends AGate {
 //                        value = 1;
 //                else
 //                        value = 0;                              //egyébként 0
-//            System.out.printf(" | SetValue() | CALL\n");
+            System.out.printf("OR | SetValue() | CALL\n");
 	}
 
 }
