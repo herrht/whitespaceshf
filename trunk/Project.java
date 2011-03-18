@@ -7,13 +7,9 @@ import java.util.*;
 public class Project {
 
 	private Map<Integer,Object> elements;
-        //elements.put(ID, new OR(inputnum));
+        //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
 	private int ID;
 
-	/**
-	 * 
-	 * @return 
-	 */
 	public Project() {
 		System.out.println("Project | Project() | Project konstruktor");
                 ID = 0;
@@ -77,7 +73,9 @@ public class Project {
 	 * @return 
 	 */
 	public void AddFix0() {
-		throw new UnsupportedOperationException();
+		System.out.println("Project | AddFix0() | Fix0 forras letrehozas");
+                elements.put(ID, new Fix0());
+                ++ID;
 	}
 
 	/**
@@ -85,7 +83,9 @@ public class Project {
 	 * @return 
 	 */
 	public void AddFix1() {
-		throw new UnsupportedOperationException();
+		System.out.println("Project | AddFix1() | Fix1 forras letrehozas");
+                elements.put(ID, new Fix1());
+                ++ID;
 	}
 
 	/**
