@@ -41,7 +41,9 @@ public class Project {
 	 * @return 
 	 */
 	public void AddInverter() {
-		throw new UnsupportedOperationException();
+		System.out.println("Project | AddInverter() | Inverter letrehozas");
+                elements.put(ID, new Inverter());
+                ++ID;
 	}
 
 	/**
@@ -60,13 +62,7 @@ public class Project {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @return 
-	 */
-	public void AddGenerator() {
-		throw new UnsupportedOperationException();
-	}
+
 
 	/**
 	 * 
@@ -88,6 +84,15 @@ public class Project {
                 ++ID;
 	}
 
+        /**
+	 * 
+	 * @return 
+	 */
+        public void AddGenerator(int[] rate) {
+                System.out.println("Project | AddGenerator(rate) | Generator letrehozas");
+                elements.put(ID, new Generator(rate));
+                ++ID;
+        }
 	/**
 	 * 
 	 * @param e
@@ -122,5 +127,4 @@ public class Project {
 	public void Start() {
 		throw new UnsupportedOperationException();
 	}
-
 }

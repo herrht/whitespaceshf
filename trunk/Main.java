@@ -17,6 +17,16 @@ public class Main {
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
         progi.proj.AddFix1();
 
+
+        // ---- AddGenerator
+        System.out.println("\nMain | Project | proj | AddGenerator(rate) | CALL");
+        int rate[] = {1,0,1,1};
+        progi.proj.AddGenerator(rate);
+
+        // ---- AddInverter
+        System.out.println("\nMain | Project | proj | AddInverter() | CALL");
+        progi.proj.AddInverter();
+
         // ---- DeleteElement ----
 
         

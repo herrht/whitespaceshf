@@ -1,14 +1,18 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class Inverter extends AGate {
 
-	/**
-	 * 
-	 * @param inputnum
-	 * @return 
-	 */
-	public Inverter(int inputnum) {
-		throw new UnsupportedOperationException();
+	public Inverter() {
+            System.out.println("Inverter | Inverter() | Inverter konstruktor");
+
+            value = 0;
+
+            inputs = new HashMap<Integer,Object>();
+            inputs.put(0, new PinIn());
+
+            output = new PinOut();
 	}
 
 	/**

@@ -5,15 +5,12 @@ public class Generator extends ASource {
 	private int[] outputs;
 	private int counter;
 
-	/**
-	 * 
-	 * @param output
-	 * @return 
-	 */
-	public Generator(int[] output) {
+	public Generator(int[] rate) {
+            System.out.println("Generator | Generator(rate)| Generator konstruktor");
+            this.output = new PinOut();
 //		counter = 0;
-//                outputs = output;
-//                value = outputs[0];
+//              outputs = rate;
+//              value = outputs[0];
 	}
 
 	/**
