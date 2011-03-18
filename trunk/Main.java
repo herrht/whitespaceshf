@@ -22,7 +22,7 @@ public class Main {
         progi.NewProject();
 
         // ---- AddNewElement ----
-        System.out.println("Main | proj | AddOr() | CALL");
+        System.out.println("Main | Project | proj | AddOr() | CALL");
         progi.proj.AddOr(3);
 
         // ---- DeleteElement ----
