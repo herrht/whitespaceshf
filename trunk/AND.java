@@ -32,6 +32,9 @@ public class AND extends AGate
 
             return this.ID;
         }
+        public void Delete()
+        {
+        }
 
 
 
