@@ -10,7 +10,7 @@ public class Main {
         progi.NewProject();
 
         // ---- AddNewElement ----
-        System.out.println("\nMain | Project | proj | AddOr() | CALL");
+        System.out.println("\nMain | Project | proj | AddAnd() | CALL");
         progi.proj.AddAnd(3);
 
         // ---- AddNewASource object
@@ -34,6 +34,10 @@ public class Main {
         // ---- AddSwitch
         System.out.println("\nMain | Project | proj | AddSwitch() | CALL");
         progi.proj.AddSwitch();
+
+        // ---- AddWire
+        System.out.println("\nMain | Project | proj | AddWire() | CALL");
+        progi.proj.AddWire(0,1);
 
         // ---- DeleteElement ----
 
