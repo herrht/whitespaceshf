@@ -24,8 +24,10 @@ public class Project {
 	 * 
 	 * @return 
 	 */
-	public void AddAnd() {
-		throw new UnsupportedOperationException();
+	public void AddAnd(int inputnum) {
+		System.out.println("Project | AddAnd(inputnum) | And kapu letrehozas");
+                elements.put(ID, new AND(inputnum));
+                ++ID;
 	}
 
 	/**
