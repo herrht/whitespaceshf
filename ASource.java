@@ -2,12 +2,8 @@ package szlab4_whitespaces;
 
 public abstract class ASource extends AElement {
 
-	private PinOut output;
-
-	/**
-	 * 
-	 * @return 
-	 */
+	protected PinOut output;
+        
 	public abstract void SetValue();
 
 }
