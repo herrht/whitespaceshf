@@ -15,7 +15,7 @@ public class Wire extends AElement
 //	public Wire(PinIn input, PinOut output) {
         public Wire(int id1, int id2, int ID)
         {
-            System.out.println("Wire | Wire("+id1+","+id2+") | And konstruktor");
+            System.out.println("Wire | Wire("+id1+","+id2+") | Wire konstruktor");
 //            input = progi.proj.elements.getIDizé(id1).inputs.getLab()
 //            output = new PinIn(); -> nem új, hanem meglévőre hivatkozzunk
             this.ID = ID;
