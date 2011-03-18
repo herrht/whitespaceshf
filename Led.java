@@ -18,7 +18,12 @@ public class Led extends AGate {
             output = new PinOut();
             this.ID = ID;
 	}
+        public int GetID()
+        {
+            System.out.printf("Led |GetID() | CALL\n");
 
+            return this.ID;
+        }
 	/**
 	 * 
 	 * @return 

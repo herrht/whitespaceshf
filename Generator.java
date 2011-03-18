@@ -15,7 +15,12 @@ public class Generator extends ASource
 //              outputs = rate;
 //              value = outputs[0];
 	}
+        public int GetID()
+        {
+            System.out.printf("Generator |GetID() | CALL\n");
 
+            return this.ID;
+        }
 	/**
 	 * 
 	 * @return 

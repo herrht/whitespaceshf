@@ -10,7 +10,12 @@ public class Fix0 extends ASource
             output = new PinOut();
             this.ID = ID;
 	}
+        public int GetID()
+        {
+            System.out.printf("Fix0 |GetID() | CALL\n");
 
+            return this.ID;
+        }
         public void SetValue()
         {        //jópofa h van ilyenje :D
 //		value = 0;

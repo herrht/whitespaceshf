@@ -20,7 +20,14 @@ public class Wire extends AElement
 //            output = new PinIn(); -> nem új, hanem meglévőre hivatkozzunk
             this.ID = ID;
         }
+        
+        public int GetID()
+        {
+            System.out.printf("Wire |GetID() | CALL\n");
 
+            return this.ID;
+        }
+        
 	/**
 	 * 
 	 * @return 
