@@ -1,5 +1,7 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class AND extends AGate {
 
 	/**
@@ -8,8 +10,21 @@ public class AND extends AGate {
 	 * @return 
 	 */
 	public AND(int inputnum) {
-		value = 0;
+            System.out.println("AND | AND("+inputnum+") | And konstruktor");
+
+            value = 0;
+            this.inputnum = inputnum;
+
+            inputs = new HashMap<Integer,Object>();
+            for (int i = 0; i < inputnum; i++)
+            {
+                inputs.put(i, new PinIn());
+            }
+
+            output = new PinOut();
 	}
+
+
 
 	/**
 	 * 

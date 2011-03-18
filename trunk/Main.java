@@ -18,11 +18,11 @@ public class Main {
         // ---- NewProject ----
         System.out.println("Main | Program | progi | Program() | CALL");
         Program progi = new Program();
-        System.out.println("Main | Program | progi | NewProject() | CALL");
+        System.out.println("\nMain | Program | progi | NewProject() | CALL");
         progi.NewProject();
 
         // ---- AddNewElement ----
-        System.out.println("Main | Project | proj | AddOr() | CALL");
+        System.out.println("\nMain | Project | proj | AddOr() | CALL");
         progi.proj.AddOr(3);
 
         // ---- DeleteElement ----
