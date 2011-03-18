@@ -2,7 +2,7 @@ package szlab4_whitespaces;
 
 public class Program {
 
-	private Project proj;
+	public Project proj;
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class Program {
 	 */
 	public void NewProject() {
                 System.out.println("Program | NewProject() | Uj projekt letrehozas");
-		Project project1 = new Project();
+                proj = new Project();
 	}
 
 	/**

@@ -8,7 +8,9 @@ public class OR extends AGate {
 	 * @return 
 	 */
 	public OR(int inputnum) {
-		value = 0;
+            System.out.println("OR | OR("+inputnum+") | Or konstruktor");
+            value = 0;
+            this.inputnum = inputnum;
 	}
 
 	/**
@@ -26,7 +28,7 @@ public class OR extends AGate {
 //                        value = 1;
 //                else
 //                        value = 0;                              //egyébként 0
-            System.out.printf(" | SetValue() | CALL\n");
+//            System.out.printf(" | SetValue() | CALL\n");
 	}
 
 }
