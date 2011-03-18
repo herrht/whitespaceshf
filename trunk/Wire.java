@@ -13,7 +13,7 @@ public class Wire extends AElement
 	 * @return 
 	 */
 //	public Wire(PinIn input, PinOut output) {
-        public Wire(int id1, int id2,int D)
+        public Wire(int id1, int id2, int ID)
         {
             System.out.println("Wire | Wire("+id1+","+id2+") | And konstruktor");
 //            input = progi.proj.elements.getIDizé(id1).inputs.getLab()
