@@ -9,7 +9,8 @@ public class Program {
 	 * @return 
 	 */
 	public Program() {
-		throw new UnsupportedOperationException();
+                System.out.println("Program() | Program konstruktor | CALL ");
+		Project proj;
 	}
 
 	/**
@@ -17,7 +18,8 @@ public class Program {
 	 * @return 
 	 */
 	public void NewProject() {
-		throw new UnsupportedOperationException();
+                System.out.println("NewProject() | Project konstruktor | CALL ");
+		Project project1 = new Project();
 	}
 
 	/**
