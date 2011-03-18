@@ -16,6 +16,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // ---- NewProject ----
+        Program progi = new Program();
+        progi.NewProject();
+        
         
         
         
