@@ -97,6 +97,12 @@ public class Project {
                 elements.put(ID, new Generator(rate));
                 ++ID;
         }
+
+        public void AddWire(int id1, int id2) {
+                System.out.println("Project | AddWire("+id1+","+id2+") | Wire letrehozas");
+                elements.put(ID, new Wire(id1,id2));
+                ++ID;
+        }
 	/**
 	 * 
 	 * @param e
