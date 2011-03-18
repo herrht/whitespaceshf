@@ -51,7 +51,9 @@ public class Project {
 	 * @return 
 	 */
 	public void AddLed() {
-		throw new UnsupportedOperationException();
+		System.out.println("Project | AddLed() | LED letrehozas");
+                elements.put(ID, new Led());
+                ++ID;
 	}
 
 	/**

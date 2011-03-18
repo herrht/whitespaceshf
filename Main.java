@@ -27,6 +27,10 @@ public class Main {
         System.out.println("\nMain | Project | proj | AddInverter() | CALL");
         progi.proj.AddInverter();
 
+        // ---- AddLed
+        System.out.println("\nMain | Project | proj | AddLed() | CALL");
+        progi.proj.AddLed();
+
         // ---- DeleteElement ----
 
         

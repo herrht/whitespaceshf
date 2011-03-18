@@ -1,5 +1,7 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class Led extends AGate {
 
 	/**
@@ -7,8 +9,13 @@ public class Led extends AGate {
 	 * @param inputnum
 	 * @return 
 	 */
-	public Led(int inputnum) {
-		throw new UnsupportedOperationException();
+	public Led() {
+            System.out.println("Led | Led() | LED konstruktor");
+
+            inputs = new HashMap<Integer,Object>();
+            inputs.put(0, new PinIn());
+
+            output = new PinOut();
 	}
 
 	/**
