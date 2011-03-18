@@ -10,7 +10,6 @@ public class Program {
 	 */
 	public Program() {
                 System.out.println("Program() | Program konstruktor | CALL ");
-		Project proj;
 	}
 
 	/**
