@@ -3,11 +3,12 @@ package szlab4_whitespaces;
 public class Switch extends ASource
 {
 
-	public Switch()
+	public Switch(int ID)
         {
             System.out.println("Switch | Switch() | Switch konstruktor");
             value = 0;
             output = new PinOut();
+            this.ID = ID;
 	}
 	/**
 	 * 

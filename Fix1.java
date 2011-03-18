@@ -3,11 +3,12 @@ package szlab4_whitespaces;
 public class Fix1 extends ASource
 {
 
-	public Fix1()
+	public Fix1(int ID)
         {
             System.out.println("FIX1 | Fix1()| Fix1 konstruktor");
             value = 1;
             output = new PinOut();
+            this.ID = ID;
 	}
 
         public void SetValue()

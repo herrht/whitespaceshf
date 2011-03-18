@@ -9,13 +9,14 @@ public class Led extends AGate {
 	 * @param inputnum
 	 * @return 
 	 */
-	public Led() {
+	public Led(int ID) {
             System.out.println("Led | Led() | LED konstruktor");
 
             inputs = new HashMap<Integer,Object>();
             inputs.put(0, new PinIn());
 
             output = new PinOut();
+            this.ID = ID;
 	}
 
 	/**
