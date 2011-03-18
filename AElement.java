@@ -10,9 +10,8 @@ public abstract class AElement {
 	 */
 	public int GetValue() {
 //		SetValue();
-//                return value;
-            System.out.printf(" | GetValue() | RETURN\n");
-            throw new UnsupportedOperationException();
+            System.out.println(" GetValue() | RETURN");
+            return value;
 	}
 
 	/**
