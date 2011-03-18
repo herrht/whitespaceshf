@@ -2,12 +2,10 @@ package szlab4_whitespaces;
 
 public class Switch extends ASource {
 
-	/**
-	 * 
-	 * @return 
-	 */
 	public Switch() {
-//		value = 1;
+            System.out.println("Switch | Switch() | Switch konstruktor");
+            value = 0;
+            output = new PinOut();
 	}
 
 	/**

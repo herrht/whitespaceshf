@@ -31,6 +31,10 @@ public class Main {
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
         progi.proj.AddLed();
 
+        // ---- AddSwitch
+        System.out.println("\nMain | Project | proj | AddSwitch() | CALL");
+        progi.proj.AddSwitch();
+
         // ---- DeleteElement ----
 
         

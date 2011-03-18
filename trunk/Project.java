@@ -61,7 +61,9 @@ public class Project {
 	 * @return 
 	 */
 	public void AddSwitch() {
-		throw new UnsupportedOperationException();
+		System.out.println("Project | AddSwitch() | Switch letrehozas");
+                elements.put(ID, new Switch());
+                ++ID;
 	}
 
 
