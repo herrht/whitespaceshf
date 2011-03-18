@@ -19,11 +19,8 @@ public abstract class Pin {
 	 * @return 
 	 */
 	public int GetValue() {
-//		SetValue();
-//                return value;
-            System.out.printf(" | GetValue() | RETURN\n");
-            throw new UnsupportedOperationException();
-
+            System.out.println("OR | OR() | Pin GetValue");
+            return value;
 	}
 
 }

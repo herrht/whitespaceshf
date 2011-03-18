@@ -7,6 +7,7 @@ import java.util.*;
 public class Project {
 
 	private Map<Integer,Object> elements;
+        //elements.put(ID, new OR(inputnum));
 	private int ID;
 
 	/**

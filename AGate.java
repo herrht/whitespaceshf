@@ -1,11 +1,12 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public abstract class AGate extends AElement {
 
-//	private PinIn[] inputs;
-//	private int inputnum;
-//	private PinOut output;
-       	protected PinIn[] inputs;                   //ezt "tömbösítettem" mondván h nem csak 1 input van :)
+//      protected PinIn[] inputs;                   //ezt "tömbösítettem" mondván h nem csak 1 input van :)
+        protected Map<Integer,Object> inputs;
+        //elements.put(ID, new OR(inputnum));
 	protected int inputnum;
 	protected PinOut output;
 

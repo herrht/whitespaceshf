@@ -1,5 +1,7 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class OR extends AGate {
 
 	/**
@@ -9,8 +11,17 @@ public class OR extends AGate {
 	 */
 	public OR(int inputnum) {
             System.out.println("OR | OR("+inputnum+") | Or konstruktor");
+
             value = 0;
             this.inputnum = inputnum;
+            
+            inputs = new HashMap<Integer,Object>();
+            for (int i = 0; i < inputnum; i++)
+            {
+                inputs.put(i, new PinIn());
+            }
+
+            output = new PinOut();
 	}
 
 	/**

@@ -16,19 +16,17 @@ public class Main {
      */
     public static void main(String[] args) {
         // ---- NewProject ----
-        
         System.out.println("Main | Program | progi | Program() | CALL");
         Program progi = new Program();
         System.out.println("Main | Program | progi | NewProject() | CALL");
         progi.NewProject();
-        
 
         // ---- AddNewElement ----
-
         System.out.println("Main | proj | AddOr() | CALL");
         progi.proj.AddOr(3);
 
+        // ---- DeleteElement ----
+        
 
-
-        }   // End of MAIN
+    }   // End of MAIN
 }
