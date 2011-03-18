@@ -13,7 +13,7 @@ public class Project {
 	 * @return 
 	 */
 	public Project() {
-		throw new UnsupportedOperationException();
+		System.out.println("Project() | Project konstruktor | CALL ");
 	}
 
 	/**
