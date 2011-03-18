@@ -1,6 +1,7 @@
 package szlab4_whitespaces;
 
-public abstract class Pin {
+public abstract class Pin
+{
 
 	private int value;
 	private AElement elem;
@@ -9,7 +10,8 @@ public abstract class Pin {
 	 * 
 	 * @return 
 	 */
-	public void SetValue() {
+	public void SetValue()
+        {
 //		value = elem.GetValue();
             
 	}
@@ -18,7 +20,8 @@ public abstract class Pin {
 	 * 
 	 * @return 
 	 */
-	public int GetValue() {
+	public int GetValue()
+        {
             System.out.println("OR | OR() | Pin GetValue");
             return value;
 	}

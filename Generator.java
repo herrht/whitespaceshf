@@ -1,11 +1,13 @@
 package szlab4_whitespaces;
 
-public class Generator extends ASource {
+public class Generator extends ASource
+{
 
 	private int[] outputs;
 	private int counter;
 
-	public Generator(int[] rate) {
+	public Generator(int[] rate)
+        {
             System.out.println("Generator | Generator(rate)| Generator konstruktor");
             this.output = new PinOut();
 //		counter = 0;
@@ -17,19 +19,21 @@ public class Generator extends ASource {
 	 * 
 	 * @return 
 	 */
-	public void SetValue() {
-//		value = outputs[counter];
-             System.out.printf(" | SetValue() | CALL\n");
+	public void SetValue()
+        {
+//          value = outputs[counter];
+            System.out.printf("Generator | SetValue() | CALL\n");
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void Shift() {
+	public void Shift()
+        {
 //		counter++;
 //               SetValue();
-             System.out.printf(" | Shift() | CALL\n");
+             System.out.printf("Generator | Shift() | CALL\n");
 
 	}
 

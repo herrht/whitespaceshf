@@ -2,14 +2,16 @@ package szlab4_whitespaces;
 
 import java.util.*;
 
-public class AND extends AGate {
+public class AND extends AGate
+{
 
 	/**
 	 * 
 	 * @param inputnum
 	 * @return 
 	 */
-	public AND(int inputnum) {
+	public AND(int inputnum)
+        {
             System.out.println("AND | AND("+inputnum+") | And konstruktor");
 
             value = 0;
@@ -30,7 +32,8 @@ public class AND extends AGate {
 	 * 
 	 * @return 
 	 */
-	public void SetValue() {
+	public void SetValue()
+        {
 //                int temp = 0;
 //                for (int i = 0 ; i < inputnum ; i++){               //temp értékét beállítja arra az értékre ahány input value értéke 1
 //                    if (inputs[i].GetValue() == 1)
@@ -41,7 +44,7 @@ public class AND extends AGate {
 //                        value = 1;
 //                else
 //                        value = 0;                              //egyébként 0
-             System.out.printf(" | SetValue() | CALL\n");
+             System.out.printf("AND | SetValue() | CALL\n");
 	}
 
 }

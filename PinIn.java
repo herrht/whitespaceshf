@@ -1,6 +1,7 @@
 package szlab4_whitespaces;
 
-public class PinIn extends Pin {
+public class PinIn extends Pin
+{
 
 	/**
 	 * 
