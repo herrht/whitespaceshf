@@ -15,12 +15,20 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // ---- NewProject ----  /*
+        // ---- NewProject ----
+        
         System.out.println("Main | Program | progi | Program() | CALL");
         Program progi = new Program();
         System.out.println("Main | Program | progi | NewProject() | CALL");
         progi.NewProject();
-      }
-    //probe
+        
 
+        // ---- AddNewElement ----
+
+        System.out.println("Main | proj | AddOr() | CALL");
+        progi.proj.AddOr(3);
+
+
+
+        }   // End of MAIN
 }

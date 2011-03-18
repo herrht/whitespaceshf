@@ -2,10 +2,11 @@ package szlab4_whitespaces;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.*;
 
 public class Project {
 
-	private AElement[] elements;
+	private Map<Integer,Object> elements;
 	private int ID;
 
 	/**
@@ -15,7 +16,7 @@ public class Project {
 	public Project() {
 		System.out.println("Project | Project() | Project konstruktor");
                 ID = 0;
-                elements = new AElement[5];
+                elements = new HashMap<Integer,Object>();
 	}
 
 	/**
@@ -30,8 +31,10 @@ public class Project {
 	 * 
 	 * @return 
 	 */
-	public void AddOr() {
-		throw new UnsupportedOperationException();
+	public void AddOr(int inputnum) {
+		System.out.println("Project | AddOr(inputnum) | Or kapu letrehozas");
+                elements.put(ID, new OR(inputnum));
+                ++ID;
 	}
 
 	/**
