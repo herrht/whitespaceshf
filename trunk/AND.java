@@ -10,7 +10,7 @@ public class AND extends AGate
 	 * @param inputnum
 	 * @return 
 	 */
-	public AND(int inputnum)
+	public AND(int inputnum, int ID)
         {
             System.out.println("AND | AND("+inputnum+") | And konstruktor");
 
@@ -24,6 +24,7 @@ public class AND extends AGate
             }
 
             output = new PinOut();
+            this.ID = ID;
 	}
 
 

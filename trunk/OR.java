@@ -9,7 +9,7 @@ public class OR extends AGate {
 	 * @param inputnum
 	 * @return 
 	 */
-	public OR(int inputnum) {
+	public OR(int inputnum, int ID) {
             System.out.println("OR | OR("+inputnum+") | Or konstruktor");
 
             value = 0;
@@ -22,6 +22,7 @@ public class OR extends AGate {
             }
 
             output = new PinOut();
+            this.ID = ID;
 	}
 
 	/**

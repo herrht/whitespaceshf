@@ -5,7 +5,7 @@ import java.util.*;
 public class Inverter extends AGate
 {
 
-	public Inverter()
+	public Inverter(int ID)
         {
             System.out.println("Inverter | Inverter() | Inverter konstruktor");
 
@@ -15,6 +15,7 @@ public class Inverter extends AGate
             inputs.put(0, new PinIn());
 
             output = new PinOut();
+            this.ID = ID;
 	}
 
 	/**

@@ -5,6 +5,7 @@ public abstract class AElement
 
 	//private int value;
         protected int value;
+        protected int ID;
 	/**
 	 * 
 	 * @return 

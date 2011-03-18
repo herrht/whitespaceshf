@@ -25,7 +25,7 @@ public class Project
 	public void AddAnd(int inputnum)
         {
 		System.out.println("Project | AddAnd(inputnum) | And kapu letrehozas");
-                elements.put(ID, new AND(inputnum));
+                elements.put(ID, new AND(inputnum, ID));
                 ++ID;
 	}
 
@@ -36,7 +36,7 @@ public class Project
 	public void AddOr(int inputnum)
         {
 		System.out.println("Project | AddOr(inputnum) | Or kapu letrehozas");
-                elements.put(ID, new OR(inputnum));
+                elements.put(ID, new OR(inputnum, ID));
                 ++ID;
 	}
 
@@ -47,7 +47,7 @@ public class Project
 	public void AddInverter()
         {
 		System.out.println("Project | AddInverter() | Inverter letrehozas");
-                elements.put(ID, new Inverter());
+                elements.put(ID, new Inverter(ID));
                 ++ID;
 	}
 
@@ -58,7 +58,7 @@ public class Project
 	public void AddLed()
         {
 		System.out.println("Project | AddLed() | LED letrehozas");
-                elements.put(ID, new Led());
+                elements.put(ID, new Led(ID));
                 ++ID;
 	}
 
@@ -69,7 +69,7 @@ public class Project
 	public void AddSwitch()
         {
 		System.out.println("Project | AddSwitch() | Switch letrehozas");
-                elements.put(ID, new Switch());
+                elements.put(ID, new Switch(ID));
                 ++ID;
 	}
 
@@ -82,7 +82,7 @@ public class Project
 	public void AddFix0()
         {
 		System.out.println("Project | AddFix0() | Fix0 forras letrehozas");
-                elements.put(ID, new Fix0());
+                elements.put(ID, new Fix0(ID));
                 ++ID;
 	}
 
@@ -93,7 +93,7 @@ public class Project
 	public void AddFix1()
         {
 		System.out.println("Project | AddFix1() | Fix1 forras letrehozas");
-                elements.put(ID, new Fix1());
+                elements.put(ID, new Fix1(ID));
                 ++ID;
 	}
 
@@ -104,14 +104,14 @@ public class Project
         public void AddGenerator(int[] rate)
         {
                 System.out.println("Project | AddGenerator(rate) | Generator letrehozas");
-                elements.put(ID, new Generator(rate));
+                elements.put(ID, new Generator(rate, ID));
                 ++ID;
         }
 
         public void AddWire(int id1, int id2)
         {
                 System.out.println("Project | AddWire("+id1+","+id2+") | Wire letrehozas");
-                elements.put(ID, new Wire(id1,id2));
+                elements.put(ID, new Wire(id1,id2, ID));
                 ++ID;
         }
 	/**
