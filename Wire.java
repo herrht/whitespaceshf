@@ -3,8 +3,8 @@ package szlab4_whitespaces;
 public class Wire extends AElement
 {
 
-	private PinIn output;           //Wire outputja az előző objektum inputja
-	private PinOut input;           //Wire inputja az előző objektum outputja
+	private PinIn output;           //A kapott Elem kimenete lesz a Vezeték bemene
+	private PinOut input;           //A kapott Elem bemenete lesz a Vezeték kimenete
 
 	/**
 	 * 
@@ -18,8 +18,8 @@ public class Wire extends AElement
             System.out.println("Wire | Wire(Lab1: "+input+", Lab2: "+output);
 //          System.out.println("Wire | Wire(Elem: "+id1+", Pin: "+id1_p+"; "+ "Elem2: "+id2+", Pin2: "+id2_p+") | Wire konstruktor");
             
-//            input = 
-//            output =
+            this.input = output;    //A kapott Elem kimenete lesz a Vezeték bemene
+            this.output = input;    //A kapott Elem bemenete lesz a Vezeték kimenete
             this.ID = ID;
         }
         
