@@ -12,12 +12,14 @@ public class Wire extends AElement
 	 * @param output
 	 * @return 
 	 */
-//	public Wire(PinIn input, PinOut output) {
-        public Wire(int id1, int id2, int ID)
-        {
-            System.out.println("Wire | Wire("+id1+","+id2+") | Wire konstruktor");
-//            input = progi.proj.elements.getIDizé(id1).inputs.getLab()
-//            output = new PinIn(); -> nem új, hanem meglévőre hivatkozzunk
+	public Wire(PinIn input, PinOut output, int ID) {
+//      public Wire(int id1, int id1_p, int id2, int id2_p, int ID)
+        
+            System.out.println("Wire | Wire(Lab1: "+input+", Lab2: "+output);
+//          System.out.println("Wire | Wire(Elem: "+id1+", Pin: "+id1_p+"; "+ "Elem2: "+id2+", Pin2: "+id2_p+") | Wire konstruktor");
+            
+//            input = 
+//            output =
             this.ID = ID;
         }
         
