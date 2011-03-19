@@ -9,8 +9,6 @@ public abstract class AGate extends AElement
         protected Map<Integer,PinIn> inputs;
         //elements.put(ID, new OR(inputnum));
 	protected int inputnum;
-	protected PinOut output;
-
 	/**
 	 * 
 	 * @return 

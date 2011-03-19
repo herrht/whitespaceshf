@@ -108,32 +108,18 @@ public class Project
                 ++ID;
         }
 
-        public void AddWireGateSource(int GateID, int GatePin, int SourceID)
-        {
-                AGate TmpGate;
-                ASource TmpSource;
-                
-                System.out.println("AddWireGateSource Kapu elem: "+elements.get(GateID)+", Forrás elem: "+elements.get(SourceID) );
-                TmpGate = (AGate)elements.get(GateID);
-                TmpSource = (ASource)elements.get(SourceID);
-
-                elements.put(ID, new Wire(TmpGate.inputs.get(GatePin), TmpSource.output, ID));
-                ++ID;
-        }
-
-        public void AddWireGateGate(int Gate1ID, int Gate1Pin, int Gate2ID)
+        public void AddWire(int Gate1ID, int Gate1Pin, int Element2ID)
         {
                 AGate TmpGate1;
-                AGate TmpGate2;
+                AElement TmpGate2;
 
-                System.out.println("AddWireGateGate Kapu1 elem: "+elements.get(Gate1ID)+", Kapu2 elem: "+elements.get(Gate2ID) );
+                System.out.println("AddWire Kapu1 elem: "+elements.get(Gate1ID)+", Kapu2 elem: "+elements.get(Element2ID) );
                 TmpGate1 = (AGate)elements.get(Gate1ID);
-                TmpGate2 = (AGate)elements.get(Gate2ID);
+                TmpGate2 = elements.get(Element2ID);
 
                 elements.put(ID, new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output, ID));
                 ++ID;
         }
-
 	/**
 	 * 
 	 * @param e
