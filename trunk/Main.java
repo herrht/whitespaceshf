@@ -36,9 +36,13 @@ public class Main
         System.out.println("\nMain | Project | proj | AddSwitch() | CALL");
         progi.proj.AddSwitch();
 
-        // ---- AddWire
-        System.out.println("\nMain | Project | proj | AddWire() | CALL");
+        // ---- AddWireGateSource
+        System.out.println("\nMain | Project | proj | AddWireGateSource() | CALL");
         progi.proj.AddWireGateSource(0,0,1,0);    //0. kapu 0. pin és 1.forras 0.pin
+
+        // ---- AddWireGateGate
+        System.out.println("\nMain | Project | proj | AddWireGateGate() | CALL");
+        progi.proj.AddWireGateGate(0,1,3,0);    //0. kapu 0. pin és 3.kapu 0.pin
 
         // ---- DeleteElement ----
     
