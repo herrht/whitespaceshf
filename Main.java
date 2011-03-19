@@ -38,11 +38,11 @@ public class Main
 
         // ---- AddWireGateSource
         System.out.println("\nMain | Project | proj | AddWireGateSource() | CALL");
-        progi.proj.AddWireGateSource(0,0,1,0);    //0. kapu 0. pin és 1.forras 0.pin
+        progi.proj.AddWireGateSource(0,0,1);    //0. kapu 0. pin és 1.forras kimenete
 
         // ---- AddWireGateGate
         System.out.println("\nMain | Project | proj | AddWireGateGate() | CALL");
-        progi.proj.AddWireGateGate(0,1,3,0);    //0. kapu 0. pin és 3.kapu 0.pin
+        progi.proj.AddWireGateGate(0,1,3);    //0. kapu 0. pin és 3.kapu kimenete
 
         // ---- DeleteElement ----
     

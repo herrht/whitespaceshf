@@ -108,7 +108,7 @@ public class Project
                 ++ID;
         }
 
-        public void AddWireGateSource(int GateID, int GatePin, int SourceID, int SourcePin)
+        public void AddWireGateSource(int GateID, int GatePin, int SourceID)
         {
                 AGate TmpGate;
                 ASource TmpSource;
@@ -121,7 +121,7 @@ public class Project
                 ++ID;
         }
 
-        public void AddWireGateGate(int Gate1ID, int Gate1Pin, int Gate2ID, int Gate2Pin)
+        public void AddWireGateGate(int Gate1ID, int Gate1Pin, int Gate2ID)
         {
                 AGate TmpGate1;
                 AGate TmpGate2;
