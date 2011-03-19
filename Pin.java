@@ -4,7 +4,7 @@ public abstract class Pin
 {
 
 	private int value;
-	private AElement elem;
+	protected AElement elem;
 
 	/**
 	 * 

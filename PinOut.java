@@ -7,10 +7,15 @@ public class PinOut extends Pin
 	 * 
 	 * @return 
 	 */
-	public PinOut()
+	public PinOut(AElement e)
         {
 //		throw new UnsupportedOperationException();
-            System.out.println("PinOut | PinOut konstruktor");
+             elem = e;
+             System.out.println(this+" | PinOut konstruktor");
 	}
+       @Override
+        public String toString(){
+            return "PinOut"+" of "+elem;
+        }
 
 }

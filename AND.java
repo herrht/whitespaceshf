@@ -10,18 +10,19 @@ public class AND extends AGate {
      * @return
      */
     public AND(int inputnum, int ID) {
-        System.out.println("AND | AND(" + inputnum + ") | And konstruktor");
+        
 
         value = 0;
         this.inputnum = inputnum;
 
         inputs = new HashMap<Integer, PinIn>();
         for (int i = 0; i < inputnum; i++) {
-            inputs.put(i, new PinIn());
+            inputs.put(i, new PinIn(i, this));
         }
 
-        output = new PinOut();
+        output = new PinOut(this);
         this.ID = ID;
+        System.out.println(this+"| AND(" + inputnum + ") | And konstruktor");
     }
 
     public int GetID() {
@@ -48,4 +49,9 @@ public class AND extends AGate {
         }
         System.out.printf("AND" + ID + "| SetValue() | CALL\n");
     }
-}
+    @Override
+    public String toString(){
+        return "AND"+ID;
+    }
+ }
+

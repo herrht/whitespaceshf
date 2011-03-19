@@ -1,48 +1,53 @@
 package szlab4_whitespaces;
 
-public class Generator extends ASource
-{
+public class Generator extends ASource {
 
-	private int[] outputs;
-	private int counter;
+    private int[] outputs;
+    private int counter;
 
-	public Generator(int[] rate, int ID)
-        {
-            System.out.println("Generator | Generator(rate)| Generator konstruktor");
-            this.output = new PinOut();
-            this.ID = ID;
+    public Generator(int[] rate, int ID) {
+
+        this.output = new PinOut(this);
+        this.ID = ID;
 //		counter = 0;
 //              outputs = rate;
 //              value = outputs[0];
-	}
-        public int GetID()
-        {
-            System.out.printf("Generator |GetID() | CALL\n");
+        System.out.println(this+" | Generator(rate)| Generator konstruktor");
+    }
 
-            return this.ID;
-        }
-	/**
-	 * 
-	 * @return 
-	 */
-	public void SetValue()
-        {
+    public int GetID() {
+        System.out.printf("Generator |GetID() | CALL\n");
+
+        return this.ID;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public void SetValue() {
 //          value = outputs[counter];
-            System.out.printf("Generator | SetValue() | CALL\n");
-	}
+        System.out.printf("Generator | SetValue() | CALL\n");
+    }
 
-	/**
-	 * 
-	 * @return 
-	 */
-	public void Shift()
-        {
+    /**
+     *
+     * @return
+     */
+    public void Shift() {
 //		counter++;
 //               SetValue();
-             System.out.printf("Generator | Shift() | CALL\n");
+        System.out.printf("Generator | Shift() | CALL\n");
 
-	}
-         public void Delete(){
-        };
+    }
 
+    public void Delete() {
+    }
+
+    ;
+
+    @Override
+    public String toString() {
+        return "Generator" + ID;
+    }
 }
