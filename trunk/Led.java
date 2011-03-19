@@ -13,7 +13,7 @@ public class Led extends AGate {
         
 
         inputs = new HashMap<Integer, PinIn>(1);
-        inputs.put(0, new PinIn(0, this));
+        inputs.put(0, new PinIn(this, 0));
 
         output = null;
         this.ID = ID;
