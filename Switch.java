@@ -26,7 +26,10 @@ public class Switch extends ASource {
 
     }
 
-    public void Delete() {
+    public void Delete(){
+        System.out.println("Switch | Delete() | Switch torles fuggvenye ");
+        output.Delete();
+        //Megpusztítjuk saját magunkat
     }
 
     ;

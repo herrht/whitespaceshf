@@ -12,7 +12,7 @@ public class Main
         progi.NewProject();
 
         // ---- AddNewElement ----
-        System.out.println("\nMain | Project | proj | AddAnd() | CALL");
+        System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         progi.proj.AddAnd(3);
 
         // ---- AddNewASource object
@@ -37,15 +37,16 @@ public class Main
         progi.proj.AddSwitch();
 
         // ---- AddWireGateSource
-        System.out.println("\nMain | Project | proj | AddWireGateSource() | CALL");
+        System.out.println("\nMain | Project | proj | AddWireGateSource(id1,id1-pin,id2) | CALL");
         progi.proj.AddWire(0,0,1);    //0. kapu 0. pin és 1.forras kimenete
 
         // ---- AddWireGateGate
-        System.out.println("\nMain | Project | proj | AddWireGateGate() | CALL");
+        System.out.println("\nMain | Project | proj | AddWireGateGate(id1,id1-pin,id2) | CALL");
         progi.proj.AddWire(0,1,3);    //0. kapu 0. pin és 3.kapu kimenete
 
         // ---- DeleteElement ----
-    
+        System.out.println("\nMain | Project | proj | DeleteElement(id) | CALL");
+        progi.proj.DeleteElement(0);    //0. kapu törlése
 
 
     }   // End of MAIN
