@@ -10,13 +10,14 @@ public class Led extends AGate {
      * @return
      */
     public Led(int ID) {
-        System.out.println("Led | Led() | LED konstruktor");
+        
 
         inputs = new HashMap<Integer, PinIn>(1);
-        inputs.put(0, new PinIn());
+        inputs.put(0, new PinIn(0, this));
 
-        output = new PinOut();
+        output = null;
         this.ID = ID;
+        System.out.println(this+" | Led() | LED konstruktor");
     }
 
     public int GetID() {
@@ -33,10 +34,15 @@ public class Led extends AGate {
 
         PinIn temp = inputs.get(0);
         temp.GetValue();
-        System.out.printf("Led"+ID+"| SetValue() | CALL\n");
+        System.out.printf("Led" + ID + "| SetValue() | CALL\n");
     }
 
     public void Delete() {
+    }
+
+    @Override
+    public String toString() {
+        return "Led" + ID;
     }
 
     ;

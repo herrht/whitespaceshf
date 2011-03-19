@@ -10,22 +10,23 @@ public class OR extends AGate {
      * @return
      */
     public OR(int inputnum, int ID) {
-        System.out.println("OR | OR(" + inputnum + ") | Or konstruktor");
+        
 
         value = 0;
         this.inputnum = inputnum;
 
         inputs = new HashMap<Integer, PinIn>();
         for (int i = 0; i < inputnum; i++) {
-            inputs.put(i, new PinIn());
+            inputs.put(i, new PinIn(i, this));
         }
 
-        output = new PinOut();
+        output = new PinOut(this);
         this.ID = ID;
+        System.out.println(this+" | OR(" + inputnum + ") | Or konstruktor");
     }
 
     public int GetID() {
-        System.out.printf("OR |GetID() | CALL\n");
+        System.out.printf(this+" | GetID() | CALL\n");
 
         return this.ID;
     }
@@ -45,6 +46,10 @@ public class OR extends AGate {
     }
 
     public void Delete() {
+    }
+      @Override
+    public String toString(){
+        return "OR"+ID;
     }
 
     ;
