@@ -19,7 +19,6 @@ public class Main
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
         progi.proj.AddFix1();
 
-
         // ---- AddGenerator
         System.out.println("\nMain | Project | proj | AddGenerator(rate) | CALL");
         int rate[] = {1,0,1,1};
@@ -39,7 +38,7 @@ public class Main
 
         // ---- AddWire
         System.out.println("\nMain | Project | proj | AddWire() | CALL");
-        progi.proj.AddWire(0,1);
+        progi.proj.AddWireGateSource(0,0,1,0);    //0. kapu 0. pin és 1.forras 0.pin
 
         // ---- DeleteElement ----
     

@@ -108,10 +108,16 @@ public class Project
                 ++ID;
         }
 
-        public void AddWire(int id1, int id2)
+        public void AddWireGateSource(int GateID, int GatePin, int SourceID, int SourcePin)
         {
-                System.out.println("Project | AddWire("+id1+","+id2+") | Wire letrehozas");
-                elements.put(ID, new Wire(id1,id2, ID));
+                PinIn pin_in;
+                PinOut pin_out;
+                AGate TmpGate;
+                ASource TmpSource;
+                System.out.println("WireKonstruktor Kapu eleme: "+elements.get(GateID)+", Forrás eleme: "+elements.get(SourceID) );
+                TmpGate = (AGate)elements.get(GateID);
+                TmpSource = (ASource)elements.get(SourceID);
+                elements.put(ID, new Wire(TmpGate.inputs.get(GatePin), TmpSource.output, ID));
                 ++ID;
         }
 	/**
@@ -150,7 +156,7 @@ public class Project
 	/**
 	 * 
 	 * @return 
-	 */
+j	 */
 	public void Start()
         {
 		throw new UnsupportedOperationException();
