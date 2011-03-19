@@ -42,8 +42,8 @@ public class Main
         progi.proj.AddWire(0,1);
 
         // ---- DeleteElement ----
+    
 
-        
 
     }   // End of MAIN
 }

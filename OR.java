@@ -4,50 +4,48 @@ import java.util.*;
 
 public class OR extends AGate {
 
-	/**
-	 * 
-	 * @param inputnum
-	 * @return 
-	 */
-	public OR(int inputnum, int ID) {
-            System.out.println("OR | OR("+inputnum+") | Or konstruktor");
+    /**
+     *
+     * @param inputnum
+     * @return
+     */
+    public OR(int inputnum, int ID) {
+        System.out.println("OR | OR(" + inputnum + ") | Or konstruktor");
 
-            value = 0;
-            this.inputnum = inputnum;
-            
-            inputs = new HashMap<Integer,PinIn>();
-            for (int i = 0; i < inputnum; i++)
-            {
-                inputs.put(i, new PinIn());
-            }
+        value = 0;
+        this.inputnum = inputnum;
 
-            output = new PinOut();
-            this.ID = ID;
-	}
-        
-        public int GetID()
-        {
-            System.out.printf("OR |GetID() | CALL\n");
-
-            return this.ID;
+        inputs = new HashMap<Integer, PinIn>();
+        for (int i = 0; i < inputnum; i++) {
+            inputs.put(i, new PinIn());
         }
-	/**
-	 * 
-	 * @return 
-	 */
-	public void SetValue() {
-//		int temp = 0;
-//                for (int i = 0 ; i < inputnum ; i++){               //temp értékét beállítja arra az értékre ahány input value értéke 1
-//                    if (inputs[i].GetValue() == 1)
-//                        temp++;
-//                }
-//
-//		if (temp >= 1)                                  //ha temp legalább 1 -> legalább 1 bemenő jel == 1, akkor value = 1
-//                        value = 1;
-//                else
-//                        value = 0;                              //egyébként 0
-            System.out.printf("OR | SetValue() | CALL\n");
-	}
-         public void Delete(){
-        };
+
+        output = new PinOut();
+        this.ID = ID;
+    }
+
+    public int GetID() {
+        System.out.printf("OR |GetID() | CALL\n");
+
+        return this.ID;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public void SetValue() {
+
+        int s = inputs.size();
+        for (int i = 0; i < s; i++) {
+            PinIn temp = inputs.get(s);
+            temp.GetValue();
+        }
+        System.out.printf("OR" + ID + "| SetValue() | CALL\n");
+    }
+
+    public void Delete() {
+    }
+
+    ;
 }
