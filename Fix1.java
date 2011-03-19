@@ -22,5 +22,7 @@ public class Fix1 extends ASource
 //		value = 1;
              System.out.printf("Fix1 | SetValue() | CALL\n");
 	}
+         public void Delete(){
+        };
 	
 }

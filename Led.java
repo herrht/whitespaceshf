@@ -32,5 +32,7 @@ public class Led extends AGate {
 //		value = inputs[0].GetValue();
              System.out.printf("Led | SetValue() | CALL\n");
 	}
+         public void Delete(){
+        };
 
 }
