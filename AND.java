@@ -17,7 +17,7 @@ public class AND extends AGate {
 
         inputs = new HashMap<Integer, PinIn>();
         for (int i = 0; i < inputnum; i++) {
-            inputs.put(i, new PinIn(i, this));
+            inputs.put(i, new PinIn(this, i));
         }
 
         output = new PinOut(this);

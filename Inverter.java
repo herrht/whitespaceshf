@@ -10,7 +10,7 @@ public class Inverter extends AGate {
         value = 0;
 
         inputs = new HashMap<Integer, PinIn>();
-        inputs.put(0, new PinIn(0, this));
+        inputs.put(0, new PinIn(this, 0));
 
         output = new PinOut(this);
         this.ID = ID;

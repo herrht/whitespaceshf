@@ -7,7 +7,7 @@ public class PinIn extends Pin
 	 * 
 	 * @return 
 	 */
-	public PinIn(int id, AElement e) {
+	public PinIn(AElement e, int id ) {
 //		throw new UnsupportedOperationException();
             ID = id;
             elem = e;
