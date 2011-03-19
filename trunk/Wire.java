@@ -40,8 +40,9 @@ public class Wire extends AElement {
 
     public void Delete(){
         System.out.println("Wire | Delete() | Wire torles fuggvenye ");
-        input.Delete();
-        output.Delete();
+//        input.Delete();
+//        output.Delete();
+        // Láb törlés nem kell, hiszen az adott elem még használja
         //Megpusztítjuk saját magunkat
     }
 
