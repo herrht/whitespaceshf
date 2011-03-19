@@ -10,8 +10,6 @@ public class Led extends AGate {
      * @return
      */
     public Led(int ID) {
-        
-
         inputs = new HashMap<Integer, PinIn>(1);
         inputs.put(0, new PinIn(this, 0));
 
@@ -37,7 +35,10 @@ public class Led extends AGate {
         System.out.printf("Led" + ID + "| SetValue() | CALL\n");
     }
 
-    public void Delete() {
+    public void Delete(){
+        System.out.println("Led | Delete() | Led torles fuggvenye ");
+        inputs.get(0).Delete() ;
+        //Megpusztítjuk saját magunkat
     }
 
     @Override

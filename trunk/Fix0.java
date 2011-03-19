@@ -20,7 +20,10 @@ public class Fix0 extends ASource {
         System.out.printf("Fix0 | SetValue() | CALL\n");
     }
 
-    public void Delete() {
+    public void Delete(){
+        System.out.println("Fix0 | Delete() | Fix0 torles fuggvenye ");
+        output.Delete();
+        //Megpusztítjuk saját magunkat
     }
 
     ;

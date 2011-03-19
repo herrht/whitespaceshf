@@ -125,12 +125,10 @@ public class Project
 	 * @param e
 	 * @return 
 	 */
-	public void DeleteElement(AElement e)
+	public void DeleteElement(int id)
         {
-           
-
-
-            throw new UnsupportedOperationException();
+               System.out.println("DeleteItem: "+elements.get(id));
+               elements.get(id).Delete();
 	}
 
 	/**

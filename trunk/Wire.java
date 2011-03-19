@@ -38,7 +38,11 @@ public class Wire extends AElement {
         System.out.printf("Wire | SetValue() | CALL\n");
     }
 
-    public void Delete() {
+    public void Delete(){
+        System.out.println("Wire | Delete() | Wire torles fuggvenye ");
+        input.Delete();
+        output.Delete();
+        //Megpusztítjuk saját magunkat
     }
 
     ;

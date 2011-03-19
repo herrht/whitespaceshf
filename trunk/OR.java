@@ -45,9 +45,16 @@ public class OR extends AGate {
         System.out.printf("OR" + ID + "| SetValue() | CALL\n");
     }
 
-    public void Delete() {
+    public void Delete(){
+        System.out.println("OR | Delete() | Or torles fuggvenye ");
+        for (int i = 0; i < inputnum; i++) {
+            inputs.get(i).Delete() ;
+        }
+        output.Delete();
+        //Megpusztítjuk saját magunkat
     }
-      @Override
+
+    @Override
     public String toString(){
         return "OR"+ID;
     }

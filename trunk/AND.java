@@ -10,8 +10,6 @@ public class AND extends AGate {
      * @return
      */
     public AND(int inputnum, int ID) {
-        
-
         value = 0;
         this.inputnum = inputnum;
 
@@ -26,20 +24,19 @@ public class AND extends AGate {
     }
 
     public int GetID() {
-        System.out.printf("AND |GetID() | CALL\n");
-
+        System.out.println("AND | GetID() | CALL\n");
         return this.ID;
     }
-        public void Delete()
-        {
+
+    public void Delete(){
+        System.out.println("AND | Delete() | And torles fuggvenye ");
+        for (int i = 0; i < inputnum; i++) {
+            inputs.get(i).Delete() ;
+        }
+        output.Delete();
+        //Megpusztítjuk saját magunkat
     }
 
-
-
-    /**
-     *
-     * @return
-     */
     public void SetValue() {
 
         int s = inputs.size();
@@ -49,6 +46,7 @@ public class AND extends AGate {
         }
         System.out.printf("AND" + ID + "| SetValue() | CALL\n");
     }
+
     @Override
     public String toString(){
         return "AND"+ID;
