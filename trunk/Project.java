@@ -7,7 +7,7 @@ import java.util.*;
 public class Project
 {
 
-	private Map<Integer,Object> elements;
+	private Map<Integer,AElement> elements;
         //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
 	private int ID;
 
@@ -15,7 +15,7 @@ public class Project
         {
 		System.out.println("Project | Project() | Project konstruktor");
                 ID = 0;
-                elements = new HashMap<Integer,Object>();
+                elements = new HashMap<Integer,AElement>();
 	}
 
 	/**
