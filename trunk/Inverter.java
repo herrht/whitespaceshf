@@ -11,7 +11,7 @@ public class Inverter extends AGate
 
             value = 0;
 
-            inputs = new HashMap<Integer,Object>();
+            inputs = new HashMap<Integer,PinIn>();
             inputs.put(0, new PinIn());
 
             output = new PinOut();

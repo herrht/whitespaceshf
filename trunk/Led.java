@@ -12,7 +12,7 @@ public class Led extends AGate {
 	public Led(int ID) {
             System.out.println("Led | Led() | LED konstruktor");
 
-            inputs = new HashMap<Integer,Object>();
+            inputs = new HashMap<Integer,PinIn>();
             inputs.put(0, new PinIn());
 
             output = new PinOut();
