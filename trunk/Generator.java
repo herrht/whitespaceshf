@@ -42,5 +42,7 @@ public class Generator extends ASource
              System.out.printf("Generator | Shift() | CALL\n");
 
 	}
+         public void Delete(){
+        };
 
 }

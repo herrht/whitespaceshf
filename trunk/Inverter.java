@@ -32,5 +32,7 @@ public class Inverter extends AGate
 //		value = ~(inputs[0].GetValue());
              System.out.printf("Inverter | SetValue() | CALL\n");
 	}
+         public void Delete(){
+        };
 
 }

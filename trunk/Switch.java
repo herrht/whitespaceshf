@@ -28,5 +28,6 @@ public class Switch extends ASource
             System.out.printf("Switch | SetValue() | CALL\n");
 
 	}
-
+         public void Delete(){
+        };
 }

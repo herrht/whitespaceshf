@@ -48,5 +48,6 @@ public class OR extends AGate {
 //                        value = 0;                              //egyébként 0
             System.out.printf("OR | SetValue() | CALL\n");
 	}
-
+         public void Delete(){
+        };
 }

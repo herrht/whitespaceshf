@@ -37,5 +37,6 @@ public class Wire extends AElement
 		//value = input.Getvalue();       //nemlátja a getvalue függvényt
             System.out.printf("Wire | SetValue() | CALL\n");
 	}
-
+         public void Delete(){
+        };
 }
