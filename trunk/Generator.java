@@ -41,7 +41,10 @@ public class Generator extends ASource {
 
     }
 
-    public void Delete() {
+    public void Delete(){
+        System.out.println("Generator | Delete() | Generator torles fuggvenye ");
+        output.Delete();
+        //Megpusztítjuk saját magunkat
     }
 
     ;
