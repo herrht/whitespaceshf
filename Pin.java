@@ -3,19 +3,22 @@ package szlab4_whitespaces;
 public abstract class Pin
 {
 
-	private int value;
+	protected int value;
 	protected AElement elem;
+        protected Wire w;
 
-	public void SetValue()
-        {
-//		value = elem.GetValue();
-            
-	}
+	public abstract void SetValue();
+       
+	
 
 	public int GetValue()
         {
-            System.out.println("Pin | " + elem + " | Pin GetValue");
+            System.out.println(this+" | Pin GetValue()");
+            this.SetValue();
             return value;
 	}
+   public void SetWire(Wire w){
+            this.w =w;
+   }
 
 }
