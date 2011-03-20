@@ -14,7 +14,7 @@ public abstract class Pin
 
 	public int GetValue()
         {
-            System.out.println("OR | OR() | Pin GetValue");
+            System.out.println("Pin | " + elem + " | Pin GetValue");
             return value;
 	}
 

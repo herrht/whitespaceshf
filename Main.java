@@ -5,13 +5,16 @@ public class Main
 
     public static void main(String[] args)
     {
+        
         // ---- NewProject ----
         System.out.println("Main | Program | progi | Program() | CALL");
         Program progi = new Program();
         System.out.println("\nMain | Program | progi | NewProject() | CALL");
         progi.NewProject();
 
+        /*
         // ---- AddNewElement ----
+        // ---- AddNewLed
         System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         progi.proj.AddAnd(3);
 
@@ -47,6 +50,22 @@ public class Main
         // ---- DeleteElement ----
         System.out.println("\nMain | Project | proj | DeleteElement(id) | CALL");
         progi.proj.DeleteElement(0);    //0. kapu törlése
+        */
+       
+        // ---- Teszt1 ----
+        System.out.println("\n------------ Teszt1 ------------");
+
+        System.out.println("\nMain | Project | proj | AddLed() | CALL");
+        progi.proj.AddLed();
+        System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
+        progi.proj.AddAnd(4);
+        progi.proj.AddOr(3);
+        System.out.println("\nMain | Project | proj | AddFix0() | CALL");
+        progi.proj.AddFix0();
+        System.out.println("\nMain | Project | proj | AddFix1() | CALL");
+        progi.proj.AddFix1();
+        System.out.println("\nMain | Project | proj |Start() | CALL");
+        progi.proj.Start();
 
 
     }   // End of MAIN

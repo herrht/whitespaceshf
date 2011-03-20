@@ -10,12 +10,14 @@ public class Project
 	private Map<Integer,AElement> elements;
         //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
 	private int ID;
+        private Set<Integer> setOfLeds;
 
 	public Project()
         {
 		System.out.println("Project | Project() | Project konstruktor");
                 ID = 0;
                 elements = new HashMap<Integer,AElement>();
+                setOfLeds = new HashSet<Integer>();
 	}
 
 	/**
@@ -59,6 +61,7 @@ public class Project
         {
 		System.out.println("Project | AddLed() | LED letrehozas");
                 elements.put(ID, new Led(ID));
+                setOfLeds.add(ID);
                 ++ID;
 	}
 
@@ -157,6 +160,13 @@ public class Project
 j	 */
 	public void Start()
         {
-		throw new UnsupportedOperationException();
+            System.out.println("Project | start() | szinuláció indítása");
+            Iterator it = this.setOfLeds.iterator();
+            while (it.hasNext())
+            {
+               int tmp = (Integer)it.next();
+               this.elements.get(tmp).GetValue();
+            }
+            System.out.println("Project | start() | szinuláció indítása");
 	}
 }
