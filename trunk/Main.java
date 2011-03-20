@@ -153,7 +153,7 @@ public class Main
 
         // ---- Teszt5 ----
 
-        /*
+        
         System.out.println("\n------------ Teszt5 ------------");
 
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
@@ -191,7 +191,7 @@ public class Main
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
 
-         */
+        
 
         // ---- Teszt6 ----
         /*

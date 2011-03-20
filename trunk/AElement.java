@@ -13,8 +13,9 @@ public abstract class AElement
 	 */
 	public int GetValue()
         {
+            System.out.println(this+"| GetValue() | CALL");
             this.SetValue();
-            System.out.println(" GetValue()"+ID+" | RETURN");
+            System.out.println(this+"| GetValue() | RETURN");
             return value;
 	}
         public abstract int GetID();

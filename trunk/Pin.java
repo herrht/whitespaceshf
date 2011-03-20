@@ -13,8 +13,9 @@ public abstract class Pin
 
 	public int GetValue()
         {
-            System.out.println(this+" | Pin GetValue()");
+            System.out.println(this+" | Pin GetValue() |CALL");
             this.SetValue();
+            System.out.println(this+" | Pin GetValue() |RETURN");
             return value;
 	}
    public void SetWire(Wire w){

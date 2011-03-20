@@ -34,8 +34,9 @@ public class Wire extends AElement {
      * @return
      */
     public void SetValue() {
-        value = input.GetValue();
         System.out.printf(this+" | SetValue() | CALL\n");
+        value = input.GetValue();
+        System.out.printf(this+" | SetValue() | RETURN\n");
     }
 
     public void Delete(){

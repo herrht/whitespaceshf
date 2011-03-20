@@ -11,8 +11,9 @@ public class PinIn extends Pin
 	}
 
         public void SetValue(){
-            System.out.println(this+" | PinIn SetValue() " +w);
+            System.out.println(this+" | PinIn SetValue()|CALL" );
             value = w.GetValue();
+            System.out.println(this+" | PinIn SetValue()|RETURN" );
         }
 
         @Override
