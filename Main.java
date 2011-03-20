@@ -4,7 +4,8 @@ public class Main
 {
 
     public static void main(String[] args)
-    {
+    {   //A skeleton fő része, amiben le vannak írva a tesztesetek, és az egyes részek kikommentelésével
+        //tesztelhetők a program különböző részei.
         
         // ---- NewProject ----
         System.out.println("Main | Program | progi | Program() | CALL");

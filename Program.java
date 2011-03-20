@@ -2,14 +2,14 @@ package szlab4_whitespaces;
 
 public class Program {
 
-	public Project proj;
+	public Project proj;        //a project
 
 	/**
 	 * 
 	 * @return 
 	 */
 	public Program() {
-                System.out.println("Program | Program() | Program konstruktor");
+                System.out.println("Program | Program() | Program konstruktor");        //kiírat
 	}
 
 	/**
@@ -17,15 +17,15 @@ public class Program {
 	 * @return 
 	 */
 	public void NewProject() {
-                System.out.println("Program | NewProject() | Uj projekt letrehozas");
-                proj = new Project();
+                System.out.println("Program | NewProject() | Uj projekt letrehozas");       //kiírat
+                proj = new Project();       //egy új projectet kreál
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void SaveProject()
+	public void SaveProject()       //a project mentés függvénye
         {
 		throw new UnsupportedOperationException();
 	}
@@ -34,7 +34,7 @@ public class Program {
 	 * 
 	 * @return 
 	 */
-	public void LoadProject()
+	public void LoadProject()       //a project töltés függvénye
         {
 		throw new UnsupportedOperationException();
 	}

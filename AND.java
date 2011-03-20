@@ -10,25 +10,25 @@ public class AND extends AGate {
      * @return
      */
     public AND(int inputnum, int ID) {
-        value = 0;
-        this.inputnum = inputnum;
+        value = 0;                          //value értéke 0 lesz inicializáláskor
+        this.inputnum = inputnum;           //egyenlővé teszi a lábak számát tároló integert a paraméterrel
 
         inputs = new HashMap<Integer, PinIn>();
-        for (int i = 0; i < inputnum ; ++i) {
+        for (int i = 0; i < inputnum ; ++i) {       //annyi PinIn lábat csinál, ahány lábas AND kaput kreáltunk
             inputs.put(i, new PinIn(this, i));
         }
 
-        output = new PinOut(this);
-        this.ID = ID;
-        System.out.println(this+"| AND(" + inputnum + ") | And konstruktor");
+        output = new PinOut(this);              //kreál egy kimeneti lábat
+        this.ID = ID;                           //sorszámot egyenlővé teszi a paraméterrel
+        System.out.println(this+"| AND(" + inputnum + ") | And konstruktor");       //kiírat
     }
 
     public int GetID() {
-        System.out.println("AND | GetID() | CALL\n");
-        return this.ID;
+        System.out.println("AND | GetID() | CALL\n");       //kiírat
+        return this.ID;         //visszaadja az elem sorszámát
     }
 
-    public void Delete(){
+    public void Delete(){           //törli a kapi ki- és bementi lábait
         System.out.println("AND | Delete() | And torles fuggvenye ");
         for (int i = 0; i < inputnum; i++) {
             inputs.get(i).Delete() ;
