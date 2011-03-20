@@ -35,15 +35,14 @@ public class OR extends AGate {
      *
      * @return
      */
-    public void SetValue() {
+   /* public void SetValue() {
 
         int s = inputs.size();
         for (int i = 0; i < s; i++) {
-            PinIn temp = inputs.get(s);
-            temp.GetValue();
+            inputs.get(i).GetValue();
         }
         System.out.printf("OR" + ID + "| SetValue() | CALL\n");
-    }
+    }*/
 
     public void Delete(){
         System.out.println("OR | Delete() | Or torles fuggvenye ");
