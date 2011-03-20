@@ -18,8 +18,9 @@ public class PinOut extends Pin {
     }
 
     public void SetValue() {
-        System.out.println(this + " | PinOut SetValue() " + elem);
+        System.out.println(this + " | PinOut SetValue()|CALL");
         value = elem.GetValue();
+        System.out.println(this + " | PinOut SetValue()|RETURN");
 
     }
 }

@@ -22,7 +22,8 @@ public class Switch extends ASource {
      */
     public void SetValue() {
 //          value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
-        System.out.printf("Switch | SetValue() | CALL\n");
+        System.out.printf(this+" | SetValue()|CALL\n");
+
 
     }
 
@@ -32,7 +33,12 @@ public class Switch extends ASource {
         //Megpusztítjuk saját magunkat
     }
 
-    ;
+    @Override
+    public int GetValue(){
+        System.out.printf(this+" | GetValue() |CALL |RETURN\n");
+        return value;
+    }
+
 
     @Override
     public String toString() {

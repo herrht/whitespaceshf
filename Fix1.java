@@ -17,7 +17,7 @@ public class Fix1 extends ASource {
 
     public void SetValue() {        //jópofa h van ilyenje :D
 //		value = 1;
-        System.out.printf("Fix1 | SetValue() | CALL\n");
+        System.out.printf(this+" | SetValue() | CALL| RETURN\n");
     }
 
     public void Delete(){
