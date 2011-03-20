@@ -9,71 +9,71 @@ public class Project
 
 	public Map<Integer,AElement> elements;
         //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
-	private int ID;
+	private int ID;     //a sorszámot tároló integer
         private Set<Integer> setOfLeds;
 
 	public Project()
         {
-		System.out.println("Project | Project() | Project konstruktor");
-                ID = 0;
-                elements = new HashMap<Integer,AElement>();
-                setOfLeds = new HashSet<Integer>();
+		System.out.println("Project | Project() | Project konstruktor");        //kiírat
+                ID = 0;     //kezdetben a sorszámot tároló integert 0-ba állítja
+                elements = new HashMap<Integer,AElement>();     //egy hashmapet kreál
+                setOfLeds = new HashSet<Integer>();     //egy hashsetet kreál
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void AddAnd(int inputnum)
+	public void AddAnd(int inputnum)        // a program azon függvénye, amivel egy AND kaput tudunk létrehozni
         {
-		System.out.println("Project | AddAnd(inputnum) | And kapu letrehozas");
-                elements.put(ID, new AND(inputnum, ID));
-                ++ID;
+		System.out.println("Project | AddAnd(inputnum) | And kapu letrehozas");     //kiírat
+                elements.put(ID, new AND(inputnum, ID));        //kreál egy AND kaput a jelenlegi sorszámmal
+                ++ID;       //növeli a kiosztott sorszámok értékét
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void AddOr(int inputnum)
+	public void AddOr(int inputnum)     //a program azon függvénye, amivel egy OR kaput kreálhatunk
         {
-		System.out.println("Project | AddOr(inputnum) | Or kapu letrehozas");
-                elements.put(ID, new OR(inputnum, ID));
-                ++ID;
+		System.out.println("Project | AddOr(inputnum) | Or kapu letrehozas");       //kiírat
+                elements.put(ID, new OR(inputnum, ID));     //kreál egy OR kaput a jelenlegi sorszámmal
+                ++ID;       //növeli a kiosztott sorszámok értékét
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void AddInverter()
+	public void AddInverter()       // a program azon függvénye, amivel egy invertert kreálhatunk
         {
-		System.out.println("Project | AddInverter() | Inverter letrehozas");
-                elements.put(ID, new Inverter(ID));
-                ++ID;
+		System.out.println("Project | AddInverter() | Inverter letrehozas");        //kiírat
+                elements.put(ID, new Inverter(ID));     //kreál egy Invertert, a jelenlegi sorszámmal
+                ++ID;       //növeli a kiosztott sorszámok értékét
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void AddLed()
+	public void AddLed()        //a program azon függvénye, amivel egy Ledet kreálhatunk
         {
-		System.out.println("Project | AddLed() | LED letrehozas");
-                elements.put(ID, new Led(ID));
+		System.out.println("Project | AddLed() | LED letrehozas");      //kiírat
+                elements.put(ID, new Led(ID));      //kreál egy Led-et a jelenlegi sorszámmal
                 setOfLeds.add(ID);
-                ++ID;
+                ++ID;       //növeli a kiosztott sorszámok értékét
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void AddSwitch()
+	public void AddSwitch()     //a program azon függvénye amivel egy Switch-et kreálhatunk
         {
-		System.out.println("Project | AddSwitch() | Switch letrehozas");
-                elements.put(ID, new Switch(ID));
-                ++ID;
+		System.out.println("Project | AddSwitch() | Switch letrehozas");        //kiírat
+                elements.put(ID, new Switch(ID));       //kreál egy switchet a jelenlegi sorszámmal
+                ++ID;          //növeli a kiosztott sorszámok értékét
 	}
 
 
@@ -82,36 +82,36 @@ public class Project
 	 * 
 	 * @return 
 	 */
-	public void AddFix0()
+	public void AddFix0()       //a program azon függvénye, amivel egy Fix0-t kreálhatunk
         {
-		System.out.println("Project | AddFix0() | Fix0 forras letrehozas");
-                elements.put(ID, new Fix0(ID));
-                ++ID;
+		System.out.println("Project | AddFix0() | Fix0 forras letrehozas");     //kiírat
+                elements.put(ID, new Fix0(ID));     //kreál egy Fix0-t a jelenlegi sorszámmal
+                ++ID;       //növeli a kiosztott sorszámok értékét
 	}
 
 	/**
 	 * 
 	 * @return 
 	 */
-	public void AddFix1()
+	public void AddFix1()       // a program azon függvénye, amivel egy Fix1-t kreálhatunk
         {
-		System.out.println("Project | AddFix1() | Fix1 forras letrehozas");
-                elements.put(ID, new Fix1(ID));
-                ++ID;
+		System.out.println("Project | AddFix1() | Fix1 forras letrehozas");     //kiírat
+                elements.put(ID, new Fix1(ID));     //kreál egy fix1-et a jelenlegi sorszámmal
+                ++ID;       //növeli a kiosztott sorszámok értékét
 	}
 
         /**
 	 * 
 	 * @return 
 	 */
-        public void AddGenerator(int[] rate)
+        public void AddGenerator(int[] rate)        //a program azon függvénye, amivel egy generátort kreálhatunk
         {
-                System.out.println("Project | AddGenerator(rate) | Generator letrehozas");
-                elements.put(ID, new Generator(rate, ID));
-                ++ID;
+                System.out.println("Project | AddGenerator(rate) | Generator letrehozas");      //kiírat
+                elements.put(ID, new Generator(rate, ID));      //kreál egy generátort a jelenlegi sorszámmal, és azzal a számsorral, ami majd a generátorban fog váltakozni
+                ++ID;       //növeli a sorszám értékét
         }
 
-        public void AddWire(int Gate1ID, int Gate1Pin, int Element2ID)
+        public void AddWire(int Gate1ID, int Gate1Pin, int Element2ID)      // a program azon függvénye, amivel Wire-vel köthetünk össze két elemet
         {
                 AGate TmpGate1;
                 AElement TmpGate2;
@@ -131,10 +131,10 @@ public class Project
 	 * @param e
 	 * @return 
 	 */
-	public void DeleteElement(int id)
+	public void DeleteElement(int id)       //a program törlés függvénye
         {
-               System.out.println("DeleteItem: "+elements.get(id));
-               elements.get(id).Delete();
+               System.out.println("DeleteItem: "+elements.get(id));     //kiírat
+               elements.get(id).Delete();       //meghívja a törölni kívánt elem törlő függvényét
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Project
 	 * @param fw
 	 * @return 
 	 */
-	public void Save(FileWriter fw)
+	public void Save(FileWriter fw)     //a program mentés függvénye
         {
 		throw new UnsupportedOperationException();
 	}
@@ -152,7 +152,7 @@ public class Project
 	 * @param fr
 	 * @return 
 	 */
-	public void Load(FileReader fr)
+	public void Load(FileReader fr)     //a program töltés függvénye
         {
 		throw new UnsupportedOperationException();
 	}
@@ -161,11 +161,11 @@ public class Project
 	 * 
 	 * @return 
 j	 */
-	public void Start()
+	public void Start()     //a project start függvénye: a szimuláció
         {
-            System.out.println("Project | start() | szinuláció indítása");
+            System.out.println("Project | start() | szinuláció indítása");      //kiírat
             Iterator it = this.setOfLeds.iterator();
-            while (it.hasNext())
+            while (it.hasNext())    //a ledekre meghívja a SetValue függvényt
             {
                int tmp = (Integer)it.next();
                this.elements.get(tmp).SetValue();

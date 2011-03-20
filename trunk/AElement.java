@@ -4,9 +4,9 @@ public abstract class AElement
 {
 
 	//private int value;
-        protected int value;
-        protected int ID;
-	protected PinOut output;
+        protected int value;        //az elem aktuális jelének értéke. 0 vagy 1
+        protected int ID;           //az elem sorszáma
+	protected PinOut output;    //az elem kimenő lába
 	/**
 	 * 
 	 * @return 
@@ -14,9 +14,9 @@ public abstract class AElement
 	public int GetValue()
         {
             System.out.println(this+"| GetValue() | CALL");
-            this.SetValue();
+            this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
             System.out.println(this+"| GetValue() | RETURN");
-            return value;
+            return value;           //visszaadja a jelenlegi értékét a hívónak
 	}
         public abstract int GetID();
 
