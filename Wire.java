@@ -34,8 +34,8 @@ public class Wire extends AElement {
      * @return
      */
     public void SetValue() {
-        //value = input.Getvalue();       //nemlátja a getvalue függvényt
-        System.out.printf("Wire | SetValue() | CALL\n");
+        value = input.GetValue();
+        System.out.printf(this+" | SetValue() | CALL\n");
     }
 
     public void Delete(){
@@ -50,6 +50,6 @@ public class Wire extends AElement {
 
     @Override
     public String toString() {
-        return "Wire between " + input +" and "+output;
+        return "Wire"+ID+" between " + input +" and "+output;
     }
 }

@@ -37,7 +37,7 @@ public class AND extends AGate {
         //Megpusztítjuk saját magunkat
     }
 
-    public void SetValue() {
+   /* public void SetValue() {
 
         int s = inputs.size();
         for (int i = 0; i < s; i++) {
@@ -45,7 +45,7 @@ public class AND extends AGate {
             temp.GetValue();
         }
         System.out.printf("AND" + ID + "| SetValue() | CALL\n");
-    }
+    }*/
 
     @Override
     public String toString(){

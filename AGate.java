@@ -13,7 +13,13 @@ public abstract class AGate extends AElement
 	 * 
 	 * @return 
 	 */
-	public abstract void SetValue();
+	public void SetValue(){
+             int s = inputs.size();
+        for (int i = 0; i < s; i++) {
+            inputs.get(i).GetValue();
+        }
+        System.out.printf("OR" + ID + "| SetValue() | CALL\n");
+        };
 
 
 }

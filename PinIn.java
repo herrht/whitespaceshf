@@ -10,6 +10,11 @@ public class PinIn extends Pin
             System.out.println(this+" | PinIn konstruktor");
 	}
 
+        public void SetValue(){
+            System.out.println(this+" | PinIn SetValue() " +w);
+            value = w.GetValue();
+        }
+
         @Override
         public String toString(){
             return "PinIn"+ID+" of "+elem;

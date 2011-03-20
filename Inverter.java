@@ -23,10 +23,10 @@ public class Inverter extends AGate {
         return this.ID;
     }
 
-    public void SetValue() {
+    /*public void SetValue() {
 //		value = ~(inputs[0].GetValue());
         System.out.printf("Inverter | SetValue() | CALL\n");
-    }
+    }*/
 
     public void Delete(){
         System.out.println("Inverter | Delete() | Inverter torles fuggvenye ");

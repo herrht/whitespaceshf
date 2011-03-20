@@ -28,12 +28,12 @@ public class Led extends AGate {
      *
      * @return
      */
-    public void SetValue() {
+    /*public void SetValue() {
 
         PinIn temp = inputs.get(0);
         temp.GetValue();
-        System.out.printf("Led" + ID + "| SetValue() | CALL\n");
-    }
+        System.out.printf(this+" | SetValue() | CALL\n");
+    }*/
 
     public void Delete(){
         System.out.println("Led | Delete() | Led torles fuggvenye ");

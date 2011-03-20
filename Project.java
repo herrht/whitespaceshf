@@ -7,7 +7,7 @@ import java.util.*;
 public class Project
 {
 
-	private Map<Integer,AElement> elements;
+	public Map<Integer,AElement> elements;
         //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
 	private int ID;
         private Set<Integer> setOfLeds;
@@ -119,8 +119,11 @@ public class Project
                 System.out.println("AddWire Kapu1 elem: "+elements.get(Gate1ID)+", Kapu2 elem: "+elements.get(Element2ID) );
                 TmpGate1 = (AGate)elements.get(Gate1ID);
                 TmpGate2 = elements.get(Element2ID);
-
-                elements.put(ID, new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output, ID));
+                Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output, ID);
+                elements.put(ID, tmp);
+                TmpGate1.inputs.get(Gate1Pin).SetWire(tmp);
+                TmpGate2.output.SetWire(tmp);
+                System.out.print(TmpGate1.inputs.get(Gate1Pin).elem);
                 ++ID;
         }
 	/**
