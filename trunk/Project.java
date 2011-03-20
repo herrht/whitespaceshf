@@ -165,8 +165,7 @@ j	 */
             while (it.hasNext())
             {
                int tmp = (Integer)it.next();
-               this.elements.get(tmp).GetValue();
+               this.elements.get(tmp).SetValue();
             }
-            System.out.println("Project | start() | szinuláció indítása");
 	}
 }
