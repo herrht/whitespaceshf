@@ -168,6 +168,7 @@ j	 */
             while (it.hasNext())    //a ledekre meghívja a SetValue függvényt
             {
                int tmp = (Integer)it.next();
+               System.out.println();
                this.elements.get(tmp).SetValue();
             }
 	}

@@ -19,7 +19,7 @@ public class Led extends AGate {
     }
 
     public int GetID() {
-        System.out.printf("Led |GetID() | CALL\n");     //kiírat
+        System.out.println("Led |GetID() | CALL");     //kiírat
 
         return this.ID;     //visszaadja az elem sorszámát
     }
@@ -45,6 +45,4 @@ public class Led extends AGate {
     public String toString() {
         return "Led" + ID;
     }
-
-    ;
 }
