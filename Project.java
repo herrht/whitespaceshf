@@ -163,7 +163,7 @@ public class Project
 j	 */
 	public void Start()     //a project start függvénye: a szimuláció
         {
-            System.out.println("Project | start() | szinuláció indítása");      //kiírat
+            System.out.println("Project | start() | szimuláció indítása");      //kiírat
             Iterator it = this.setOfLeds.iterator();
             while (it.hasNext())    //a ledekre meghívja a SetValue függvényt
             {

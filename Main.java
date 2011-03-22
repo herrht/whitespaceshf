@@ -14,7 +14,8 @@ public class Main
         progi.NewProject();
 
         /*
-        // ---- AddNewElement ----
+        // ---- Önálló elem felvétele ----
+
         // ---- AddNewLed
         System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         progi.proj.AddAnd(3);
@@ -66,13 +67,16 @@ public class Main
         progi.proj.AddFix0();
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
         progi.proj.AddFix1();
-        System.out.println("\nÖszeköttetések:\n");
+
+        System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
         System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
         System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
+
+        System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
         */
@@ -86,11 +90,14 @@ public class Main
         progi.proj.AddInverter();
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
         progi.proj.AddFix1();
-        System.out.println("\nÖszeköttetések:\n");
+
+        System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("Main | Project | proj | AddWire(1,0,3) CALL");
         progi.proj.AddWire(1, 0, 2);
         System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
+
+        System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();        
         */
@@ -106,13 +113,16 @@ public class Main
         progi.proj.AddFix0();
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
         progi.proj.AddFix1();
-        System.out.println("\nÖszeköttetések:\n");
+
+        System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
         System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
         System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
+
+        System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
 
@@ -122,7 +132,7 @@ public class Main
         // ---- Teszt4 ----
 
         /*
-        System.out.println("\n------------ Teszt3 ------------");
+        System.out.println("\n------------ Teszt4 ------------");
 
         System.out.println("\nMain | Project | proj | AddLed | CALL");
         progi.proj.AddLed();
@@ -137,7 +147,8 @@ public class Main
         System.out.println("\nMain | Project | proj | AddGenerator(1,1,0,1,0,0) | CALL");
         int rate[] = {1,1,0,1,0,0};
         progi.proj.AddGenerator(rate);
-        System.out.println("\nÖszeköttetések:\n");
+
+        System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
         System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
@@ -148,12 +159,13 @@ public class Main
         progi.proj.AddWire(4, 1, 5);
         System.out.println("Main | Project | proj | AddWire(0,0,4) CALL");
         progi.proj.AddWire(0, 0, 4);    
+
+        System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
         */
 
         // ---- Teszt5 ----
-
         
         System.out.println("\n------------ Teszt5 ------------");
 
@@ -165,7 +177,6 @@ public class Main
         progi.proj.AddSwitch();
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
         progi.proj.AddFix1();
-        
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
         progi.proj.AddLed();
         System.out.println("\nMain | Project | proj | AddOr(PinNum) | CALL");
@@ -175,20 +186,21 @@ public class Main
         progi.proj.AddGenerator(rate);
 
 
-        System.out.println("\nÖszeköttetések:\n");
+        System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
         System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
         System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
-        System.out.println("\nMain | Project | proj |Start() | CALL\n");
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(4, 0, 5);
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(5, 0, 1);
         System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(5, 1, 6);
+        
+        System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
 
@@ -202,9 +214,12 @@ public class Main
         System.out.println("\nMain | Project | proj | AddGenerator(1,1,0,1,0,0) | CALL");
         int rate[] = {1,1,0,1,0,0};
         progi.proj.AddGenerator(rate);
-        System.out.println("\nÖszeköttetések:\n");
+
+        System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
+
+        System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
         */
