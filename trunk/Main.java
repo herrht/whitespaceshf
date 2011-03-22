@@ -1,14 +1,12 @@
 package szlab4_whitespaces;
 
-public class Main
-{
+public class Main {
 
-    public static void main(String[] args)
-    {   //A skeleton fő része, amiben le vannak írva a tesztesetek, és az egyes részek kikommentelésével
+    public static void main(String[] args) {   //A skeleton fő része, amiben le vannak írva a tesztesetek, és az egyes részek kikommentelésével
         //tesztelhetők a program különböző részei.
-        
+
         // ---- NewProject ----
-        System.out.println("Main | Program | progi | Program() | CALL");
+        System.out.println("\nMain | Program | progi | Program() | CALL");
         Program progi = new Program();
         System.out.println("\nMain | Program | progi | NewProject() | CALL");
         progi.NewProject();
@@ -52,8 +50,8 @@ public class Main
         // ---- DeleteElement ----
         System.out.println("\nMain | Project | proj | DeleteElement(id) | CALL");
         progi.proj.DeleteElement(0);    //0. kapu törlése
-        */
-       
+         */
+
         // ---- Teszt1 ----
 
         /*
@@ -69,19 +67,19 @@ public class Main
         progi.proj.AddFix1();
 
         System.out.println("\n------------ Osszekottetesek: ------------");
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
-        System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
-        System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
-        */
+         */
 
-         // ---- Teszt2 ----
+        // ---- Teszt2 ----
         /*
         System.out.println("\n------------ Teszt2 ------------");
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
@@ -92,17 +90,17 @@ public class Main
         progi.proj.AddFix1();
 
         System.out.println("\n------------ Osszekottetesek: ------------");
-        System.out.println("Main | Project | proj | AddWire(1,0,3) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,3) CALL");
         progi.proj.AddWire(1, 0, 2);
-        System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();        
-        */
-        
-         // ---- Teszt3 ----
+         */
+
+        // ---- Teszt3 ----
         /*
         System.out.println("\n------------ Teszt3 ------------");
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
@@ -115,11 +113,11 @@ public class Main
         progi.proj.AddFix1();
 
         System.out.println("\n------------ Osszekottetesek: ------------");
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
-        System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
-        System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
 
         System.out.println("\n------------ Futtatas: ------------");
@@ -127,7 +125,7 @@ public class Main
         progi.proj.Start();
 
          */
-       
+
 
         // ---- Teszt4 ----
 
@@ -149,24 +147,24 @@ public class Main
         progi.proj.AddGenerator(rate);
 
         System.out.println("\n------------ Osszekottetesek: ------------");
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
-        System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
-        System.out.println("Main | Project | proj | AddWire(4,0,1) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(4,0,1) CALL");
         progi.proj.AddWire(4, 0, 1);
-        System.out.println("Main | Project | proj | AddWire(4,1,5) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(4,1,5) CALL");
         progi.proj.AddWire(4, 1, 5);
-        System.out.println("Main | Project | proj | AddWire(0,0,4) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,4) CALL");
         progi.proj.AddWire(0, 0, 4);    
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
-        */
+         */
 
         // ---- Teszt5 ----
-        
+
         System.out.println("\n------------ Teszt5 ------------");
 
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
@@ -182,29 +180,29 @@ public class Main
         System.out.println("\nMain | Project | proj | AddOr(PinNum) | CALL");
         progi.proj.AddOr(2);
         System.out.println("\nMain | Project | proj | AddGenerator(0,1) | CALL");
-        int rate[] = {0,1};
+        int rate[] = {0, 1};
         progi.proj.AddGenerator(rate);
 
 
         System.out.println("\n------------ Osszekottetesek: ------------");
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(1, 0, 2);
-        System.out.println("Main | Project | proj | AddWire(1,1,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
         progi.proj.AddWire(1, 1, 3);
-        System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(4, 0, 5);
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(5, 0, 1);
-        System.out.println("Main | Project | proj | AddWire(1,0,2) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
         progi.proj.AddWire(5, 1, 6);
-        
+
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
 
-        
+
 
         // ---- Teszt6 ----
         /*
@@ -216,12 +214,12 @@ public class Main
         progi.proj.AddGenerator(rate);
 
         System.out.println("\n------------ Osszekottetesek: ------------");
-        System.out.println("Main | Project | proj | AddWire(0,0,1) CALL");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
         progi.proj.AddWire(0, 0, 1);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
-        */
+         */
     }   // End of MAIN
 }

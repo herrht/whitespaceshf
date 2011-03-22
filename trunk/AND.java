@@ -14,13 +14,13 @@ public class AND extends AGate {
         this.inputnum = inputnum;           //egyenlővé teszi a lábak számát tároló integert a paraméterrel
 
         inputs = new HashMap<Integer, PinIn>();
-        for (int i = 0; i < inputnum ; ++i) {       //annyi PinIn lábat csinál, ahány lábas AND kaput kreáltunk
+        for (int i = 0; i < inputnum; ++i) {       //annyi PinIn lábat csinál, ahány lábas AND kaput kreáltunk
             inputs.put(i, new PinIn(this, i));
         }
 
         output = new PinOut(this);              //kreál egy kimeneti lábat
         this.ID = ID;                           //sorszámot egyenlővé teszi a paraméterrel
-        System.out.println(this+"| AND(" + inputnum + ") | And konstruktor");       //kiírat
+        System.out.println(this + " | AND(" + inputnum + ") | And konstruktor");       //kiírat
     }
 
     public int GetID() {
@@ -28,28 +28,17 @@ public class AND extends AGate {
         return this.ID;         //visszaadja az elem sorszámát
     }
 
-    public void Delete(){           //törli a kapi ki- és bementi lábait
-        System.out.println(this+" | Delete() | And torles fuggvenye ");
+    public void Delete() {           //törli a kapi ki- és bementi lábait
+        System.out.println(this + " | Delete() | And torles fuggvenye ");
         for (int i = 0; i < inputnum; i++) {
-            inputs.get(i).Delete() ;
+            inputs.get(i).Delete();
         }
         output.Delete();
         //Megpusztítjuk saját magunkat
     }
-
-   /* public void SetValue() {
-
-        int s = inputs.size();
-        for (int i = 0; i < s; i++) {
-            PinIn temp = inputs.get(s);
-            temp.GetValue();
-        }
-        System.out.printf("AND" + ID + "| SetValue() | CALL\n");
-    }*/
-
+    
     @Override
-    public String toString(){
-        return "AND"+ID;
+    public String toString() {
+        return "AND" + ID;
     }
- }
-
+}
