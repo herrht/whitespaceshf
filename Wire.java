@@ -12,20 +12,14 @@ public class Wire extends AElement {
      * @return
      */
     public Wire(PinIn input, PinOut output, int ID) {
-//      public Wire(int id1, int id1_p, int id2, int id2_p, int ID)
-
-        
-//          System.out.println("Wire | Wire(Elem: "+id1+", Pin: "+id1_p+"; "+ "Elem2: "+id2+", Pin2: "+id2_p+") | Wire konstruktor");
-
         this.input = output;    //A kapott Elem kimenete lesz a Vezeték bemene
         this.output = input;    //A kapott Elem bemenete lesz a Vezeték kimenete
         this.ID = ID;       //a sorszámát egyenlővé tesszük a paraméterrel
-        System.out.println(this+ " | Wire(Lab1: " + input + ", Lab2: " + output+")");          //kiírat
+        System.out.println(this + " | Wire konstruktor ");          //kiírat
     }
 
     public int GetID() {
-        System.out.printf("Wire |GetID() | CALL\n");        //kiírat
-
+        System.out.println(this + " | GetID() | CALL");        //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 
@@ -34,12 +28,12 @@ public class Wire extends AElement {
      * @return
      */
     public void SetValue() {
-        System.out.printf(this+" | SetValue() | CALL\n");       //kiírat
+        System.out.println(this + " | SetValue() | CALL");       //kiírat
         value = input.GetValue();       //az elem értékét egyenlővé teszi a bemenő lábbal
-        System.out.printf(this+" | SetValue() | RETURN\n");     //kiírat
+        System.out.println(this + " | SetValue() | RETURN");     //kiírat
     }
 
-    public void Delete(){       //a wire törlő függvénye, ami törli a wiret, de a lábakat nem, mivel azokat még az elemek használják
+    public void Delete() {       //a wire törlő függvénye, ami törli a wiret, de a lábakat nem, mivel azokat még az elemek használják
         System.out.println("Wire | Delete() | Wire torles fuggvenye ");     //kiírat
 //        input.Delete();
 //        output.Delete();
@@ -51,6 +45,6 @@ public class Wire extends AElement {
 
     @Override
     public String toString() {
-        return "Wire"+ID+" between " + input +" and "+output;
+        return "Wire" + ID + " between " + input + " and " + output;
     }
 }

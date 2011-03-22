@@ -15,12 +15,11 @@ public class Led extends AGate {
 
         output = null;      //nincs kimenő lába, emiatt null az értéke
         this.ID = ID;       //az elem sorszámát egyenlővé teszi a paraméterrel
-        System.out.println(this+" | Led() | LED konstruktor");      //kiírat
+        System.out.println(this + " | Led() | LED konstruktor");      //kiírat
     }
 
     public int GetID() {
-        System.out.println("Led |GetID() | CALL");     //kiírat
-
+        System.out.println(this + " |GetID() | CALL");     //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 
@@ -28,16 +27,9 @@ public class Led extends AGate {
      *
      * @return
      */
-    /*public void SetValue() {
-
-        PinIn temp = inputs.get(0);
-        temp.GetValue();
-        System.out.printf(this+" | SetValue() | CALL\n");
-    }*/
-
-    public void Delete(){       //az elem törlő függvénye amely törli az elem bemenő lábát
-        System.out.println("Led | Delete() | Led torles fuggvenye ");
-        inputs.get(0).Delete() ;
+    public void Delete() {       //az elem törlő függvénye amely törli az elem bemenő lábát
+        System.out.println(this + " | Delete() | Led torles fuggvenye ");
+        inputs.get(0).Delete();
         //Megpusztítjuk saját magunkat
     }
 

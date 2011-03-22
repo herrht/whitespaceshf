@@ -12,12 +12,11 @@ public class Generator extends ASource {
 //		counter = 0;
 //              outputs = rate;
 //              value = outputs[0];
-        System.out.println(this+" | Generator(rate)| Generator konstruktor");       //kiírat
+        System.out.println(this + " | Generator(rate)| Generator konstruktor");       //kiírat
     }
 
     public int GetID() {
-        System.out.printf("Generator |GetID() | CALL\n");       //kiírat
-
+        System.out.println(this + " |GetID() | CALL");       //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 
@@ -27,7 +26,7 @@ public class Generator extends ASource {
      */
     public void SetValue() {
 //          value = outputs[counter];
-        System.out.printf("Generator | SetValue() | CALL\n");           //kiírat
+        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     /**
@@ -37,17 +36,14 @@ public class Generator extends ASource {
     public void Shift() {       //az elem léptető függvénye, változtatja a kimenő értéket a benne tárolt számsor alapján
 //		counter++;
 //               SetValue();
-        System.out.printf("Generator | Shift() | CALL\n");      //kiírat
-
+        System.out.println(this + " | Shift() | CALL");      //kiírat
     }
 
-    public void Delete(){       //az elem törlő függvénye, törli a kimenő lábát
-        System.out.println("Generator | Delete() | Generator torles fuggvenye ");
+    public void Delete() {       //az elem törlő függvénye, törli a kimenő lábát
+        System.out.println(this + " | Delete() | Generator torles fuggvenye ");
         output.Delete();
         //Megpusztítjuk saját magunkat
     }
-
-    ;
 
     @Override
     public String toString() {

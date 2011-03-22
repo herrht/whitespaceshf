@@ -6,7 +6,7 @@ public abstract class ASource extends AElement {
 
     @Override
     public int GetValue() {
-        System.out.println(this+"| GetValue() | CALL | RETURN");
+        System.out.println(this + " | GetValue() | CALL | RETURN\n");
         return value;           //visszaadja az elem értékét
     }
 }
