@@ -10,8 +10,7 @@ public class Fix0 extends ASource {
     }
 
     public int GetID() {
-        System.out.printf("Fix0 | GetID() | CALL\n");        //kiíratja
-
+        System.out.printf(this + " | GetID() | CALL\n");        //kiíratja
         return this.ID;         //visszaadja a sorszámot
     }
 
