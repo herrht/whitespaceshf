@@ -19,7 +19,7 @@ public class Switch extends ASource {
      *
      * @return
      */
-    public void SetValue() {
+    public void SwitchOutput() {
 //          value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
         System.out.println(this + " | SetValue() | CALL");     //kiírat
     }
@@ -40,5 +40,10 @@ public class Switch extends ASource {
     @Override
     public String toString() {
         return "Switch" + ID;
+    }
+
+    @Override
+    public void SetValue() {
+        System.out.printf(this + " | SetValue() | CALL| RETURN\n");      //kiírat
     }
 }
