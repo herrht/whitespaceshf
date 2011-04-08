@@ -1,10 +1,13 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class Fix1 extends ASource {
 
     public Fix1(int ID) {
         value = 1;      //1-re állítja az elem értékét inicializáláskor
-        output = new PinOut(this);      //kreál egy kimenő lábat
+        output = new HashMap<Integer, PinOut>();
+        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;       //a sorszmot egyenlővé teszi a paraméterrel
         System.out.println(this + " | Fix1()| Fix1 konstruktor");     //kiírat
     }
@@ -21,7 +24,7 @@ public class Fix1 extends ASource {
 
     public void Delete() {
         System.out.println(this + " | Delete() | Fix1 torles fuggvenye ");     //kiírat
-        output.Delete();        //törli a kimenő lábat
+        output.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
 

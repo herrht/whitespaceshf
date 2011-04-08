@@ -18,7 +18,8 @@ public class AND extends AGate {
             inputs.put(i, new PinIn(this, i));
         }
 
-        output = new PinOut(this);              //kreál egy kimeneti lábat
+        output = new HashMap<Integer, PinOut>();
+        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;                           //sorszámot egyenlővé teszi a paraméterrel
         System.out.println(this + " | AND(" + inputnum + ") | And konstruktor");       //kiírat
     }
@@ -33,10 +34,10 @@ public class AND extends AGate {
         for (int i = 0; i < inputnum; i++) {
             inputs.get(i).Delete();
         }
-        output.Delete();
+        output.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
-    
+
     @Override
     public String toString() {
         return "AND" + ID;

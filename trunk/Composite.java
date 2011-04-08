@@ -26,7 +26,10 @@ public class Composite extends AGate {
         for (int i = 0; i < inputnum; i++) {
             inputs.get(i).Delete();
         }
-        output.Delete();
+
+        for (int i = 0; i < outputnum; i++) {
+            output.get(i).Delete();
+        }
         //Megpusztítjuk saját magunkat
     }
 
@@ -102,7 +105,7 @@ public class Composite extends AGate {
         ++IDsub;          //növeli a kiosztott sorszámok értékét
     }
 
-    public void AddWire(int Gate1ID, int Gate1Pin, int Element2ID) // a program azon függvénye, amivel Wire-vel köthetünk össze két elemet
+    public void AddWire(int Gate1ID, int Gate1Pin, int Element2ID, int Element2Pin) // a program azon függvénye, amivel Wire-vel köthetünk össze két elemet
     {
         AGate TmpGate1;
         AElement TmpGate2;
@@ -111,11 +114,11 @@ public class Composite extends AGate {
         TmpGate1 = (AGate) elements.get(Gate1ID);
         TmpGate2 = elements.get(Element2ID);
 
-        Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output, IDsub);
-        elements.put(IDsub, tmp);
+        Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output.get(Element2Pin), ID);
+        elements.put(ID, tmp);
         TmpGate1.inputs.get(Gate1Pin).SetWire(tmp);
-        TmpGate2.output.SetWire(tmp);
-        ++IDsub;
+        TmpGate2.output.get(Element2Pin).SetWire(tmp);
+        ++ID;
     }
 
     public void DeleteElement(int id) //a program törlés függvénye

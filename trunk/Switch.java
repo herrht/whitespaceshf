@@ -1,11 +1,14 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class Switch extends ASource {
 
     public Switch(int ID) {
 
         value = 0;      //a switch értékét beállítjuk az incializáláskor 0-ba
-        output = new PinOut(this);      //kreálunk egy kimenő lábat
+        output = new HashMap<Integer, PinOut>();
+        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;       //a sorszámát egyenlővé tesszük a paraméterrel
         System.out.println(this + " | Switch() | Switch konstruktor");        //kiírat
     }
@@ -26,17 +29,17 @@ public class Switch extends ASource {
 
     public void Delete() {       //az elem törlő függvénye
         System.out.println(this + " | Delete() | Switch torles fuggvenye ");     //kiírat
-        output.Delete();        //törli a kimenő lábat
+        output.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
 
     /*
     @Override
     public int GetValue() {
-        System.out.println(this + " | GetValue() | CALL | RETURN");        //kiírat
-        return value;       //visszaadja az elem értékét
+    System.out.println(this + " | GetValue() | CALL | RETURN");        //kiírat
+    return value;       //visszaadja az elem értékét
     }
-*/
+     */
     @Override
     public String toString() {
         return "Switch" + ID;

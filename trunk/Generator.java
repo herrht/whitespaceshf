@@ -1,5 +1,7 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class Generator extends ASource {
 
     private int[] outputs;      //a generátorban lévő számsor ami váltakozik shiftelés esetén
@@ -7,7 +9,8 @@ public class Generator extends ASource {
 
     public Generator(int[] rate, int ID) {
 
-        this.output = new PinOut(this);     //kreál egy kimenő lábat
+        output = new HashMap<Integer, PinOut>();
+        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;       //a sorszmáot egyenlővé teszi a paraméterrel
 //		counter = 0;
 //              outputs = rate;
@@ -41,7 +44,7 @@ public class Generator extends ASource {
 
     public void Delete() {       //az elem törlő függvénye, törli a kimenő lábát
         System.out.println(this + " | Delete() | Generator torles fuggvenye ");
-        output.Delete();
+        output.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
 

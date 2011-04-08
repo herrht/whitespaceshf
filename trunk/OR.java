@@ -18,7 +18,8 @@ public class OR extends AGate {
             inputs.put(i, new PinIn(this, i));
         }
 
-        output = new PinOut(this);      //kreál egy kimenő lábat
+        output = new HashMap<Integer, PinOut>();
+        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;       //az elem sorszámát a praméterrel teszi egyenlővée
         System.out.println(this + " | OR(" + inputnum + ") | Or konstruktor");        //kiírat
     }
@@ -37,7 +38,7 @@ public class OR extends AGate {
         for (int i = 0; i < inputnum; i++) {
             inputs.get(i).Delete();
         }
-        output.Delete();
+        output.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
 
@@ -45,5 +46,4 @@ public class OR extends AGate {
     public String toString() {
         return "OR" + ID;
     }
-    
 }
