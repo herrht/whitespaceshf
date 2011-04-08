@@ -2,38 +2,28 @@ package szlab4_whitespaces;
 
 public class Program {
 
-    public Project proj;        //a project
+    public Project proj;                //a project
+    public Test tester;                 //tesztesetek
 
-    /**
-     *
-     * @return
-     */
     public Program() {
         System.out.println("Program | Program() | Program konstruktor");        //kiírat
     }
 
-    /**
-     *
-     * @return
-     */
     public void NewProject() {
         System.out.println("Program | NewProject() | Uj projekt letrehozas");       //kiírat
         proj = new Project();       //egy új projectet kreál
     }
 
-    /**
-     *
-     * @return
-     */
+    public void NewTest() {
+        System.out.println("Program | NewTest() | Uj teszter letrehozas");       //kiírat
+        tester = new Test(proj);       //egy új tesztet kreál
+    }
+
     public void SaveProject() //a project mentés függvénye
     {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     *
-     * @return
-     */
     public void LoadProject() //a project töltés függvénye
     {
         throw new UnsupportedOperationException();
