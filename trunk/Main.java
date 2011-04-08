@@ -11,12 +11,23 @@ public class Main {
         System.out.println("\nMain | Program | progi | NewProject() | CALL");
         progi.NewProject();
 
-        /*
         // ---- Önálló elem felvétele ----
+/*
+        // ---- AddNewComposite
+        System.out.println("\nMain | Project | proj | AddComposite() | CALL");
+        progi.proj.AddComposite();
+
+        // ---- AddNewOscilloscope
+        System.out.println("\nMain | Project | proj | AddOscilloscope() | CALL");
+        progi.proj.AddOscilliscope();
 
         // ---- AddNewLed
         System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         progi.proj.AddAnd(3);
+
+        System.out.println();
+        progi.proj.ListElements();
+        //progi.proj.ListComposite(0);
 
         // ---- AddNewASource object
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
@@ -164,7 +175,7 @@ public class Main {
          */
 
         // ---- Teszt5 ----
-
+/*
         System.out.println("\n------------ Teszt5 ------------");
 
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
@@ -201,7 +212,7 @@ public class Main {
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
-
+         */
 
 
         // ---- Teszt6 ----
