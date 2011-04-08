@@ -10,7 +10,8 @@ public class Inverter extends AGate {
         inputs = new HashMap<Integer, PinIn>();
         inputs.put(0, new PinIn(this, 0));      //kreál egy bemenő lábat
 
-        output = new PinOut(this);      //kreál egy kimenő lábat
+        output = new HashMap<Integer, PinOut>();
+        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;       //az elem sorszámát egyenlővé teszi a paraméterrel
         System.out.println(this + " | Inverter() | Inverter konstruktor");        //kiírat
     }
@@ -24,7 +25,7 @@ public class Inverter extends AGate {
     public void Delete() {       //az elem törlő függvénye, törli a be - és kimenő lábait
         System.out.println(this + " | Delete() | Inverter torles fuggvenye ");
         inputs.get(0).Delete();
-        output.Delete();
+        output.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
 

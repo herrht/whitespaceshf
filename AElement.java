@@ -1,10 +1,14 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public abstract class AElement {
 
     protected int value;        //az elem aktuális jelének értéke. 0 vagy 1
     protected int ID;           //az elem sorszáma
-    protected PinOut output;    //az elem kimenő lába
+    //protected PinOut output;    //az elem kimenő lába
+    protected Map<Integer, PinOut> output;
+    protected int outputnum = 1;
 
     /**
      *

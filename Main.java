@@ -65,13 +65,14 @@ public class Main {
 
         // ---- Teszt1 ----
 
-        /*
+        /* 
         System.out.println("\n------------ Teszt1 ------------");
 
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
         progi.proj.AddLed();
         System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         progi.proj.AddAnd(2);
+
         System.out.println("\nMain | Project | proj | AddFix0() | CALL");
         progi.proj.AddFix0();
         System.out.println("\nMain | Project | proj | AddFix1() | CALL");
@@ -79,11 +80,11 @@ public class Main {
 
         System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(1, 0, 2);
+        progi.proj.AddWire(1, 0, 2, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
-        progi.proj.AddWire(1, 1, 3);
+        progi.proj.AddWire(1, 1, 3, 0);
         System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
-        progi.proj.AddWire(0, 0, 1);
+        progi.proj.AddWire(0, 0, 1, 0);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
@@ -102,9 +103,9 @@ public class Main {
 
         System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("\nMain | Project | proj | AddWire(1,0,3) CALL");
-        progi.proj.AddWire(1, 0, 2);
+        progi.proj.AddWire(1, 0, 2, 0);
         System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
-        progi.proj.AddWire(0, 0, 1);
+        progi.proj.AddWire(0, 0, 1, 0);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
@@ -125,21 +126,18 @@ public class Main {
 
         System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(1, 0, 2);
+        progi.proj.AddWire(1, 0, 2, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
-        progi.proj.AddWire(1, 1, 3);
+        progi.proj.AddWire(1, 1, 3, 0);
         System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
-        progi.proj.AddWire(0, 0, 1);
+        progi.proj.AddWire(0, 0, 1, 0);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
-
          */
 
-
         // ---- Teszt4 ----
-
         /*
         System.out.println("\n------------ Teszt4 ------------");
 
@@ -154,20 +152,20 @@ public class Main {
         System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         progi.proj.AddAnd(2);
         System.out.println("\nMain | Project | proj | AddGenerator(1,1,0,1,0,0) | CALL");
-        int rate[] = {1,1,0,1,0,0};
+        int rate[] = {1, 1, 0, 1, 0, 0};
         progi.proj.AddGenerator(rate);
 
         System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(1, 0, 2);
+        progi.proj.AddWire(1, 0, 2, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
-        progi.proj.AddWire(1, 1, 3);
+        progi.proj.AddWire(1, 1, 3, 0);
         System.out.println("\nMain | Project | proj | AddWire(4,0,1) CALL");
-        progi.proj.AddWire(4, 0, 1);
+        progi.proj.AddWire(4, 0, 1, 0);
         System.out.println("\nMain | Project | proj | AddWire(4,1,5) CALL");
-        progi.proj.AddWire(4, 1, 5);
+        progi.proj.AddWire(4, 1, 5, 0);
         System.out.println("\nMain | Project | proj | AddWire(0,0,4) CALL");
-        progi.proj.AddWire(0, 0, 4);    
+        progi.proj.AddWire(0, 0, 4, 0);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
@@ -175,7 +173,7 @@ public class Main {
          */
 
         // ---- Teszt5 ----
-/*
+        /*
         System.out.println("\n------------ Teszt5 ------------");
 
         System.out.println("\nMain | Project | proj | AddLed() | CALL");
@@ -197,17 +195,17 @@ public class Main {
 
         System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(1, 0, 2);
+        progi.proj.AddWire(1, 0, 2, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,1,2) CALL");
-        progi.proj.AddWire(1, 1, 3);
+        progi.proj.AddWire(1, 1, 3, 0);
         System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
-        progi.proj.AddWire(0, 0, 1);
+        progi.proj.AddWire(0, 0, 1, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(4, 0, 5);
+        progi.proj.AddWire(4, 0, 5, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(5, 0, 1);
+        progi.proj.AddWire(5, 0, 1, 0);
         System.out.println("\nMain | Project | proj | AddWire(1,0,2) CALL");
-        progi.proj.AddWire(5, 1, 6);
+        progi.proj.AddWire(5, 1, 6, 0);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
@@ -226,11 +224,11 @@ public class Main {
 
         System.out.println("\n------------ Osszekottetesek: ------------");
         System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
-        progi.proj.AddWire(0, 0, 1);
+        progi.proj.AddWire(0, 0, 1, 0);
 
         System.out.println("\n------------ Futtatas: ------------");
         System.out.println("\nMain | Project | proj |Start() | CALL");
         progi.proj.Start();
-         */
+        */
     }   // End of MAIN
 }
