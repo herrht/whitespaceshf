@@ -10,30 +10,15 @@ public class Composite extends AGate {
 
     /*------------------------- Osztaly kezelo fgv -------------------------*/
     public Composite(int ID) {
-        System.out.println("Composite | Composite() | Composite konstruktor");        //kiírat
-        ready = true;
         this.ID = ID;
-        IDsub = 0;                                          //kezdetben a sorszámot tároló integert 0-ba állítja
-        elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
+        this.IDsub = 0;                                          //kezdetben a sorszámot tároló integert 0-ba állítja
+        this.elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
+        System.out.println("Composite | Composite() | Composite konstruktor");        //kiírat
     }
 
     public int GetID() {
         System.out.println(this + " | GetID() | CALL");     //kiírat
         return this.ID;                                     //visszaadja az elem sorszámát
-    }
-
-    public int GetValue()
-    {
-        System.out.println(this + " | GetValue() | CALL\n");
-
-        if (!(this.ready)) {
-            return value;
-        } else {
-            this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
-            System.out.println(this + " | GetValue() | RETURN\n");
-            this.ready = false;
-            return value;           //visszaadja a jelenlegi értékét a hívónak
-        }
     }
 
     public void Delete() {                                  //az elem törlő függvénye amely törli a be és kimenő lábakat
