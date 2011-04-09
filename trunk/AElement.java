@@ -4,34 +4,32 @@ import java.util.*;
 
 public abstract class AElement {
 
-    protected int value;        //az elem aktuális jelének értéke. 0 vagy 1
-    protected int ID;           //az elem sorszáma
-    //protected PinOut output;    //az elem kimenő lába
-    protected Map<Integer, PinOut> output;
-    protected int outputnum = 1;
+    protected int ID;                           //az elem sorszáma
+    protected boolean ready = true;             //elso futasnal minden elem lekerdezheto
+    protected int value = 0;                    //az elem aktuális értéke, alapbol 0
+    protected Map<Integer, PinOut> outputs;     //PinOut kimeneteket tarolo map
+    protected int outputnum = 1;                //kimenetek szama, alapbol 1
 
-    /**
-     *
-     * @return
-     */
     public int GetValue() {
         System.out.println(this + " | GetValue() | CALL\n");
-        this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
-        System.out.println(this + " | GetValue() | RETURN\n");
-        return value;           //visszaadja a jelenlegi értékét a hívónak
+
+        if (!(this.ready)) {
+            return value;
+        } else {
+            this.ready = false;
+            this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
+            System.out.println(this + " | GetValue() | RETURN\n");
+            return value;           //visszaadja a jelenlegi értékét a hívónak
+        }
+    }
+
+    public void SetReady() {
+        this.ready = true;
     }
 
     public abstract int GetID();
 
-    /**
-     *
-     * @return
-     */
     public abstract void SetValue();
 
-    /**
-     *
-     * @return
-     */
     public abstract void Delete();
 }

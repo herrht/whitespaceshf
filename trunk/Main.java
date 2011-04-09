@@ -14,8 +14,8 @@ public class Main {
         System.out.println("\nMain | Program | progi | NewTest() | CALL");
         progi.NewTest();
 
-        System.out.println("\nMain | Program | tester | Test1() | CALL");
-        progi.tester.Test1();
+        System.out.println("\nMain | Program | tester | Test() | CALL");
+        progi.tester.Test5();
 
     }   // End of MAIN
 }

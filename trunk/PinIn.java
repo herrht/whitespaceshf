@@ -2,12 +2,18 @@ package szlab4_whitespaces;
 
 public class PinIn extends Pin {
 
-    private int ID;
+    protected Wire w;               //itt tároljuk el, hogy a láb melyik wire-hez tartozik
 
     public PinIn(AElement e, int id) {
-        ID = id;        //beállítja az elem sorszámát a paraméterre
-        elem = e;       //beállítja, hogy melyik elemhez tartozik a láb
+        this.ID = id;        //beállítja az elem sorszámát a paraméterre
+        this.elem = e;       //beállítja, hogy melyik elemhez tartozik a láb
+        
         System.out.println(this + " | PinIn konstruktor");        //kiírat
+    }
+
+    public void Delete() {       //a láb törlő függvénye
+        System.out.println(this + " | Delete() | PinIn torles fuggvenye ");       //kiírat
+        //Megpusztítjuk saját magunkat
     }
 
     public void SetValue() {
@@ -16,13 +22,13 @@ public class PinIn extends Pin {
         System.out.println(this + " | PinIn SetValue()|RETURN");     //kiírat
     }
 
+    public void SetWire(Wire w)
+    {
+        this.w = w;      //beállítja a wire-t
+    }
+
     @Override
     public String toString() {
         return "PinIn" + ID + " of " + elem;
-    }
-
-    public void Delete() {       //a láb törlő függvénye
-        System.out.println(this + " | Delete() | PinIn torles fuggvenye ");       //kiírat
-        //Megpusztítjuk saját magunkat
     }
 }

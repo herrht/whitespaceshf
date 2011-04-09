@@ -5,26 +5,28 @@ import java.util.*;
 public class Fix1 extends ASource {
 
     public Fix1(int ID) {
-        value = 1;      //1-re állítja az elem értékét inicializáláskor
-        output = new HashMap<Integer, PinOut>();
-        output.put(0, new PinOut(this));      //kreál egy kimenő lábat
         this.ID = ID;       //a sorszmot egyenlővé teszi a paraméterrel
+        this.value = 1;      //1-re állítja az elem értékét inicializáláskor
+
+        outputs = new HashMap<Integer, PinOut>();
+        outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
+
         System.out.println(this + " | Fix1()| Fix1 konstruktor");     //kiírat
     }
 
     public int GetID() {
         System.out.println(this + " | GetID() | CALL");        //kiírat
-        return this.ID;     //visszaadja az elem sorszámát
+        return this.ID;             //visszaadja az elem sorszámát
     }
 
-    public void SetValue() {        //semmi értelme
+    public void SetValue() {
 //		value = 1;
         System.out.println(this + " | SetValue() | CALL| RETURN");       //kiírat
     }
 
     public void Delete() {
         System.out.println(this + " | Delete() | Fix1 torles fuggvenye ");     //kiírat
-        output.get(0).Delete();        //törli a kimenő lábat
+        outputs.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
     }
 

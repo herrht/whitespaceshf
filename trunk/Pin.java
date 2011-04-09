@@ -1,10 +1,12 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public abstract class Pin {
 
-    protected int value;        //a láb értéke
+    protected int ID;
+    protected int value;            //a láb értéke
     protected AElement elem;        //itt tároljuk el,hogy a láb melyik elemhez tartozik
-    protected Wire w;       //itt tároljuk el, hogy a láb melyik wire-hez tartozik
 
     public abstract void SetValue();
 
@@ -15,7 +17,5 @@ public abstract class Pin {
         return value;       //visszaadja a láb értékét
     }
 
-    public void SetWire(Wire w) {
-        this.w = w;      //beállítja a wire-t
-    }
+//    abstract public void SetWire(Wire w);
 }

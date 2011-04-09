@@ -8,26 +8,32 @@ public class Project {
     /*------------------------- Attibutumok -------------------------*/
 
     public Map<Integer, AElement> elements;                 //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
-    private int ID;                                          //a sorszámot tároló integer
+    private int ID;                                         //a sorszámot tároló integer
     private Set<Integer> setOfLeds;
     /*------------------------- Osztaly kezelo fgv -------------------------*/
 
     public Project() {
         System.out.println("Project | Project() | Project konstruktor");        //kiírat
-        ID = 0;                                             //kezdetben a sorszámot tároló integert 0-ba állítja
-        elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
-        setOfLeds = new HashSet<Integer>();                 //egy hashsetet kreál
+        this.ID = 0;                                             //kezdetben a sorszámot tároló integert 0-ba állítja
+        this.elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
+        this.setOfLeds = new HashSet<Integer>();                 //egy hashsetet kreál
     }
 
     public void Start() //a project start függvénye: a szimuláció
     {
         System.out.println("Project | start() | szimuláció indítása");      //kiírat
+
+        Set<Map.Entry<Integer, AElement>> set = elements.entrySet();
+        for (Map.Entry<Integer, AElement> me : set) {
+            me.getValue().SetReady();
+        }
+
         Iterator it = this.setOfLeds.iterator();
         while (it.hasNext()) //a ledekre meghívja a SetValue függvényt
         {
             int tmp = (Integer) it.next();
             System.out.println();
-            this.elements.get(tmp).SetValue();
+            elements.get(tmp).SetValue();
         }
     }
 
@@ -36,15 +42,18 @@ public class Project {
     {
         System.out.println("DeleteItem: " + elements.get(id));     //kiírat
         elements.get(id).Delete();       //meghívja a törölni kívánt elem törlő függvényét
+        elements.remove(id);
     }
 
     public void ListElements() //a program törlés függvénye
     {
         System.out.println("Felvett elemek listaja: ");      //kiírat
-        AElement temp;
-        for (int i = 0; i < elements.size(); ++i) {
-            temp = elements.get(i);
-            System.out.println("Elem: " + temp.toString());
+
+        Set<Map.Entry<Integer, AElement>> set = elements.entrySet();
+
+        for (Map.Entry<Integer, AElement> me : set) {
+            System.out.print(me.getKey() + ": ");
+            System.out.println(me.getValue());
         }
     }
 
@@ -137,10 +146,10 @@ public class Project {
         TmpGate1 = (AGate) elements.get(Gate1ID);
         TmpGate2 = elements.get(Element2ID);
 
-        Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output.get(Element2Pin), ID);
+        Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.outputs.get(Element2Pin), ID);
         elements.put(ID, tmp);
         TmpGate1.inputs.get(Gate1Pin).SetWire(tmp);
-        TmpGate2.output.get(Element2Pin).SetWire(tmp);
+        TmpGate2.outputs.get(Element2Pin).SetWire(ID, tmp);
         ++ID;
     }
 
