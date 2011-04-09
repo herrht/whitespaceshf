@@ -11,6 +11,7 @@ public class Composite extends AGate {
     /*------------------------- Osztaly kezelo fgv -------------------------*/
     public Composite(int ID) {
         System.out.println("Composite | Composite() | Composite konstruktor");        //kiírat
+        ready = true;
         this.ID = ID;
         IDsub = 0;                                          //kezdetben a sorszámot tároló integert 0-ba állítja
         elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
@@ -21,6 +22,20 @@ public class Composite extends AGate {
         return this.ID;                                     //visszaadja az elem sorszámát
     }
 
+    public int GetValue()
+    {
+        System.out.println(this + " | GetValue() | CALL\n");
+
+        if (!(this.ready)) {
+            return value;
+        } else {
+            this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
+            System.out.println(this + " | GetValue() | RETURN\n");
+            this.ready = false;
+            return value;           //visszaadja a jelenlegi értékét a hívónak
+        }
+    }
+
     public void Delete() {                                  //az elem törlő függvénye amely törli a be és kimenő lábakat
         System.out.println(this + " | Delete() | Composite torles fuggvenye ");
         for (int i = 0; i < inputnum; i++) {
@@ -28,7 +43,7 @@ public class Composite extends AGate {
         }
 
         for (int i = 0; i < outputnum; i++) {
-            output.get(i).Delete();
+            outputs.get(i).Delete();
         }
         //Megpusztítjuk saját magunkat
     }
@@ -114,10 +129,10 @@ public class Composite extends AGate {
         TmpGate1 = (AGate) elements.get(Gate1ID);
         TmpGate2 = elements.get(Element2ID);
 
-        Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.output.get(Element2Pin), ID);
+        Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.outputs.get(Element2Pin), ID);
         elements.put(ID, tmp);
         TmpGate1.inputs.get(Gate1Pin).SetWire(tmp);
-        TmpGate2.output.get(Element2Pin).SetWire(tmp);
+        TmpGate2.outputs.get(Element2Pin).SetWire(ID, tmp);
         ++ID;
     }
 

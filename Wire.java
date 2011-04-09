@@ -5,16 +5,10 @@ public class Wire extends AElement {
     private PinIn output;           //A kapott Elem kimenete lesz a Vezeték bemene
     private PinOut input;           //A kapott Elem bemenete lesz a Vezeték kimenete
 
-    /**
-     *
-     * @param input
-     * @param output
-     * @return
-     */
     public Wire(PinIn input, PinOut output, int ID) {
+        this.ID = ID;       //a sorszámát egyenlővé tesszük a paraméterrel
         this.input = output;    //A kapott Elem kimenete lesz a Vezeték bemene
         this.output = input;    //A kapott Elem bemenete lesz a Vezeték kimenete
-        this.ID = ID;       //a sorszámát egyenlővé tesszük a paraméterrel
         System.out.println(this + " | Wire konstruktor ");          //kiírat
     }
 
@@ -23,10 +17,6 @@ public class Wire extends AElement {
         return this.ID;     //visszaadja az elem sorszámát
     }
 
-    /**
-     *
-     * @return
-     */
     public void SetValue() {
         System.out.println(this + " | SetValue() | CALL");       //kiírat
         value = input.GetValue();       //az elem értékét egyenlővé teszi a bemenő lábbal
@@ -40,8 +30,6 @@ public class Wire extends AElement {
         // Láb törlés nem kell, hiszen az adott elem még használja
         //Megpusztítjuk saját magunkat
     }
-
-    ;
 
     @Override
     public String toString() {

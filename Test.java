@@ -170,15 +170,39 @@ public class Test {
         proj.Start();
     }
 
-    public void TestSingle() {
-        // ---- AddNewComposite
-        System.out.println("\nMain | Project | proj | AddComposite() | CALL");
-        proj.AddComposite();
+    public void Test7() {
+        System.out.println("\n------------ Teszt7 ------------");
 
-        // ---- AddNewOscilloscope
-        System.out.println("\nMain | Project | proj | AddOscilloscope() | CALL");
-        proj.AddOscilliscope();
+        System.out.println("\nMain | Project | proj | AddInverter() | CALL");
+        proj.AddInverter();
+        System.out.println("\nMain | Project | proj | AddFix1() | CALL");
+        proj.AddFix1();
+        System.out.println("\nMain | Project | proj | AddAnd(2) | CALL");
+        proj.AddAnd(2);
+        System.out.println("\nMain | Project | proj | AddLed() | CALL");
+        proj.AddLed();
 
+        System.out.println("\n------------ Osszekottetesek: ------------");
+        System.out.println("\nMain | Project | proj | AddWire(0,0,1) CALL");
+        proj.AddWire(0, 0, 2, 0);   //Inverter bemenetére And kimenete
+        proj.AddWire(3, 0, 0, 0);   //Led bemenetére Inverter kimenete
+        proj.AddWire(2, 0, 0, 0);   //And 0.bemenetére Inverter kimenete
+        proj.AddWire(2, 1, 1, 0);   //And 1.bemenetére Fix1 kimenete
+
+        System.out.println("\n------------ Futtatas: ------------");
+        System.out.println("\nMain | Project | proj |Start() | CALL");
+
+
+        System.out.println("\nInverter PinOut vezetékei:");       //kiírat
+        proj.elements.get(0).outputs.get(0).ListElements();
+
+        System.out.println("\nAnd PinOut vezetékei:");       //kiírat
+        proj.elements.get(2).outputs.get(0).ListElements();
+
+        proj.Start();
+    }
+
+    public void Test8() {
         // ---- AddNewLed
         System.out.println("\nMain | Project | proj | AddAnd(PinNum) | CALL");
         proj.AddAnd(3);
@@ -212,6 +236,14 @@ public class Test {
         System.out.println("\nMain | Project | proj | AddWireGateGate(id1,id1-pin,id2) | CALL");
         proj.AddWire(0, 1, 3, 0);       //0. kapu 1. pin és 3.kapu kimenete
 
+        // ---- AddNewComposite
+        System.out.println("\nMain | Project | proj | AddComposite() | CALL");
+        proj.AddComposite();
+
+        // ---- AddNewOscilloscope
+        System.out.println("\nMain | Project | proj | AddOscilloscope() | CALL");
+        proj.AddOscilliscope();
+
         // ---- DeleteElement ----
         System.out.println("\nMain | Project | proj | DeleteElement(id) | CALL");
         proj.DeleteElement(0);          //0. kapu törlése
@@ -220,5 +252,4 @@ public class Test {
         System.out.println();
         proj.ListElements();
     }
-
 }

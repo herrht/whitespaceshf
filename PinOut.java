@@ -1,15 +1,17 @@
 package szlab4_whitespaces;
 
+import java.util.*;
+
 public class PinOut extends Pin {
 
-    public PinOut(AElement e) {
-        elem = e;       //eltároljuk, hogy a láb melyik elemhez tartozik
-        System.out.println(this + " | PinOut konstruktor");     //kiírat
-    }
+      protected Map<Integer, Wire> w;
+//    protected Wire w;               //itt tároljuk el, hogy a láb melyik wire-hez tartozik
 
-    @Override
-    public String toString() {
-        return "PinOut" + " of " + elem;
+    public PinOut(AElement e, int id) {
+        ID = id;        //beállítja az elem sorszámát a paraméterre
+        elem = e;       //eltároljuk, hogy a láb melyik elemhez tartozik
+        w = new HashMap<Integer, Wire>(); 
+        System.out.println(this + " | PinOut konstruktor");     //kiírat
     }
 
     public void Delete() {      //az láb törlő függvénye
@@ -21,5 +23,26 @@ public class PinOut extends Pin {
         System.out.println(this + " | PinOut SetValue()|CALL");     //kiírat
         value = elem.GetValue();    //egyenlővé teszi a láb értékét az elem értékével
         System.out.println(this + " | PinOut SetValue()|RETURN");       //kiírat
+    }
+
+    public void SetWire(int sorszam, Wire tmpw) {
+        this.w.put(sorszam, tmpw);
+//        this.w = tmpw;
+    }
+
+    public void ListElements()                  //Kilistazhatjuk a kimenetre kotott vezetekeket
+    {
+        System.out.println("Felvett elemek listaja: ");      //kiírat
+        Set<Map.Entry<Integer, Wire>> set = this.w.entrySet();
+
+        for (Map.Entry<Integer, Wire> me : set) {
+            System.out.print(me.getKey() + ": ");
+            System.out.println(me.getValue());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "PinOut" + " of " + elem;
     }
 }
