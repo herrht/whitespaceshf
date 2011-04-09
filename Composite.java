@@ -55,11 +55,13 @@ public class Composite extends AGate {
 
     public void ListElements() //a program törlés függvénye
     {
-        System.out.println("Kompozitot alkoto elemek listaja: ");      //kiírat
-        AElement temp;
-        for (int i = 0; i < elements.size(); ++i) {
-            temp = elements.get(i);
-            System.out.println("Elem: " + temp.toString());
+        System.out.println("Felvett elemek listaja: ");      //kiírat
+
+        Set<Map.Entry<Integer, AElement>> set = elements.entrySet();
+
+        for (Map.Entry<Integer, AElement> me : set) {
+            System.out.print(me.getKey() + ": ");
+            System.out.println(me.getValue());
         }
     }
 
