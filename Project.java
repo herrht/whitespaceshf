@@ -8,6 +8,7 @@ public class Project {
     /*------------------------- Attibutumok -------------------------*/
 
     public Map<Integer, AElement> elements;                 //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
+    private int freq;
     private int ID;                                         //a sorszámot tároló integer
     private Set<Integer> setOfLeds;
     /*------------------------- Osztaly kezelo fgv -------------------------*/
@@ -19,7 +20,24 @@ public class Project {
         this.setOfLeds = new HashSet<Integer>();                 //egy hashsetet kreál
     }
 
-    public void Start() //a project start függvénye: a szimuláció
+    public void SetFreq(int newFreq)    // Frekvenciát állítjuk be
+    {
+        this.freq = newFreq;            // Paraméterben kapott értéket eltároljuk
+    }
+
+    public void Start()                 // A project start függvénye: a szimuláció
+    {
+        // if (óraütés) && (!stop), akkor:
+        this.Simulation();
+        //else wait/return
+    }
+
+    public void Stop()                  // A project Stop függvénye: a szimuláció
+    {
+        // Leállítja a szimulációt (a Start függvény ne fusson tovább)
+    }
+
+    public int Simulation() //a project start függvénye: a szimuláció
     {
         System.out.println("Project | start() | szimuláció indítása");      //kiírat
 
@@ -35,6 +53,7 @@ public class Project {
             System.out.println();
             elements.get(tmp).SetValue();
         }
+        return 1;
     }
 
     /*------------------------- Elemek torkes, listazas -------------------------*/
