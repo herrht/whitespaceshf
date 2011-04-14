@@ -15,7 +15,7 @@ public class Composite extends AGate {
         this.elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
         System.out.println("Composite | Composite() | Composite konstruktor");        //kiírat
     }
-
+    public void SetValue(){}
     public int GetID() {
         System.out.println(this + " | GetID() | CALL");     //kiírat
         return this.ID;                                     //visszaadja az elem sorszámát

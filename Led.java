@@ -9,7 +9,7 @@ public class Led extends AGate {
 
         inputs = new HashMap<Integer, PinIn>(1);
         inputs.put(0, new PinIn(this, 0));      //kreál egy bemenő lábat
-
+        value = 0;              //alapértelmezett value a lednél 0
         outputs = null;      //nincs kimenő lába, emiatt null az értéke
 
         System.out.println(this + " | Led() | LED konstruktor");      //kiírat
@@ -24,6 +24,12 @@ public class Led extends AGate {
         System.out.println(this + " | Delete() | Led torles fuggvenye ");
         inputs.get(0).Delete();
         //Megpusztítjuk saját magunkat
+    }
+    
+     public void SetValue() {
+        value = inputs.get(0).GetValue();    //meghívja a bemenő lábára a GetValue függvényt és egyenlővé teszi a valuet
+
+        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     @Override

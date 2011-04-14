@@ -20,6 +20,19 @@ public class OR extends AGate {
         System.out.println(this + " | OR(" + inputnum + ") | Or konstruktor");        //kiírat
     }
 
+    public void SetValue() {
+        int temp = 0;
+        for (int i = 0; i < inputnum; i++) {
+        temp += inputs.get(i).GetValue();    //temp értékét egyenlővé teszi azzal az értékkel ahány db bemenő láb egyes
+        }
+        if (temp>0)     //ha legalább egy láb egyes volt akkor value értéke egyes
+            value = 1;
+        else
+            value = 0;          //különben 0
+
+        System.out.println(this + " | SetValue() | CALL");           //kiírat
+    }
+
     public int GetID() {
         System.out.println(this + " | GetID() | CALL");      //kiírat
         return this.ID;     //visszaadja az elem sorszámát

@@ -20,7 +20,7 @@ public class Fix1 extends ASource {
     }
 
     public void SetValue() {
-//		value = 1;
+		value = 1;
         System.out.println(this + " | SetValue() | CALL| RETURN");       //kiírat
     }
 
