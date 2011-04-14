@@ -20,7 +20,7 @@ public class Wire extends AElement {
     public void SetValue() {
         System.out.println(this + " | SetValue() | CALL");       //kiírat
         value = input.GetValue();       //az elem értékét egyenlővé teszi a bemenő lábbal
-        System.out.println(this + " | SetValue() | RETURN");     //kiírat
+        //System.out.println(this + " | SetValue() | RETURN");     //kiírat
     }
 
     public void Delete() {       //a wire törlő függvénye, ami törli a wiret, de a lábakat nem, mivel azokat még az elemek használják

@@ -20,8 +20,13 @@ public class Switch extends ASource {
     }
 
     public void SwitchOutput() {
-//          value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
-        System.out.println(this + " | SetValue() | CALL");     //kiírat
+          value = (value == 1) ? 0 : 1;           //ha value 1, akkor 0-ra állítja egyébként 1-re
+        System.out.println(this + " | SwitchOutput() | CALL");     //kiírat
+    }
+
+    public void SetValue(){
+
+        System.out.println(this + " | SetValue() | CALL");
     }
 
     public void Delete() {       //az elem törlő függvénye
@@ -35,8 +40,6 @@ public class Switch extends ASource {
         return "Switch" + ID;
     }
 
-    @Override
-    public void SetValue() {
-        System.out.printf(this + " | SetValue() | CALL| RETURN\n");      //kiírat
-    }
+   
+    
 }

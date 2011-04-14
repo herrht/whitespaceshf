@@ -25,6 +25,19 @@ public class AND extends AGate {
         return this.ID;         //visszaadja az elem sorszámát
     }
 
+    public void SetValue() {
+        int temp = 0;
+        for (int i = 0; i < inputnum; i++) {
+        temp += inputs.get(i).GetValue();    //temp értékét egyenlővé teszi azzal az értékkel ahány db bemenő láb egyes
+        }
+        if (temp==inputnum)     //ha minden bemenő láb egyes volt akkor value értéke egyes
+            value = 1;
+        else
+            value = 0;          //különben 0
+
+        System.out.println(this + " | SetValue() | CALL");           //kiírat
+    }
+
     public void Delete() {           //törli a kapi ki- és bementi lábait
         System.out.println(this + " | Delete() | And torles fuggvenye ");
         for (int i = 0; i < inputnum; i++) {

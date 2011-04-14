@@ -17,5 +17,10 @@ public abstract class Pin {
         return value;       //visszaadja a láb értékét
     }
 
+    public int GetID() {
+        System.out.println(this + " | GetID() | CALL");      //kiírat
+        return this.ID;     //visszaadja az elem sorszámát
+    }
+
 //    abstract public void SetWire(Wire w);
 }

@@ -22,6 +22,14 @@ public class Inverter extends AGate {
         return this.ID;     //visszaadja az elem sorszámát
     }
 
+    public void SetValue() {
+        if (value==0)       //invertálja az értékét
+            value = 1;
+        else
+            value = 0;
+        System.out.println(this + " | SetValue() | CALL");           //kiírat
+    }
+
     public void Delete() {       //az elem törlő függvénye, törli a be - és kimenő lábait
         System.out.println(this + " | Delete() | Inverter torles fuggvenye ");
         inputs.get(0).Delete();

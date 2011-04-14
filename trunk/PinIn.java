@@ -19,7 +19,7 @@ public class PinIn extends Pin {
     public void SetValue() {
         System.out.println(this + " | PinIn SetValue()|CALL");       //kiírat
         value = w.GetValue();       //beállítja a láb értékét a wire értékvel
-        System.out.println(this + " | PinIn SetValue()|RETURN");     //kiírat
+        //System.out.println(this + " | PinIn SetValue()|RETURN");     //kiírat
     }
 
     public void SetWire(Wire w)

@@ -20,7 +20,7 @@ public class Fix0 extends ASource {
     }
 
     public void SetValue() {
-//		value = 0;
+		value = 0;
         System.out.printf(this + " | SetValue() | CALL| RETURN\n");      //kiírat
     }
 

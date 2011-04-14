@@ -9,9 +9,9 @@ public class Generator extends ASource {
 
     public Generator(int[] rate, int ID) {
         this.ID = ID;       //a sorszmáot egyenlővé teszi a paraméterrel
-//	counter = 0;
-//      nums = rate;
-//      value = outputs[0];
+	counter = 0;
+        nums = rate;
+        value = nums[0];
         
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
@@ -25,13 +25,17 @@ public class Generator extends ASource {
     }
 
     public void SetValue() {
-//          value = outputs[counter];
+          value = nums[counter];
+          this.Shift();
         System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     public void Shift() {       //az elem léptető függvénye, változtatja a kimenő értéket a benne tárolt számsor alapján
-//		counter++;
-//               SetValue();
+	if(counter < nums.length)	//amíg nem érünk a tömb végére léptetjük a countert
+                counter++;
+        else                            //ha végére értünk, akkor előről kezdjük a lépegetést
+                counter=0;
+
         System.out.println(this + " | Shift() | CALL");      //kiírat
     }
 
