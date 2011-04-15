@@ -15,7 +15,7 @@ public class Main {
         progi.NewTest();
 
         System.out.println("\nMain | Program | tester | Test() | CALL");
-        progi.tester.Test5();
+        progi.tester.Test9();
 
     }   // End of MAIN
 }

@@ -11,6 +11,7 @@ public class Project {
     private int freq;
     private int ID;                                         //a sorszámot tároló integer
     private Set<Integer> setOfLeds;
+    private Map<Integer, Composite> composites;
     /*------------------------- Osztaly kezelo fgv -------------------------*/
 
     public Project() {
@@ -18,6 +19,7 @@ public class Project {
         this.ID = 0;                                             //kezdetben a sorszámot tároló integert 0-ba állítja
         this.elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
         this.setOfLeds = new HashSet<Integer>();                 //egy hashsetet kreál
+        this.composites = new HashMap<Integer, Composite>();                 //egy hashsetet kreál
     }
 
     public void SetFreq(int newFreq)    // Frekvenciát állítjuk be
@@ -56,7 +58,7 @@ public class Project {
         return 1;
     }
 
-    /*------------------------- Elemek torkes, listazas -------------------------*/
+    /*------------------------- Elemek torles, listazas -------------------------*/
     public void DeleteElement(int id) //a program törlés függvénye
     {
         System.out.println("DeleteItem: " + elements.get(id));     //kiírat
@@ -76,10 +78,80 @@ public class Project {
         }
     }
 
-    public void EditComposite(int id) //a program törlés függvénye
+    /*------------------------- Kompozit elem szerkesztes -------------------------*/
+    public void AddID(Composite c)
     {
-        Composite temp = (Composite) elements.get(id);
-        // temp.<ParamFgv>;
+        this.composites.put(ID, c);                  //felveszi a Composite elemet a jelenlegi sorszámmal
+        ++this.ID;
+
+    }
+
+    //Altalanos kompozit elem szereksztő (id: azonositp, func: muvelet, p1: inpputnum/Gate1ID, p2: Gate1Pin, p3: Gate2ID, p4: Gate2Pin, rate: jelsorozat)
+    public void EditComposite(int id, String func, int p1, int p2, int p3, int p4, int[] rate) //a program törlés függvénye
+    {
+        Composite comp = (Composite) elements.get(id);
+
+        //AddAnd, AddComposite, AddFix0, AddFix1, AddGenerator, AddInverter, AddLed, AddOr, AddSwitch, AddWire, DeleteElement
+
+        if (func.equals("AddAnd"))
+        {
+            System.out.println("AddAnd");
+            comp.AddAnd(p1);
+        }else
+
+        if(func.equals("AddComposite"))
+        {
+            System.out.println("AddComposite");
+            comp.AddComposite();
+        }else
+
+        if (func.equals("AddFix0"))
+        {
+            System.out.println("AddFix0");
+            comp.AddFix0();
+        }else
+
+        if (func.equals("AddFix1"))
+        {
+            System.out.println("AddFix1");
+            comp.AddFix1();
+        }else
+
+        if (func.equals("AddGenerator"))
+        {
+            System.out.println("AddGenerator");
+            comp.AddGenerator(rate);
+        }else
+
+        if (func.equals("AddInverter"))
+        {
+            System.out.println("AddInverter");
+            comp.AddInverter();
+        }else
+
+        if (func.equals("AddOr"))
+        {
+            System.out.println("AddOr");
+            comp.AddOr(p1);
+        }else
+
+        if (func.equals("AddSwitch"))
+        {
+            System.out.println("AddSwitch");
+            comp.AddSwitch();
+        }else
+
+        if (func.equals("AddWire"))
+        {
+            System.out.println("AddWire");
+            comp.AddWire(p1, p1, p3, p4);
+        }else
+
+        if (func.equals("DeleteElement"))
+        {
+            System.out.println("DeleteElement");
+            comp.DeleteElement(p1);
+        }
     }
 
 
@@ -95,7 +167,8 @@ public class Project {
     {
         System.out.println("Project | AddComposite() | Composite elem letrehozas");       //kiírat
         elements.put(ID, new Composite(ID));     //kreál egy Composite elemet a jelenlegi sorszámmal
-        ++ID;       //növeli a kiosztott sorszámok értékét
+        //++ID;       //növeli a kiosztott sorszámok értékét
+        //nem szükséges, mivel a kopmozit konstruktora állítja be (beágyazás miatt érdekes)
     }
 
     public void AddFix0() //a program azon függvénye, amivel egy Fix0-t kreálhatunk

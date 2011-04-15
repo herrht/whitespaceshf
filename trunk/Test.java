@@ -252,4 +252,35 @@ public class Test {
         System.out.println();
         proj.ListElements();
     }
+
+        public void Test9() {
+
+        // ---- AddNewComposite
+        System.out.println("\nMain | Project | proj | AddComposite() | CALL");
+        proj.AddComposite();
+
+        System.out.println("\nMain | Project | proj | EditComposite() - AddGenerator | CALL");
+        int rate[] = {1, 1, 0, 1, 0, 0};
+        proj.EditComposite(0,"AddGenerator",0,0,0,0,rate);
+
+        System.out.println("\nMain | Project | proj | EditComposite() - AddGenerator | CALL");
+        proj.EditComposite(0,"AddAnd",2,0,0,0,rate);
+
+        System.out.println("\nMain | Project | proj | EditComposite() - AddGenerator | CALL");
+        proj.EditComposite(0,"AddComposite",0,0,0,0,rate);
+/*
+/*
+ *
+        // ---- AddLed
+        System.out.println("\nMain | Project | proj | AddLed() | CALL");
+        proj.AddLed();
+
+        // ---- AddWireGateGate
+        System.out.println("\nMain | Project | proj | AddWireGateGate(id1,id1-pin,id2) | CALL");
+        proj.AddWire(0, 0, 0, 0);       //0. kapu 1. pin és 3.kapu kimenete
+*/        
+        // ---- ListElements ----
+        System.out.println();
+        proj.ListElements();
+    }
 }
