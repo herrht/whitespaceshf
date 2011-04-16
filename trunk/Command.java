@@ -19,20 +19,22 @@ public class Command
     int param[];
     Project proj;
 
-    Command(Project proj, String name, int param[])
+    Command(Project proj, String name, int par[])
     {   
         this.proj = proj;
         param = new int[4];
         this.name = name;
-        this.param = param;
+        System.arraycopy(par, 0, param, 0, 4); //a konstruktorban megadott paramétert bemásoljuk a parancs paraméterlistájába.
+        
+
     }
     
     void run()
     {
-        if(name.equals("AddAnd"))
+        if(name.equals("AddAnd")) // a switchnél nem lehet Stringet használni, mert régi a java
         {
-            int tmp = param[0];
-            proj.AddAnd(tmp);
+            
+            proj.AddAnd(param[0]);
         }
         if(name.equals("AddOr"))
         {
@@ -75,6 +77,11 @@ public class Command
         {
             proj.AddWire(param[0], param[1],param[2],param[3]);
         }
+         if(name.equals("Start"))
+        {
+            proj.Start();
+        }
+
     }
 }
 
