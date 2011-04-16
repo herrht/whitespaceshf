@@ -12,7 +12,7 @@ public class Led extends AGate {
         value = 0;              //alapértelmezett value a lednél 0
         outputs = null;      //nincs kimenő lába, emiatt null az értéke
 
-        System.out.println(this + " | Led() | LED konstruktor");      //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Led-t, melynek id-je:"+ID);      //kiírat
     }
 
     public int GetID() {

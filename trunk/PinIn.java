@@ -8,7 +8,7 @@ public class PinIn extends Pin {
         this.ID = id;        //beállítja az elem sorszámát a paraméterre
         this.elem = e;       //beállítja, hogy melyik elemhez tartozik a láb
         
-        System.out.println(this + " | PinIn konstruktor");        //kiírat
+        //System.out.println(this + " | PinIn konstruktor");        //kiírat
     }
 
     public void Delete() {       //a láb törlő függvénye

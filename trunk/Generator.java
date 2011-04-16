@@ -16,7 +16,7 @@ public class Generator extends ASource {
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println(this + " | Generator(rate)| Generator konstruktor");       //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Generator-t, melynek id-je:"+ID);       //kiírat
     }
 
     public int GetID() {

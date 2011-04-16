@@ -11,7 +11,7 @@ public class PinOut extends Pin {
         ID = id;        //beállítja az elem sorszámát a paraméterre
         elem = e;       //eltároljuk, hogy a láb melyik elemhez tartozik
         w = new HashMap<Integer, Wire>(); 
-        System.out.println(this + " | PinOut konstruktor");     //kiírat
+        //System.out.println(this + " | PinOut konstruktor");     //kiírat
     }
 
     public void Delete() {      //az láb törlő függvénye
