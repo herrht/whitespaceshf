@@ -27,18 +27,19 @@ public class Program {
 
     public void SaveProject() throws IOException //a project mentés függvénye
     {
+        /*
         FileWriter fstream = new FileWriter("out.txt");
         BufferedWriter out = new BufferedWriter(fstream);
-        out.write("teszzzzzzzzzt");
+        //out.write(proj.elements.get(0).toString() + "\n");
 
-
-        
         out.close();
+         */ //fajl beolvasas em kell valszeg, ide biztos nem
+
     }
 
     public void LoadProject() throws IOException //a project töltés függvénye
     {
-       
+        
 
         
 
