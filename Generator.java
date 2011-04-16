@@ -27,16 +27,16 @@ public class Generator extends ASource {
     public void SetValue() {
           value = nums[counter];
           this.Shift();
-        System.out.println(this + " | SetValue() | CALL");           //kiírat
+//        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     public void Shift() {       //az elem léptető függvénye, változtatja a kimenő értéket a benne tárolt számsor alapján
-	if(counter < nums.length)	//amíg nem érünk a tömb végére léptetjük a countert
+	if(counter < nums.length-1)	//amíg nem érünk a tömb végére léptetjük a countert
                 counter++;
         else                            //ha végére értünk, akkor előről kezdjük a lépegetést
                 counter=0;
 
-        System.out.println(this + " | Shift() | CALL");      //kiírat
+//        System.out.println(this + " | Shift() | CALL");      //kiírat
     }
 
     public void Delete() {       //az elem törlő függvénye, törli a kimenő lábát
