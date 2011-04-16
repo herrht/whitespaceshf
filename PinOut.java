@@ -20,7 +20,7 @@ public class PinOut extends Pin {
     }
 
     public void SetValue() {
-        System.out.println(this + " | PinOut SetValue()|CALL");     //kiírat
+//        System.out.println(this + " | PinOut SetValue()|CALL");     //kiírat
         value = elem.GetValue();    //egyenlővé teszi a láb értékét az elem értékével
         //System.out.println(this + " | PinOut SetValue()|RETURN");       //kiírat
     }
@@ -43,6 +43,6 @@ public class PinOut extends Pin {
 
     @Override
     public String toString() {
-        return "PinOut" + " of " + elem;
+        return "PinOut"+ID + " of " + elem;
     }
 }

@@ -23,11 +23,11 @@ public class Inverter extends AGate {
     }
 
     public void SetValue() {
-        if (value==0)       //invertálja az értékét
+        if (inputs.get(0).GetValue()==0)       //invertálja az értékét
             value = 1;
         else
             value = 0;
-        System.out.println(this + " | SetValue() | CALL");           //kiírat
+//        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     public void Delete() {       //az elem törlő függvénye, törli a be - és kimenő lábait
