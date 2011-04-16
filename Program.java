@@ -1,5 +1,11 @@
 package szlab4_whitespaces;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Program {
 
     public Project proj;                //a project
@@ -19,13 +25,22 @@ public class Program {
         tester = new Test(proj);       //egy új tesztet kreál
     }
 
-    public void SaveProject() //a project mentés függvénye
+    public void SaveProject() throws IOException //a project mentés függvénye
     {
-        throw new UnsupportedOperationException();
+        FileWriter fstream = new FileWriter("out.txt");
+        BufferedWriter out = new BufferedWriter(fstream);
+        out.write("teszzzzzzzzzt");
+
+
+        
+        out.close();
     }
 
-    public void LoadProject() //a project töltés függvénye
+    public void LoadProject() throws IOException //a project töltés függvénye
     {
-        throw new UnsupportedOperationException();
+       
+
+        
+
     }
 }
