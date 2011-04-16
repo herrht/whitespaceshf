@@ -29,49 +29,49 @@ public class Command
     
     void run()
     {
-        if(name == "AddAnd")
+        if(name.equals("AddAnd"))
         {
             int tmp = param[0];
             proj.AddAnd(tmp);
         }
-        if(name == "AddOr")
+        if(name.equals("AddOr"))
         {
             int tmp = param[0];
             proj.AddOr(tmp);
         }
-        if(name == "AddInverter")
+        if(name.equals("AddInverter"))
         {
             proj.AddInverter();
         }
-        if(name == "AddFix1")
+        if(name.equals("AddFix1"))
         {
             proj.AddFix1();
         }
-        if(name == "AddFix0")
+        if(name.equals("AddFix0"))
         {
             proj.AddFix0();
         }
-        if(name == "AddLed")
+        if(name.equals("AddLed"))
         {
             proj.AddLed();
         }
-        if(name == "AddGenerator")
+        if(name.equals("AddGenerator"))
         {
             proj.AddGenerator(param);
         }
-        if(name == "AddSwitch")
+        if(name.equals("AddSwitch"))
         {
             proj.AddSwitch();
         }
-        if(name == "AddOscilloscope")
+        if(name.equals("AddOscilloscope"))
         {
             proj.AddOscilliscope();
         }
-        if(name == "AddCompozite")
+        if(name.equals("AddCompozite"))
         {
             proj.AddComposite();
         }
-        if(name == "AddWire")
+        if(name.equals("AddWire"))
         {
             proj.AddWire(param[0], param[1],param[2],param[3]);
         }
