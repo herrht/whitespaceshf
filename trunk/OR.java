@@ -25,12 +25,12 @@ public class OR extends AGate {
         for (int i = 0; i < inputnum; i++) {
         temp += inputs.get(i).GetValue();    //temp értékét egyenlővé teszi azzal az értékkel ahány db bemenő láb egyes
         }
-        if (temp>0)     //ha legalább egy láb egyes volt akkor value értéke egyes
+        if (temp == 1)     //ha legalább egy láb egyes volt akkor value értéke egyes
             value = 1;
         else
             value = 0;          //különben 0
 
-        System.out.println(this + " | SetValue() | CALL");           //kiírat
+//        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     public int GetID() {
@@ -39,14 +39,14 @@ public class OR extends AGate {
     }
 
     public int GetValue() {
-        System.out.println(this + " | GetValue() | CALL\n");
+//        System.out.println(this + " | GetValue() | CALL\n");
 
         if (!(this.ready)) {
             return value;
         } else {
             this.ready = false;
             this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
-            System.out.println(this + " | GetValue() | RETURN\n");
+//            System.out.println(this + " | GetValue() | RETURN\n");
             return value;           //visszaadja a jelenlegi értékét a hívónak
         }
     }

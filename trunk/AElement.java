@@ -11,14 +11,14 @@ public abstract class AElement {
     protected int outputnum = 1;                //kimenetek szama, alapbol 1
 
     public int GetValue() {
-        System.out.println(this + " | GetValue() | CALL\n");
+//        System.out.println(this + " | GetValue() | CALL\n");
 
         if (!(this.ready)) {
             return value;
         } else {
             this.ready = false;
             this.SetValue();        //meghívja a SetValue függvényét,a mivel beállítja az értékét
-            System.out.println(this + " | GetValue() | RETURN\n");
+//            System.out.println(this + " | GetValue() | RETURN\n");
             return value;           //visszaadja a jelenlegi értékét a hívónak
         }
     }

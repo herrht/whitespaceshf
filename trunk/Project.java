@@ -43,7 +43,7 @@ public class Project {
 
     public int Simulation() //a project start függvénye: a szimuláció
     {
-        System.out.println("Project | start() | szimuláció indítása");      //kiírat
+//        System.out.println("Project | start() | szimuláció indítása");      //kiírat
 
         Set<Map.Entry<Integer, AElement>> set = elements.entrySet();
         for (Map.Entry<Integer, AElement> me : set) {
@@ -54,7 +54,6 @@ public class Project {
         while (it.hasNext()) //a ledekre meghívja a SetValue függvényt
         {
             int tmp = (Integer) it.next();
-            System.out.println();
             elements.get(tmp).SetValue();
         }
         return 1;

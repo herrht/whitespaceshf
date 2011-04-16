@@ -11,14 +11,14 @@ public abstract class Pin {
     public abstract void SetValue();
 
     public int GetValue() {
-        System.out.println(this + " | Pin GetValue() |CALL");     //kiírat
+//        System.out.println(this + " | Pin GetValue() |CALL");     //kiírat
         this.SetValue();        //meghívja a saját SetValue függvényét
-        System.out.println(this + " | Pin GetValue() |RETURN");       //kiírat
+//        System.out.println(this + " | Pin GetValue() |RETURN");       //kiírat
         return value;       //visszaadja a láb értékét
     }
 
     public int GetID() {
-        System.out.println(this + " | GetID() | CALL");      //kiírat
+//        System.out.println(this + " | GetID() | CALL");      //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 

@@ -16,30 +16,36 @@ import java.lang.String;
 public class Command
 {
     String name;
-    int param[];
+    String par;
     Project proj;
 
-    Command(Project proj, String name, int par[])
+    Command(Project proj, String name, String par)
     {   
         this.proj = proj;
-        param = new int[4];
         this.name = name;
-        System.arraycopy(par, 0, param, 0, 4); //a konstruktorban megadott paramétert bemásoljuk a parancs paraméterlistájába.
-        
+        this.par = par; //a konstruktorban megadott paramétert bemásoljuk a parancs paraméterlistájába.
+               
 
     }
     
     void run()
     {
+        int param[] = new int[par.length()];
+        int tmp;
+        for (int i = 0; i < par.length(); i++)
+        {   
+            tmp = Integer.valueOf(par.substring(i, i+1));
+            
+            param[i] = tmp;            
+        }
+       
         if(name.equals("AddAnd")) // a switchnél nem lehet Stringet használni, mert régi a java
         {
-            
             proj.AddAnd(param[0]);
         }
         if(name.equals("AddOr"))
         {
-            int tmp = param[0];
-            proj.AddOr(tmp);
+            proj.AddOr(param[0]);
         }
         if(name.equals("AddInverter"))
         {
@@ -77,6 +83,7 @@ public class Command
         {
             proj.AddWire(param[0], param[1],param[2],param[3]);
         }
+        
          if(name.equals("Start"))
         {
             proj.Start();

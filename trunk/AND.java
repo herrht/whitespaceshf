@@ -35,7 +35,7 @@ public class AND extends AGate {
         else
             value = 0;          //különben 0
 
-        System.out.println(this + " | SetValue() | CALL");           //kiírat
+//        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     public void Delete() {           //törli a kapi ki- és bementi lábait

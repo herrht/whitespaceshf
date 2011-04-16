@@ -12,16 +12,16 @@ public class Program {
     public Test tester;                 //tesztesetek
 
     public Program() {
-        System.out.println("Program | Program() | Program konstruktor");        //kiírat
+//        System.out.println("Program | Program() | Program konstruktor");        //kiírat
     }
 
     public void NewProject() {
-        System.out.println("Program | NewProject() | Uj projekt letrehozas");       //kiírat
+//        System.out.println("Program | NewProject() | Uj projekt letrehozas");       //kiírat
         proj = new Project();       //egy új projectet kreál
     }
 
     public void NewTest() {
-        System.out.println("Program | NewTest() | Uj teszter letrehozas");       //kiírat
+//        System.out.println("Program | NewTest() | Uj teszter letrehozas");       //kiírat
         tester = new Test(proj);       //egy új tesztet kreál
     }
 

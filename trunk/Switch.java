@@ -11,7 +11,7 @@ public class Switch extends ASource {
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println(this + " | Switch() | Switch konstruktor");        //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Switch-t, melynek id-je:"+ID);        //kiírat
     }
 
     public int GetID() {

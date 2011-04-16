@@ -28,8 +28,10 @@ public class Led extends AGate {
     
      public void SetValue() {
         value = inputs.get(0).GetValue();    //meghívja a bemenő lábára a GetValue függvényt és egyenlővé teszi a valuet
+        System.out.println("A "+this+" értéke:"+value);
 
-        System.out.println(this + " | SetValue() | CALL");           //kiírat
+
+//        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     @Override

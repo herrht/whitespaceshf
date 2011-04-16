@@ -70,26 +70,34 @@ public class Main
         {
             BufferedReader in = new BufferedReader(new FileReader("in.txt"));   //beolvasandó fájl megadása
             String sor = new String();
-            String parancs;
             while( (sor = in.readLine() ) != null)
             {
                 String darabolt[] = sor.split(" ");
-                int param[] = {-1, -1, -1, -1};
+                String param = "";
                 int count = darabolt.length;
-                if(count == 2)
+//                if(count == 2)
+//                {
+//
+//                       param[0] = tmp;
+//                  }
+//                if(count == 5)
+//                {
+////                    System.out.println(count);
+//                    for(int i = 1; i < count; i++)
+//                    {
+//                        int tmp = Integer.valueOf(darabolt[i]);
+////                        System.out.println(darabolt[i]);
+//                        param[i-1] = tmp;
+//                    }
+//                }
+                if (count > 1)
                 {
-                    int tmp = Integer.valueOf(darabolt[1]);
-                    param[0] = tmp;
-                }
-                if(count == 5)
-                {
-//                    System.out.println(count);
-                    for(int i = 1; i < count; i++)
+                    param = darabolt[1];
+                    for (int i = 2; i < count; i++)
                     {
-                        int tmp = Integer.valueOf(darabolt[i]);
-//                        System.out.println(darabolt[i]);
-                        param[i-1] = tmp;
+                     param+=darabolt[i];
                     }
+               
                 }
                 Command cmd = new Command(progi.proj ,darabolt[0], param);
                 cmd.run();
