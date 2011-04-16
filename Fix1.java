@@ -11,7 +11,7 @@ public class Fix1 extends ASource {
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println(this + " | Fix1()| Fix1 konstruktor");     //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Fix1-t, melynek id-je:"+ID);     //kiírat
     }
 
     public int GetID() {

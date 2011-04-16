@@ -17,7 +17,7 @@ public class OR extends AGate {
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println(this + " | OR(" + inputnum + ") | Or konstruktor");        //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Or-t, melynek id-je:"+ID);        //kiírat
     }
 
     public void SetValue() {

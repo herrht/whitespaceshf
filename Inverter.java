@@ -14,7 +14,7 @@ public class Inverter extends AGate {
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println(this + " | Inverter() | Inverter konstruktor");        //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Inverter-t, melynek id-je:"+ID);        //kiírat
     }
 
     public int GetID() {

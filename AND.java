@@ -17,7 +17,7 @@ public class AND extends AGate {
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println(this + " | AND(" + inputnum + ") | And konstruktor");       //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy And-t, melynek id-je:"+ID);       //kiírat
     }
 
     public int GetID() {
