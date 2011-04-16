@@ -13,6 +13,7 @@ public class Project {
     private int freq;
     private int ID;                                         //a sorszámot tároló integer
     private Set<Integer> setOfLeds;
+    private Set<Integer> setOfGenerators;
     private Map<Integer, Composite> composites;
     /*------------------------- Osztaly kezelo fgv -------------------------*/
 
@@ -22,6 +23,7 @@ public class Project {
         this.elements = new HashMap<Integer, AElement>();        //egy hashmapet kreál
         this.setOfLeds = new HashSet<Integer>();                 //egy hashsetet kreál
         this.composites = new HashMap<Integer, Composite>();                 //egy hashsetet kreál
+        this.setOfGenerators = new HashSet<Integer>();          //egy hashsetet kreál
     }
 
     public void SetFreq(int newFreq)    // Frekvenciát állítjuk be
@@ -55,6 +57,12 @@ public class Project {
         {
             int tmp = (Integer) it.next();
             elements.get(tmp).SetValue();
+        }
+        it = this.setOfGenerators.iterator();
+        while (it.hasNext()) //a generátorokra meghívja a Shift() fgvnyt
+        {
+            Generator tmp = (Generator) it.next();
+            tmp.Shift();
         }
         return 1;
     }
@@ -190,6 +198,7 @@ public class Project {
     {
         //System.out.println("Project | AddGenerator(rate) | Generator letrehozas");      //kiírat
         elements.put(ID, new Generator(rate, ID));      //kreál egy generátort a jelenlegi sorszámmal, és azzal a számsorral, ami majd a generátorban fog váltakozni
+        setOfGenerators.add(ID);    // generátorok hozzáadása a set-hez
         ++ID;       //növeli a sorszám értékét
     }
 
