@@ -22,7 +22,7 @@ public class Main
         progi.NewTest();
 
         //System.out.println("\nMain | Program | tester | Test() | CALL");
-        progi.tester.Test9();
+//        progi.tester.Test9();
         
 
 //        try
@@ -81,15 +81,18 @@ public class Main
                     int tmp = Integer.valueOf(darabolt[1]);
                     param[0] = tmp;
                 }
-                if(count == 4)
+                if(count == 5)
                 {
-                    for(int i = 1; i < 4; ++i)
+//                    System.out.println(count);
+                    for(int i = 1; i < count; i++)
                     {
                         int tmp = Integer.valueOf(darabolt[i]);
-                        param[i] = tmp;
+//                        System.out.println(darabolt[i]);
+                        param[i-1] = tmp;
                     }
                 }
                 Command cmd = new Command(progi.proj ,darabolt[0], param);
+                cmd.run();
             }
             in.close();
         }
