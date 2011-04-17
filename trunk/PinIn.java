@@ -29,6 +29,6 @@ public class PinIn extends Pin {
 
     @Override
     public String toString() {
-        return "PinIn" + ID + " of " + elem;
+        return ""+elem;
     }
 }

@@ -37,7 +37,7 @@ public class Switch extends ASource {
 
     @Override
     public String toString() {
-        return "Switch" + ID;
+        return "Switch";
     }
 
    

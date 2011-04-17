@@ -9,7 +9,7 @@ public class Wire extends AElement {
         this.ID = ID;       //a sorszámát egyenlővé tesszük a paraméterrel
         this.input = output;    //A kapott Elem kimenete lesz a Vezeték bemene
         this.output = input;    //A kapott Elem bemenete lesz a Vezeték kimenete
-        System.out.println("Sikeresen hozzáadott egy vezetéket a "+output+" és a "+input+" közé.");          //kiírat
+        System.out.println("Sikeresen hozzáadott egy vezetéket a "+input+" és a "+output+" közé.");          //kiírat
     }
 
     public int GetID() {

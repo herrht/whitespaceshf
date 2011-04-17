@@ -32,6 +32,6 @@ public class Fix0 extends ASource {
 
     @Override
     public String toString() {
-        return "Fix0_" + ID;
+        return "Fix0";
     }
 }

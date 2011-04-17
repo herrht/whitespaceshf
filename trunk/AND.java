@@ -49,6 +49,6 @@ public class AND extends AGate {
 
     @Override
     public String toString() {
-        return "AND" + ID;
+        return "And";
     }
 }

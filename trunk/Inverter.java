@@ -39,6 +39,6 @@ public class Inverter extends AGate {
 
     @Override
     public String toString() {
-        return "Inverter" + ID;
+        return "Inverter";
     }
 }

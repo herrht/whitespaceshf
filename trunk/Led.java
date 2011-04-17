@@ -36,6 +36,6 @@ public class Led extends AGate {
 
     @Override
     public String toString() {
-        return "Led" + ID;
+        return "Led";
     }
 }
