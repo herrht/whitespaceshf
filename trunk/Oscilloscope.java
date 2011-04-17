@@ -5,7 +5,7 @@ import java.util.*;
 public class Oscilloscope extends AGate {
 
 
-    protected Set stash;
+    protected Set<Integer> stash;
 
 
 
