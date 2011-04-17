@@ -62,6 +62,6 @@ public class OR extends AGate {
 
     @Override
     public String toString() {
-        return "OR" + ID;
+        return "Or";
     }
 }

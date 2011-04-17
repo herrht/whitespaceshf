@@ -43,6 +43,6 @@ public class PinOut extends Pin {
 
     @Override
     public String toString() {
-        return "PinOut"+ID + " of " + elem;
+        return ""+elem;
     }
 }

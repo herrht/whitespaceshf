@@ -49,6 +49,6 @@ public class Generator extends ASource {
 
     @Override
     public String toString() {
-        return "Generator" + ID;
+        return "Generator";
     }
 }
