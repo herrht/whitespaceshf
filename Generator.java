@@ -25,8 +25,10 @@ public class Generator extends ASource {
     }
 
     public void SetValue() {
-          value = nums[counter];
+
           this.Shift();
+          value = nums[counter];
+          
 //        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
