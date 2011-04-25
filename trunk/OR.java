@@ -25,7 +25,7 @@ public class OR extends AGate {
         for (int i = 0; i < inputnum; i++) {
         temp += inputs.get(i).GetValue();    //temp értékét egyenlővé teszi azzal az értékkel ahány db bemenő láb egyes
         }
-        if (temp == 1)     //ha legalább egy láb egyes volt akkor value értéke egyes
+        if (temp >= 1)     //ha legalább egy láb egyes volt akkor value értéke egyes
             value = 1;
         else
             value = 0;          //különben 0
