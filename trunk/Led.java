@@ -25,7 +25,7 @@ public class Led extends AGate {
         inputs.get(0).Delete();
         //Megpusztítjuk saját magunkat
     }
-    
+
      public void SetValue() {
         value = inputs.get(0).GetValue();    //meghívja a bemenő lábára a GetValue függvényt és egyenlővé teszi a valuet
         System.out.println("A "+this+" értéke:"+value);
@@ -36,6 +36,7 @@ public class Led extends AGate {
 
     @Override
     public String toString() {
-        return "Led";
+        if (value == 1) return "Led1";
+        return "Led0";
     }
 }

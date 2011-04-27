@@ -35,7 +35,7 @@ public class Composite extends AGate {
 
     @Override
     public String toString() {
-        return "Composite" + ID;
+        return "Composite";
     }
 
     public void ListElements() //a program törlés függvénye
@@ -128,6 +128,8 @@ public class Composite extends AGate {
         System.out.println("DeleteItem: " + elements.get(id));     //kiírat
         elements.get(id).Delete();       //meghívja a törölni kívánt elem törlő függvényét
     }
+
 }
+
 
 /*------------------------- Osztaly vege -------------------------*/

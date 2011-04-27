@@ -12,7 +12,7 @@ public class Generator extends ASource {
 	counter = 0;
         nums = rate;
         value = nums[0];
-        
+
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
@@ -28,7 +28,7 @@ public class Generator extends ASource {
 
           this.Shift();
           value = nums[counter];
-          
+
 //        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 

@@ -165,81 +165,92 @@ public class Project {
 
 
     /*------------------------- Elemek felvetele -------------------------*/
-    public void AddAnd(int inputnum) // a program azon függvénye, amivel egy AND kaput tudunk létrehozni
+    public int AddAnd(int inputnum) // a program azon függvénye, amivel egy AND kaput tudunk létrehozni
     {
         //System.out.println("Project | AddAnd(inputnum) | And kapu letrehozas");     //kiírat
         elements.put(ID, new AND(inputnum, ID));        //kreál egy AND kaput a jelenlegi sorszámmal
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddComposite() //a program azon függvénye, amivel egy OR kaput kreálhatunk
+    public int AddComposite() //a program azon függvénye, amivel egy OR kaput kreálhatunk
     {
         //System.out.println("Project | AddComposite() | Composite elem letrehozas");       //kiírat
         elements.put(ID, new Composite(ID));     //kreál egy Composite elemet a jelenlegi sorszámmal
         //++ID;       //növeli a kiosztott sorszámok értékét
         //nem szükséges, mivel a kopmozit konstruktora állítja be (beágyazás miatt érdekes)
+        ++ID;
+        return ID-1;
     }
 
-    public void AddFix0() //a program azon függvénye, amivel egy Fix0-t kreálhatunk
+    public int AddFix0() //a program azon függvénye, amivel egy Fix0-t kreálhatunk
     {
         //System.out.println("Project | AddFix0() | Fix0 forras letrehozas");     //kiírat
         elements.put(ID, new Fix0(ID));     //kreál egy Fix0-t a jelenlegi sorszámmal
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddFix1() // a program azon függvénye, amivel egy Fix1-t kreálhatunk
+    public int AddFix1() // a program azon függvénye, amivel egy Fix1-t kreálhatunk
     {
        // System.out.println("Project | AddFix1() | Fix1 forras letrehozas");     //kiírat
         elements.put(ID, new Fix1(ID));     //kreál egy fix1-et a jelenlegi sorszámmal
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddGenerator(int[] rate) //a program azon függvénye, amivel egy generátort kreálhatunk
+    public int AddGenerator(int[] rate) //a program azon függvénye, amivel egy generátort kreálhatunk
     {
         //System.out.println("Project | AddGenerator(rate) | Generator letrehozas");      //kiírat
         elements.put(ID, new Generator(rate, ID));      //kreál egy generátort a jelenlegi sorszámmal, és azzal a számsorral, ami majd a generátorban fog váltakozni
         setOfGenerators.add(ID);    // generátorok hozzáadása a set-hez
         ++ID;       //növeli a sorszám értékét
+        return ID-1;
     }
 
-    public void AddInverter() // a program azon függvénye, amivel egy invertert kreálhatunk
+    public int AddInverter() // a program azon függvénye, amivel egy invertert kreálhatunk
     {
 //        System.out.println("Project | AddInverter() | Inverter letrehozas");        //kiírat
         elements.put(ID, new Inverter(ID));     //kreál egy Invertert, a jelenlegi sorszámmal
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddLed() //a program azon függvénye, amivel egy Ledet kreálhatunk
+    public int AddLed() //a program azon függvénye, amivel egy Ledet kreálhatunk
     {
 //        System.out.println("Project | AddLed() | LED letrehozas");      //kiírat
         elements.put(ID, new Led(ID));      //kreál egy Led-et a jelenlegi sorszámmal
         setOfLeds.add(ID);
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddOr(int inputnum) //a program azon függvénye, amivel egy OR kaput kreálhatunk
+    public int AddOr(int inputnum) //a program azon függvénye, amivel egy OR kaput kreálhatunk
     {
 //        System.out.println("Project | AddOr(inputnum) | Or kapu letrehozas");       //kiírat
         elements.put(ID, new OR(inputnum, ID));     //kreál egy OR kaput a jelenlegi sorszámmal
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddOscilliscope() //a program azon függvénye, amivel egy Oszcilloszkópot kreálhatunk
+    public int AddOscilliscope() //a program azon függvénye, amivel egy Oszcilloszkópot kreálhatunk
     {
 //        System.out.println("Project | AddOscilloscope() | Oszcilloszkóp letrehozas");      //kiírat
         elements.put(ID, new Oscilloscope(ID));      //kreál egy Led-et a jelenlegi sorszámmal
         setOfLeds.add(ID);
         ++ID;       //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddSwitch() //a program azon függvénye amivel egy Switch-et kreálhatunk
+    public int AddSwitch() //a program azon függvénye amivel egy Switch-et kreálhatunk
     {
 //        System.out.println("Project | AddSwitch() | Switch letrehozas");        //kiírat
         elements.put(ID, new Switch(ID));       //kreál egy switchet a jelenlegi sorszámmal
         ++ID;          //növeli a kiosztott sorszámok értékét
+        return ID-1;
     }
 
-    public void AddWire(int Gate1ID, int Gate1Pin, int Element2ID, int Element2Pin) // a program azon függvénye, amivel Wire-vel köthetünk össze két elemet
+    public int AddWire(int Gate1ID, int Gate1Pin, int Element2ID, int Element2Pin) // a program azon függvénye, amivel Wire-vel köthetünk össze két elemet
     {
         AGate TmpGate1;
         AElement TmpGate2;
@@ -253,6 +264,7 @@ public class Project {
         TmpGate1.inputs.get(Gate1Pin).SetWire(tmp);
         TmpGate2.outputs.get(Element2Pin).SetWire(ID, tmp);
         ++ID;
+        return ID-1;
     }
 
     /*------------------------- Fajlkezelo fgv -------------------------*/

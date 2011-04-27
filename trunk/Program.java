@@ -39,9 +39,9 @@ public class Program {
 
     public void LoadProject() throws IOException //a project töltés függvénye
     {
-        
 
-        
+
+
 
     }
 }
