@@ -7,7 +7,7 @@ public class Switch extends ASource {
     public Switch(int ID) {
         this.ID = ID;       //a sorszámát egyenlővé tesszük a paraméterrel
         this.value = 0;      //a switch értékét beállítjuk az incializáláskor 0-ba
-        
+
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
@@ -37,9 +37,10 @@ public class Switch extends ASource {
 
     @Override
     public String toString() {
-        return "Switch";
+       if (value == 1) return "Switch1";
+       return "Switch0";
     }
 
-   
-    
+
+
 }

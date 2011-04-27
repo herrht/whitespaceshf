@@ -36,6 +36,6 @@ public class Oscilloscope extends AGate {
 
     @Override
     public String toString() {
-        return "Oscilloscope" + ID;
+        return "Oscilloscope";
     }
 }
