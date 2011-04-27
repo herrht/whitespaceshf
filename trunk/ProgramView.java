@@ -86,21 +86,22 @@ public class ProgramView extends Panel {
         buttonpane.add(np);
         buttonpane.add(save);
         buttonpane.add(load);
+        buttonpane.add(composite);
         buttonpane.add(fix0);
         buttonpane.add(and);
-        buttonpane.add(generator);
-        buttonpane.add(composite);
+        buttonpane.add(sw);
+        buttonpane.add(oscill);
         buttonpane.add(led);
+
         buttonpane.add(start);
         buttonpane.add(stop);
         buttonpane.add(setfreq);
-        buttonpane.add(fix1);
-        buttonpane.add(inv);
-        buttonpane.add(or);
-        buttonpane.add(oscill);
-        buttonpane.add(wire);
         buttonpane.add(delete);
-        buttonpane.add(sw);
+        buttonpane.add(fix1);
+        buttonpane.add(or);
+        buttonpane.add(inv);
+        buttonpane.add(generator);
+        buttonpane.add(wire);
 
         setLayout(new BorderLayout());
         add("North", buttonpane);
