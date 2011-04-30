@@ -13,8 +13,11 @@ public class ProgramController extends JPanel implements ActionListener {
     private Coordinate c;
     private AElement el;
     private JFileChooser fc;
+    private Dialog dial;
+    private int size;
 
     public ProgramController (ElementView v) {
+
 
         fc = new JFileChooser();
         c = new Coordinate(0, 0);
@@ -27,11 +30,16 @@ public class ProgramController extends JPanel implements ActionListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (flag.equals("AND")) {
-                    int i = progi.proj.AddAnd(2);
+                   
+                    
+                    String s = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu?");
+                    if (s != null){
+                    size = Integer.valueOf(s);
+                    int i = progi.proj.AddAnd(size);
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.repaint();
+                    view.repaint();}
 
                     flag = "IDLE";
                 }
@@ -146,6 +154,8 @@ public class ProgramController extends JPanel implements ActionListener {
 
 
             }
+
+
         });
 
     }
@@ -202,5 +212,6 @@ public class ProgramController extends JPanel implements ActionListener {
     public void Load(File f){
 
      }
+ 
     
 }
