@@ -10,7 +10,7 @@ public class Project {
     /*------------------------- Attibutumok -------------------------*/
 
     public Map<Integer, AElement> elements;                 //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
-    private int freq;
+    
     private int ID;                                         //a sorszámot tároló integer
     private Set<Integer> setOfLeds;
     private Set<Integer> setOfGenerators;
@@ -26,10 +26,7 @@ public class Project {
         this.setOfGenerators = new HashSet<Integer>();          //egy hashsetet kreál
     }
 
-    public void SetFreq(int newFreq)    // Frekvenciát állítjuk be
-    {
-        this.freq = newFreq;            // Paraméterben kapott értéket eltároljuk
-    }
+   
 
     public void Start()                 // A project start függvénye: a szimuláció
     {

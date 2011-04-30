@@ -78,17 +78,17 @@ public class ElementView extends Canvas {
 
     @Override
     public void paint(Graphics g) {
-        g.drawImage(elementImages.get("And"), 100, 100, null);
-        g.drawImage(elementImages.get("Or"), 100, 100, null);
-        g.drawImage(elementImages.get("Inverter"), 100, 100, null);
-        g.drawImage(elementImages.get("Switch0"), 100, 100, null);
-        g.drawImage(elementImages.get("Switch1"), 100, 100, null);
-        g.drawImage(elementImages.get("Fix0"), 100, 100, null);
-        g.drawImage(elementImages.get("Fix1"), 100, 100, null);
-        g.drawImage(elementImages.get("Led0"), 100, 100, null);
-        g.drawImage(elementImages.get("Led1"), 100, 100, null);
-        g.drawImage(elementImages.get("Oscilloscope"), 100, 100, null);
-        g.drawImage(elementImages.get("Composite"), 100, 100, null);
+        g.drawImage(elementImages.get("And"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Or"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Inverter"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Switch0"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Switch1"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Fix0"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Fix1"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Led0"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Led1"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Composite"), 5000, 5000, null);
 
         g.setColor(Color.white);
         g.fillRect(0, 0, 1000, 620);

@@ -224,7 +224,7 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("Stop")) {
             progi.t.stop();
         } else if (tmp.getText().equals("Setfreq")) {
-            //Még implementálni kell
+            freqi();
         } else if (tmp.getText().equals("Oscilloscope")) {
             flag = "OSC";
         } else if (tmp.getText().equals("Wire")) {
@@ -293,5 +293,19 @@ public class ProgramController extends JPanel implements ActionListener {
         } catch (IOException ex) {
             Logger.getLogger(ProgramController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void freqi(){
+        int freqi = 0;
+        beolv = JOptionPane.showInputDialog(null, "Hány millisecenként legyen órajel?");
+        if (beolv != null) {
+            try {
+                freqi = Integer.valueOf(beolv);
+            } catch (Exception ex) {
+                freqi();
+            }
+        }
+        System.out.println(freqi);
+        progi.SetFreq(freqi);
     }
 }
