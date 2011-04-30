@@ -2,17 +2,21 @@ package szlab4_whitespaces;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import javax.swing.*;
 
-public class ProgramController implements ActionListener {
+public class ProgramController extends JPanel implements ActionListener {
 
     private ElementView view;
     private Program progi;
     private String flag;
     private Coordinate c;
     private AElement el;
+    private JFileChooser fc;
 
-    public ProgramController(ElementView v) {
+    public ProgramController (ElementView v) {
 
+        fc = new JFileChooser();
         c = new Coordinate(0, 0);
         progi = new Program();
         progi.NewProject();
@@ -167,7 +171,13 @@ public class ProgramController implements ActionListener {
         } else if (tmp.getLabel().equals("Save")) {
             //Még implementálni kell
         } else if (tmp.getLabel().equals("Load")) {
-            //Még implementálni kell
+            int returnVal = fc.showOpenDialog(ProgramController.this);
+
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fc.getSelectedFile();
+                Load(file);
+            }
+
         } else if (tmp.getLabel().equals("Composite")) {
             flag = "COMP";
         } else if (tmp.getLabel().equals("Led")) {
@@ -188,7 +198,9 @@ public class ProgramController implements ActionListener {
             flag = "SW";
         }
 
-
-
     }
+    public void Load(File f){
+
+     }
+    
 }
