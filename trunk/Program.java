@@ -54,4 +54,8 @@ public class Program implements ActionListener {
         proj.Start();
         view.repaint();
       }
+     public void SetFreq(int newFreq)    // Frekvenciát állítjuk be
+       {
+        t.setDelay(newFreq);
+       }
 }
