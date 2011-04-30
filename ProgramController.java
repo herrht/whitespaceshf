@@ -250,7 +250,10 @@ public class ProgramController extends JPanel implements ActionListener {
     }
 
     public void load(File f) {
-
+        progi.NewProject();
+        view.elements.clear();
+        view.c.clear();
+        view.repaint();
         try {
             FileReader fr = new FileReader(f);
             BufferedReader in = new BufferedReader(fr);   //beolvasandó fájl megadása
