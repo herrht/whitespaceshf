@@ -45,6 +45,7 @@ public class ProgramController extends JPanel implements ActionListener {
                         c = new Coordinate(e.getX(), e.getY());
                         AElement el = (AElement) progi.proj.elements.get(i);
                         view.elements.put(c, el);
+                        view.c.add(c);
                         view.repaint();
                     }
                     flag = "IDLE";
@@ -59,6 +60,7 @@ public class ProgramController extends JPanel implements ActionListener {
                         c = new Coordinate(e.getX(), e.getY());
                         AElement el = (AElement) progi.proj.elements.get(i);
                         view.elements.put(c, el);
+                        view.c.add(c);
                         view.repaint();
                     }
                     flag = "IDLE";
@@ -68,6 +70,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -77,6 +80,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -86,6 +90,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -96,6 +101,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -105,6 +111,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -114,6 +121,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -123,6 +131,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
 
                     flag = "IDLE";
@@ -150,6 +159,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
+                    view.c.add(c);
                     view.repaint();
                     flag = "IDLE";
                 }
@@ -186,6 +196,7 @@ public class ProgramController extends JPanel implements ActionListener {
             flag = "GEN";
         } else if (tmp.getText().equals("NewProject")) {
             view.elements.clear();
+            view.c.clear();
             progi.NewProject();
             view.repaint();
         } else if (tmp.getText().equals("Save")) {
@@ -264,8 +275,7 @@ public class ProgramController extends JPanel implements ActionListener {
     public void save(File f) {
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(f.getPath()));
-            Collection col = view.elements.keySet();
-            Iterator it = col.iterator();
+            Iterator it = view.c.iterator();
             String command = "";
             while (it.hasNext()) {
                 Coordinate cord = (Coordinate) it.next();

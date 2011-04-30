@@ -7,11 +7,12 @@ public class ElementView extends Canvas {
 
     public HashMap<Coordinate, AElement> elements;
     private HashMap<String, Image> elementImages;
-    public ArrayList<Coordinate> cords;
+    public ArrayList<Coordinate> c;
     public Iterator it;
-    public Collection c;
 
     public ElementView() {
+
+        c = new ArrayList<Coordinate>();
         elements = new HashMap<Coordinate, AElement>();
         elementImages = new HashMap<String, Image>();
 //        this.setSize(1000, 1000);
@@ -94,7 +95,7 @@ public class ElementView extends Canvas {
         g.setColor(Color.black);
         g.drawRect(5, 5, 980, 530);
         g.setColor(Color.white);
-        c = elements.keySet();
+
         it = c.iterator();
         if (elements.isEmpty()) {
             g.setColor(Color.white);
