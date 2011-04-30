@@ -4,10 +4,8 @@
  */
 package szlab4_whitespaces;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Iterator;
-import java.lang.String;
+
+
 
 /**
  *
@@ -44,6 +42,7 @@ public class Command {
            id = proj.AddGenerator(param);
            Coordinate c = new Coordinate(Integer.valueOf(par[0]), Integer.valueOf(par[1]));
            view.elements.put(c, proj.elements.get(id));
+           view.c.add(c);
            view.repaint();
            
         } else {
@@ -57,6 +56,7 @@ public class Command {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddAnd(param[2]);
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
 
             }
@@ -64,48 +64,56 @@ public class Command {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddOr(param[2]);
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddInverter")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddInverter();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddFix1")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddFix1();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddFix0")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddFix0();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddLed")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddLed();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddSwitch")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddSwitch();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddOscilloscope")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddOscilloscope();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddCompozite")) {
                 Coordinate c = new Coordinate(param[0], param[1]);
                 id = proj.AddOscilloscope();
                 view.elements.put(c, proj.elements.get(id));
+                view.c.add(c);
                 view.repaint();
             }
             if (name.equals("AddWire")) {
