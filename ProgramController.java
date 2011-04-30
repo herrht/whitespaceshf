@@ -151,50 +151,50 @@ public class ProgramController extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Button tmp = (Button) e.getSource();
-        if (tmp.getLabel().equals("And")) {
+        JButton tmp = (JButton) e.getSource();
+
+        if (tmp.getText().equals("And")) {
             flag = "AND";
-        } else if (tmp.getLabel().equals("Or")) {
+        } else if (tmp.getText().equals("Or")) {
             flag = "OR";
-        } else if (tmp.getLabel().equals("Inverter")) {
+        } else if (tmp.getText().equals("Inverter")) {
             flag = "INV";
-        } else if (tmp.getLabel().equals("Fix0")) {
+        } else if (tmp.getText().equals("Fix0")) {
             flag = "F0";
-        } else if (tmp.getLabel().equals("Fix1")) {
+        } else if (tmp.getText().equals("Fix1")) {
             flag = "F1";
-        } else if (tmp.getLabel().equals("Generator")) {
+        } else if (tmp.getText().equals("Generator")) {
             flag = "GEN";
-        } else if (tmp.getLabel().equals("NewProject")) {
+        } else if (tmp.getText().equals("NewProject")) {
             view.elements.clear();
             progi.NewProject();
             view.update();
-        } else if (tmp.getLabel().equals("Save")) {
+        } else if (tmp.getText().equals("Save")) {
             //Még implementálni kell
-        } else if (tmp.getLabel().equals("Load")) {
+        } else if (tmp.getText().equals("Load")) {
             int returnVal = fc.showOpenDialog(ProgramController.this);
-
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
                 Load(file);
             }
 
-        } else if (tmp.getLabel().equals("Composite")) {
+        } else if (tmp.getText().equals("Composite")) {
             flag = "COMP";
-        } else if (tmp.getLabel().equals("Led")) {
+        } else if (tmp.getText().equals("Led")) {
             flag = "LED";
-        } else if (tmp.getLabel().equals("Start")) {
+        } else if (tmp.getText().equals("Start")) {
             view.repaint();
-        } else if (tmp.getLabel().equals("Stop")) {
+        } else if (tmp.getText().equals("Stop")) {
             //Még implementálni kell
-        } else if (tmp.getLabel().equals("Setfreq")) {
+        } else if (tmp.getText().equals("Setfreq")) {
             //Még implementálni kell
-        } else if (tmp.getLabel().equals("Oscilloscope")) {
+        } else if (tmp.getText().equals("Oscilloscope")) {
             flag = "OSC";
-        } else if (tmp.getLabel().equals("Wire")) {
+        } else if (tmp.getText().equals("Wire")) {
             flag = "WIRE1";
-        } else if (tmp.getLabel().equals("Delete")) {
+        } else if (tmp.getText().equals("Delete")) {
             flag = "DEL";
-        } else if (tmp.getLabel().equals("Switch")) {
+        } else if (tmp.getText().equals("Switch")) {
             flag = "SW";
         }
 

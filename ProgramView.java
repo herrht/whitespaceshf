@@ -6,67 +6,70 @@ package szlab4_whitespaces;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
  * @author Burgosz
  */
-public class ProgramView extends Panel {
+public class ProgramView extends JPanel {
 
     public ElementView view;
-    public Panel buttonpane;
-    public Button and;
-    public Button or;
-    public Button np;
-    public Button save;
-    public Button load;
-    public Button fix0;
-    public Button fix1;
-    public Button generator;
-    public Button composite;
-    public Button led;
-    public Button start;
-    public Button stop;
-    public Button setfreq;
-    public Button inv;
-    public Button oscill;
-    public Button wire;
-    public Button delete;
-    public Button help;
-    public Button sw;
+    public JPanel Buttonpane;
+    public JButton and;
+    public JButton or;
+    public JButton np;
+    public JButton save;
+    public JButton load;
+    public JButton fix0;
+    public JButton fix1;
+    public JButton generator;
+    public JButton composite;
+    public JButton led;
+    public JButton start;
+    public JButton stop;
+    public JButton setfreq;
+    public JButton inv;
+    public JButton oscill;
+    public JButton wire;
+    public JButton delete;
+    public JButton help;
+    public JButton sw;
 
     public ProgramController pc;
 
     public ProgramView() {
 
-        and = new Button("And");
-        or = new Button("Or");
-        np = new Button("NewProject");
-        save = new Button("Save");
-        load = new Button("Load");
-        fix0 = new Button("Fix0");
-        fix1 = new Button("Fix1");
-        generator = new Button("Generator");
-        composite = new Button("Composite");
-        led = new Button("Led");
-        start = new Button("Start");
-        stop = new Button("Stop");
-        setfreq = new Button("Setfreq");
-        inv = new Button("Inverter");
-        oscill = new Button("Oscilloscope");
-        wire = new Button("Wire");
-        delete = new Button("Delete");
-        sw = new Button("Switch");
+        and = new JButton("And");
+        or = new JButton("Or");
+        np = new JButton("NewProject");
+        save = new JButton("Save");
+        load = new JButton("Load");
+        fix0 = new JButton("Fix0");
+        fix1 = new JButton("Fix1");
+        generator = new JButton("Generator");
+        composite = new JButton("Composite");
+        led = new JButton("Led");
+        start = new JButton("Start");
+        stop = new JButton("Stop");
+        setfreq = new JButton("Setfreq");
+        inv = new JButton("Inverter");
+        oscill = new JButton("Oscilloscope");
+        wire = new JButton("Wire");
+        delete = new JButton("Delete");
+        sw = new JButton("Switch");
 
         view = new ElementView();
         pc = new ProgramController(view);
 
         and.addActionListener(pc);
+        and.setIgnoreRepaint(true);
         or.addActionListener(pc);
         np.addActionListener(pc);
         save.addActionListener(pc);
         load.addActionListener(pc);
+
+        
         fix0.addActionListener(pc);
         fix1.addActionListener(pc);
         generator.addActionListener(pc);
@@ -81,36 +84,38 @@ public class ProgramView extends Panel {
         delete.addActionListener(pc);
         sw.addActionListener(pc);
 
-        buttonpane = new Panel();
-        buttonpane.setLayout(new GridLayout(2, 8));
-        buttonpane.add(np);
-        buttonpane.add(save);
-        buttonpane.add(load);
-        buttonpane.add(composite);
-        buttonpane.add(fix0);
-        buttonpane.add(and);
-        buttonpane.add(sw);
-        buttonpane.add(oscill);
-        buttonpane.add(led);
 
-        buttonpane.add(start);
-        buttonpane.add(stop);
-        buttonpane.add(setfreq);
-        buttonpane.add(delete);
-        buttonpane.add(fix1);
-        buttonpane.add(or);
-        buttonpane.add(inv);
-        buttonpane.add(generator);
-        buttonpane.add(wire);
+
+        Buttonpane = new JPanel();
+        Buttonpane.setLayout(new GridLayout(2, 8));
+        Buttonpane.add(np);
+        Buttonpane.add(save);
+        Buttonpane.add(load);
+        Buttonpane.add(composite);
+        Buttonpane.add(fix0);
+        Buttonpane.add(and);
+        Buttonpane.add(sw);
+        Buttonpane.add(oscill);
+        Buttonpane.add(led);
+
+        Buttonpane.add(start);
+        Buttonpane.add(stop);
+        Buttonpane.add(setfreq);
+        Buttonpane.add(delete);
+        Buttonpane.add(fix1);
+        Buttonpane.add(or);
+        Buttonpane.add(inv);
+        Buttonpane.add(generator);
+        Buttonpane.add(wire);
 
         setLayout(new BorderLayout());
-        add("North", buttonpane);
-        buttonpane.setSize(800, 20);
+        add("North", Buttonpane);
+        Buttonpane.setSize(1000, 20);
         add("Center", view);
     }
 
     public void createFrame() {
-        Frame frame = new Frame("Electrical Network Development Suite 1.0");
+        JFrame frame = new JFrame("Electrical Network Development Suite 1.0");
         frame.addWindowListener(
                 new WindowAdapter() {
 
@@ -121,7 +126,7 @@ public class ProgramView extends Panel {
                     }
                 });
         frame.add(this);
-        frame.setSize(800, 620);
+        frame.setSize(1000, 620);
         frame.setResizable(false);
         frame.setVisible(true);
     }
