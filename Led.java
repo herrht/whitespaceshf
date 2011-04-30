@@ -39,4 +39,14 @@ public class Led extends AGate {
         if (value == 1) return "Led1";
         return "Led0";
     }
+
+    @Override
+    public String toFile1() {
+       return "AddLed ";
+    }
+
+    @Override
+    public String toFile2() {
+        return "";
+    }
 }

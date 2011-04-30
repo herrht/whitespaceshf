@@ -8,8 +8,8 @@ public class ElementView extends Canvas {
     public HashMap<Coordinate, AElement> elements;
     private HashMap<String, Image> elementImages;
     public ArrayList<Coordinate> cords;
-    private Iterator it;
-    private Collection c;
+    public Iterator it;
+    public Collection c;
 
     public ElementView() {
         elements = new HashMap<Coordinate, AElement>();

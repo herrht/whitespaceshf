@@ -41,6 +41,16 @@ public class Switch extends ASource {
        return "Switch0";
     }
 
+     @Override
+    public String toFile1() {
+       return "Switch ";
+    }
+
+    @Override
+    public String toFile2() {
+        return "";
+    }
+
 
 
 }

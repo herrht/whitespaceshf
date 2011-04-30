@@ -64,4 +64,11 @@ public class OR extends AGate {
     public String toString() {
         return "Or";
     }
+
+    public String toFile1(){
+        return "AddOr ";
+    }
+    public String toFile2(){
+        return ""+inputnum+"";
+    }
 }

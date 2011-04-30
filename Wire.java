@@ -35,4 +35,14 @@ public class Wire extends AElement {
     public String toString() {
         return "Wire" + ID + " between " + input + " and " + output;
     }
+
+    @Override
+    public String toFile1() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public String toFile2() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

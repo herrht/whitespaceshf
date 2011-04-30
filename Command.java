@@ -32,14 +32,20 @@ public class Command {
     void run() {
         int param[] = new int[par.length];
         int tmp, id;
-        if (name.equals("Generator"))
+
+        if (name.equals("AddGenerator"))
         {
-           String s = par[0];
+           String s = par[2];
            param = new int[s.length()];
            for (int i=0; i< s.length(); i++){
                tmp = Integer.valueOf(s.substring(i, i+1));
                param[i] = tmp;
            }
+           id = proj.AddGenerator(param);
+           Coordinate c = new Coordinate(Integer.valueOf(par[0]), Integer.valueOf(par[1]));
+           view.elements.put(c, proj.elements.get(id));
+           view.repaint();
+           
         } else {
             for (int i = 0; i < par.length; i++) {
                 tmp = Integer.valueOf(par[i]);
@@ -83,9 +89,6 @@ public class Command {
                 id = proj.AddLed();
                 view.elements.put(c, proj.elements.get(id));
                 view.repaint();
-            }
-            if (name.equals("AddGenerator")) {
-                proj.AddGenerator(param);
             }
             if (name.equals("AddSwitch")) {
                 Coordinate c = new Coordinate(param[0], param[1]);

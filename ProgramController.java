@@ -3,6 +3,10 @@ package szlab4_whitespaces;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class ProgramController extends JPanel implements ActionListener {
@@ -150,7 +154,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     flag = "IDLE";
                 }
                 if (flag.equals("IDLE")) {
-                    System.out.println(e.getX()+"  "+ e.getY());
+                    System.out.println(e.getX() + "  " + e.getY());
                 }
                 if (flag.equals("GRAB")) {
                     //majd..
@@ -185,7 +189,12 @@ public class ProgramController extends JPanel implements ActionListener {
             progi.NewProject();
             view.repaint();
         } else if (tmp.getText().equals("Save")) {
-            //Még implementálni kell
+            fc.setDialogType(JFileChooser.SAVE_DIALOG);
+            int returnVal = fc.showSaveDialog(ProgramController.this);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fc.getSelectedFile();
+                save(file);
+            }
         } else if (tmp.getText().equals("Load")) {
             int returnVal = fc.showOpenDialog(ProgramController.this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -198,6 +207,7 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("Led")) {
             flag = "LED";
         } else if (tmp.getText().equals("Start")) {
+            progi.proj.Start();
             view.repaint();
         } else if (tmp.getText().equals("Stop")) {
             //Még implementálni kell
@@ -215,43 +225,62 @@ public class ProgramController extends JPanel implements ActionListener {
 
     }
 
- 
-
     public void pop() {
         size = 0;
         beolv = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu? (2-4)");
         if (beolv != null) {
-            try{
+            try {
                 size = Integer.valueOf(beolv);
-            }
-            catch(Exception ex){
+            } catch (Exception ex) {
                 pop();
             }
         }
     }
-    public void load(File f){
-       
-        try
-        {
+
+    public void load(File f) {
+
+        try {
             FileReader fr = new FileReader(f);
             BufferedReader in = new BufferedReader(fr);   //beolvasandó fájl megadása
             String sor = new String();
-            while( (sor = in.readLine() ) != null)
-            {
+            while ((sor = in.readLine()) != null) {
                 String darabolt[] = sor.split(" ");
                 int count = darabolt.length;
-                String param[] = new String [count-1];
-                for (int i = 0; i< count-1;i++) param[i] = darabolt[i+1];
+                String param[] = new String[count - 1];
+                for (int i = 0; i < count - 1; i++) {
+                    param[i] = darabolt[i + 1];
+                }
 //                for(int i =0; i<count-1; i++) System.out.println(param[i]);
-                Command cmd = new Command(progi.proj ,darabolt[0], param, view);
+                Command cmd = new Command(progi.proj, darabolt[0], param, view);
                 cmd.run();
             }
             in.close();
-        }
-
-        catch(Exception e)                       // EOFException elkapása
+        } catch (Exception e) // EOFException elkapása
         {
             System.out.println("A fájl beolvasása végetért!");
+        }
+    }
+    public static String newline = System.getProperty("line.separator");
+    public void save(File f) {
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(f.getPath()));
+            Collection col = view.elements.keySet();
+            Iterator it = col.iterator();
+            String command = "";
+            while (it.hasNext()) {
+                Coordinate cord = (Coordinate) it.next();
+                AElement elem = view.elements.get(cord);
+                command+=elem.toFile1();
+                command+=cord;
+                command+=elem.toFile2();
+                System.out.println(cord);
+                command+=newline;                
+                out.write(command);
+                command ="";
+            }
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ProgramController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

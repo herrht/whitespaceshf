@@ -51,4 +51,16 @@ public class Generator extends ASource {
     public String toString() {
         return "Generator";
     }
+
+    @Override
+    public String toFile1() {
+        return "AddGenerator ";
+    }
+
+    @Override
+    public String toFile2() {
+        String s = "";
+        for (int i = 0; i< nums.length; i++) s+=nums[i];
+        return s;
+    }
 }

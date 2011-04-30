@@ -34,4 +34,14 @@ public class Fix0 extends ASource {
     public String toString() {
         return "Fix0";
     }
+
+     @Override
+    public String toFile1() {
+       return "AddFix0 ";
+    }
+
+    @Override
+    public String toFile2() {
+        return "";
+    }
 }

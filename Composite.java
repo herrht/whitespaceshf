@@ -129,6 +129,16 @@ public class Composite extends AGate {
         elements.get(id).Delete();       //meghívja a törölni kívánt elem törlő függvényét
     }
 
+    @Override
+    public String toFile1() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public String toFile2() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
 
 
