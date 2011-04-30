@@ -35,7 +35,7 @@ public class ProgramView extends JPanel {
     public JButton delete;
     public JButton help;
     public JButton sw;
-
+    
     public ProgramController pc;
 
     public ProgramView() {
