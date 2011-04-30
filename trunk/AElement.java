@@ -32,4 +32,8 @@ public abstract class AElement {
     public abstract void SetValue();
 
     public abstract void Delete();
+
+    public abstract String toFile1();
+
+    public abstract String toFile2();
 }

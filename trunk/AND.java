@@ -51,4 +51,10 @@ public class AND extends AGate {
     public String toString() {
         return "And";
     }
+    public String toFile1(){
+        return "AddAnd ";
+    }
+    public String toFile2(){
+        return ""+inputnum+"";
+    }
 }

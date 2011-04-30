@@ -38,4 +38,14 @@ public class Oscilloscope extends AGate {
     public String toString() {
         return "Oscilloscope";
     }
+
+    @Override
+    public String toFile1() {
+        return "AddOscilloscope ";
+    }
+
+    @Override
+    public String toFile2() {
+        return "";
+    }
 }

@@ -41,4 +41,14 @@ public class Inverter extends AGate {
     public String toString() {
         return "Inverter";
     }
+
+     @Override
+    public String toFile1() {
+       return "AddInverter ";
+    }
+
+    @Override
+    public String toFile2() {
+        return "";
+    }
 }
