@@ -221,7 +221,12 @@ public class ProgramController extends JPanel implements ActionListener {
         size = 0;
         beolv = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu? (2-4)");
         if (beolv != null) {
-            size = Integer.valueOf(beolv);
+            try{
+                size = Integer.valueOf(beolv);
+            }
+            catch(Exception ex){
+                pop();
+            }
         }
     }
     public void load(File f){
