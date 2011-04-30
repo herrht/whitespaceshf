@@ -2,7 +2,7 @@ package szlab4_whitespaces;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
+import java.io.*;
 import javax.swing.*;
 
 public class ProgramController extends JPanel implements ActionListener {
@@ -115,7 +115,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     flag = "IDLE";
                 }
                 if (flag.equals("OSC")) {
-                    int i = progi.proj.AddOscilliscope();
+                    int i = progi.proj.AddOscilloscope();
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
@@ -150,7 +150,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     flag = "IDLE";
                 }
                 if (flag.equals("IDLE")) {
-                    //majd..
+                    System.out.println(e.getX()+"  "+ e.getY());
                 }
                 if (flag.equals("GRAB")) {
                     //majd..
@@ -190,7 +190,7 @@ public class ProgramController extends JPanel implements ActionListener {
             int returnVal = fc.showOpenDialog(ProgramController.this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
-                Load(file);
+                load(file);
             }
 
         } else if (tmp.getText().equals("Composite")) {
@@ -215,14 +215,38 @@ public class ProgramController extends JPanel implements ActionListener {
 
     }
 
-    public void Load(File f) {
-    }
+ 
 
     public void pop() {
         size = 0;
         beolv = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu? (2-4)");
         if (beolv != null) {
             size = Integer.valueOf(beolv);
+        }
+    }
+    public void load(File f){
+       
+        try
+        {
+            FileReader fr = new FileReader(f);
+            BufferedReader in = new BufferedReader(fr);   //beolvasandó fájl megadása
+            String sor = new String();
+            while( (sor = in.readLine() ) != null)
+            {
+                String darabolt[] = sor.split(" ");
+                int count = darabolt.length;
+                String param[] = new String [count-1];
+                for (int i = 0; i< count-1;i++) param[i] = darabolt[i+1];
+//                for(int i =0; i<count-1; i++) System.out.println(param[i]);
+                Command cmd = new Command(progi.proj ,darabolt[0], param, view);
+                cmd.run();
+            }
+            in.close();
+        }
+
+        catch(Exception e)                       // EOFException elkapása
+        {
+            System.out.println("A fájl beolvasása végetért!");
         }
     }
 }

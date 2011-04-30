@@ -233,7 +233,7 @@ public class Project {
         return ID-1;
     }
 
-    public int AddOscilliscope() //a program azon függvénye, amivel egy Oszcilloszkópot kreálhatunk
+    public int AddOscilloscope() //a program azon függvénye, amivel egy Oszcilloszkópot kreálhatunk
     {
 //        System.out.println("Project | AddOscilloscope() | Oszcilloszkóp letrehozas");      //kiírat
         elements.put(ID, new Oscilloscope(ID));      //kreál egy Led-et a jelenlegi sorszámmal
