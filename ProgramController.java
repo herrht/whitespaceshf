@@ -26,9 +26,10 @@ public class ProgramController extends JPanel implements ActionListener {
 
         fc = new JFileChooser();
         c = new Coordinate(0, 0);
-        progi = new Program();
-        progi.NewProject();
         view = v;
+        progi = new Program();
+        progi.view = view;
+        progi.NewProject();        
         flag = "IDLE";
         view.addMouseListener(new MouseAdapter() {
 
@@ -218,10 +219,10 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("Led")) {
             flag = "LED";
         } else if (tmp.getText().equals("Start")) {
-            progi.proj.Start();
+            progi.t.start();
             view.repaint();
         } else if (tmp.getText().equals("Stop")) {
-            //Még implementálni kell
+            progi.t.stop();
         } else if (tmp.getText().equals("Setfreq")) {
             //Még implementálni kell
         } else if (tmp.getText().equals("Oscilloscope")) {

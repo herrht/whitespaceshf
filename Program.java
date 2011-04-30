@@ -1,17 +1,23 @@
 package szlab4_whitespaces;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import javax.swing.Timer;
 
-public class Program {
+public class Program implements ActionListener {
 
     public Project proj;                //a project
     public Test tester;                 //tesztesetek
+    public Timer t;
+    public ElementView view;
 
     public Program() {
+        t = new Timer(1000, this);
 //        System.out.println("Program | Program() | Program konstruktor");        //kiírat
     }
 
@@ -44,4 +50,8 @@ public class Program {
 
 
     }
+    public void actionPerformed(ActionEvent actionEvent) {
+        proj.Start();
+        view.repaint();
+      }
 }
