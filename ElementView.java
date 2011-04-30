@@ -91,13 +91,14 @@ public class ElementView extends Canvas {
 
         g.setColor(Color.white);
         g.fillRect(0, 0, 1000, 620);
-        g.setColor(new Color(0, 0, 0));
+        g.setColor(Color.black);
         g.drawRect(5, 5, 980, 530);
+        g.setColor(Color.white);
         c = elements.keySet();
         it = c.iterator();
         if (elements.isEmpty()) {
             g.setColor(Color.white);
-            g.fillRect(6, 6, 778, 528);
+            g.fillRect(6, 6, 978, 528);
         }
         while (it.hasNext()) {
             Coordinate cord = (Coordinate) it.next();
@@ -106,15 +107,5 @@ public class ElementView extends Canvas {
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
         }
 
-    }
-
-    public void paintelement(Graphics g, Coordinate c) {
-        AElement elem = elements.get(c);
-        String key = new String(elem.toString());
-        g.drawImage(elementImages.get(key), c.getX(), c.getY(), null);
-    }
-
-    public void update() {
-        repaint();
     }
 }

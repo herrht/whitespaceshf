@@ -15,8 +15,9 @@ public class ProgramController extends JPanel implements ActionListener {
     private JFileChooser fc;
     private Dialog dial;
     private int size;
+    private String beolv;
 
-    public ProgramController (ElementView v) {
+    public ProgramController(ElementView v) {
 
 
         fc = new JFileChooser();
@@ -30,26 +31,32 @@ public class ProgramController extends JPanel implements ActionListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (flag.equals("AND")) {
-                   
-                    
-                    String s = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu?");
-                    if (s != null){
-                    size = Integer.valueOf(s);
-                    int i = progi.proj.AddAnd(size);
-                    c = new Coordinate(e.getX(), e.getY());
-                    AElement el = (AElement) progi.proj.elements.get(i);
-                    view.elements.put(c, el);
-                    view.repaint();}
 
+                    pop();
+                    while ((size < 2 || size > 4) && beolv != null) {
+                        pop();
+                    }
+                    if (size != 0) {
+                        int i = progi.proj.AddAnd(size);
+                        c = new Coordinate(e.getX(), e.getY());
+                        AElement el = (AElement) progi.proj.elements.get(i);
+                        view.elements.put(c, el);
+                        view.repaint();
+                    }
                     flag = "IDLE";
                 }
                 if (flag.equals("OR")) {
-                    int i = progi.proj.AddOr(2);
-                    c = new Coordinate(e.getX(), e.getY());
-                    AElement el = (AElement) progi.proj.elements.get(i);
-                    view.elements.put(c, el);
-                    view.repaint();
-
+                    pop();
+                    while ((size < 2 || size > 4) && beolv != null) {
+                        pop();
+                    }
+                    if (size != 0) {
+                        int i = progi.proj.AddOr(size);
+                        c = new Coordinate(e.getX(), e.getY());
+                        AElement el = (AElement) progi.proj.elements.get(i);
+                        view.elements.put(c, el);
+                        view.repaint();
+                    }
                     flag = "IDLE";
                 }
                 if (flag.equals("INV")) {
@@ -75,7 +82,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.update();
+                    view.repaint();
 
                     flag = "IDLE";
                 }
@@ -85,7 +92,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.update();
+                    view.repaint();
 
                     flag = "IDLE";
                 }
@@ -94,7 +101,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.update();
+                    view.repaint();
 
                     flag = "IDLE";
                 }
@@ -103,7 +110,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.update();
+                    view.repaint();
 
                     flag = "IDLE";
                 }
@@ -112,7 +119,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.update();
+                    view.repaint();
 
                     flag = "IDLE";
                 }
@@ -139,7 +146,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     c = new Coordinate(e.getX(), e.getY());
                     AElement el = (AElement) progi.proj.elements.get(i);
                     view.elements.put(c, el);
-                    view.update();
+                    view.repaint();
                     flag = "IDLE";
                 }
                 if (flag.equals("IDLE")) {
@@ -154,8 +161,6 @@ public class ProgramController extends JPanel implements ActionListener {
 
 
             }
-
-
         });
 
     }
@@ -178,7 +183,7 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("NewProject")) {
             view.elements.clear();
             progi.NewProject();
-            view.update();
+            view.repaint();
         } else if (tmp.getText().equals("Save")) {
             //Még implementálni kell
         } else if (tmp.getText().equals("Load")) {
@@ -209,9 +214,15 @@ public class ProgramController extends JPanel implements ActionListener {
         }
 
     }
-    public void Load(File f){
 
-     }
- 
-    
+    public void Load(File f) {
+    }
+
+    public void pop() {
+        size = 0;
+        beolv = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu? (2-4)");
+        if (beolv != null) {
+            size = Integer.valueOf(beolv);
+        }
+    }
 }
