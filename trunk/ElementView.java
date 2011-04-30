@@ -14,7 +14,7 @@ public class ElementView extends Canvas {
     public ElementView() {
         elements = new HashMap<Coordinate, AElement>();
         elementImages = new HashMap<String, Image>();
-        this.setSize(600, 500);
+//        this.setSize(1000, 1000);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         MediaTracker mediaTracker = new MediaTracker(this);
         int id = 0;
@@ -90,9 +90,9 @@ public class ElementView extends Canvas {
         g.drawImage(elementImages.get("Composite"), 100, 100, null);
 
         g.setColor(Color.white);
-        g.fillRect(0, 0, 800, 620);
+        g.fillRect(0, 0, 1000, 620);
         g.setColor(new Color(0, 0, 0));
-        g.drawRect(5, 5, 780, 530);
+        g.drawRect(5, 5, 980, 530);
         c = elements.keySet();
         it = c.iterator();
         if (elements.isEmpty()) {
