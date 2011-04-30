@@ -246,7 +246,7 @@ public class Test {
 
         // ---- AddNewOscilloscope
         System.out.println("\nMain | Project | proj | AddOscilloscope() | CALL");
-        proj.AddOscilliscope();
+        proj.AddOscilloscope();
 
         // ---- DeleteElement ----
         System.out.println("\nMain | Project | proj | DeleteElement(id) | CALL");
