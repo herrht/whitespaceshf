@@ -198,6 +198,7 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("NewProject")) {
             view.elements.clear();
             view.c.clear();
+            view.wires.clear();
             progi.NewProject();
             view.repaint();
         } else if (tmp.getText().equals("Save")) {
@@ -271,7 +272,7 @@ public class ProgramController extends JPanel implements ActionListener {
             int i = 0;
             boolean found = false;
 
-            while (i < view.c.size() - 1 || !found) {
+            while (i < view.c.size() && !found) {
                 System.out.println(found);
                 co = view.c.get(i);
                 if (el == view.elements.get(co)) {
@@ -280,15 +281,14 @@ public class ProgramController extends JPanel implements ActionListener {
                 i++;
             }
             
-            System.out.println(view.elements.get(co));
             wc.setX2(co.getX() + 50);
             wc.setY2(co.getY() + 25);
 
             el = progi.proj.elements.get(w1);
             i = 0;
-
             found = false;
-            while (i < view.c.size() - 1 || !found) {
+
+            while (i < view.c.size() && !found) {
                 co2 = view.c.get(i);
 
                 if (el == view.elements.get(co2)) {
