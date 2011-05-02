@@ -77,6 +77,11 @@ public class ElementView extends Canvas {
         mediaTracker.addImage(comp, id);
         id++;
         elementImages.put("Composite", comp);
+
+        Image gen = toolkit.getImage(getClass().getResource("Images/gen.png"));
+        mediaTracker.addImage(comp, id);
+        id++;
+        elementImages.put("Generator", gen);
     }
 
     @Override
@@ -92,6 +97,7 @@ public class ElementView extends Canvas {
         g.drawImage(elementImages.get("Led1"), 5000, 5000, null);
         g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
         g.drawImage(elementImages.get("Composite"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Generator"), 5000, 5000, null);
 
         g.setColor(Color.white);
         g.fillRect(0, 0, 1000, 620);
