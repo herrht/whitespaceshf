@@ -78,10 +78,28 @@ public class ElementView extends Canvas {
         id++;
         elementImages.put("Composite", comp);
 
-        Image gen = toolkit.getImage(getClass().getResource("Images/gen.png"));
-        mediaTracker.addImage(comp, id);
+
+        Image gen1 = toolkit.getImage(getClass().getResource("Images/gen1.png"));
+        mediaTracker.addImage(gen1, id);
         id++;
-        elementImages.put("Generator", gen);
+        elementImages.put("Generator1", gen1);
+
+        Image gen2 = toolkit.getImage(getClass().getResource("Images/gen2.png"));
+        mediaTracker.addImage(gen2, id);
+        id++;
+        elementImages.put("Generator2", gen2);
+
+        Image gen3 = toolkit.getImage(getClass().getResource("Images/gen3.png"));
+        mediaTracker.addImage(gen3, id);
+        id++;
+        elementImages.put("Generator3", gen3);
+
+        Image gen4 = toolkit.getImage(getClass().getResource("Images/gen4.png"));
+        mediaTracker.addImage(gen4, id);
+        id++;
+        elementImages.put("Generator4", gen4);
+
+       
     }
 
     @Override
@@ -97,7 +115,9 @@ public class ElementView extends Canvas {
         g.drawImage(elementImages.get("Led1"), 5000, 5000, null);
         g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
         g.drawImage(elementImages.get("Composite"), 5000, 5000, null);
-        g.drawImage(elementImages.get("Generator"), 5000, 5000, null);
+        for (int i = 1; i<5; i++){
+            g.drawImage(elementImages.get("Generator"+i), 5000, 5000, null);
+        }
 
         g.setColor(Color.white);
         g.fillRect(0, 0, 1000, 620);
@@ -117,7 +137,7 @@ public class ElementView extends Canvas {
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
             g.setColor(Color.BLACK);
             g.drawString("ID: "+elem.GetID(), cord.getX()+13, cord.getY()-3);
-            if (key.equals("Generator")){
+            if (key.substring(0, 9).equals("Generator")){
                 Generator gen = (Generator) elem;
                 g.setFont(new Font("Arial", 0, 12));
                 g.drawString(gen.rate2(), cord.getX()+24, cord.getY()+60);

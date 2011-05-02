@@ -6,12 +6,14 @@ public class Generator extends ASource {
 
     private int[] nums;      //a generátorban lévő számsor ami váltakozik shiftelés esetén
     private int counter;        //a generátorban lévő számláló
+    private int rotation;
 
     public Generator(int[] rate, int ID) {
         this.ID = ID;       //a sorszmáot egyenlővé teszi a paraméterrel
         counter = 0;
         nums = rate;
         value = nums[0];
+        rotation=1;
 
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
@@ -20,12 +22,13 @@ public class Generator extends ASource {
     }
 
     public int GetID() {
-        System.out.println(this + " |GetID() | CALL");       //kiírat
+//        System.out.println(this + " |GetID() | CALL");       //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 
     public void SetValue() {
-
+        if (rotation == 4) rotation = 1;
+        else rotation++;
         this.Shift();
         value = nums[counter];
 
@@ -52,7 +55,8 @@ public class Generator extends ASource {
 
     @Override
     public String toString() {
-        return "Generator";
+        System.out.println("Generator"+rotation);
+        return "Generator"+rotation;
     }
 
     @Override
