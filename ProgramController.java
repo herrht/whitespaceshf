@@ -137,24 +137,35 @@ public class ProgramController extends JPanel implements ActionListener {
 
                     flag = "IDLE";
                 }
-                if (flag.equals("WIRE1")) {
-                    //valahogy be kell, majd olvasni a Canvasról, hogy melyik kapura kattintok (ez lesz a forrás)
-                    //el kell tárolni az első kattintás kapuját, és bekérni a láb számát
-                    flag = "WIRE2";
-
-                }
-                if (flag.equals("WIRE2")) {
-                    //második kattintás kapuját el kell tárolni (ez lesz a cél)
-                    //be kell kérni a láb számát
-                    // a két kapuval meg a 2 lábbal meg kell hívni az AddWire-t és eltárolni, a view hasmapjában is
-                    flag = "IDLE";
-
-                }
+                
                 if (flag.equals("DEL")) {
-                    // be kell olvasni, hogy hova kattintottunk és kijelölni azt az elemet, majd meghívni rá a Delete() fv-t
-                    // majd ezt is kitaláljuk.
-                    flag = "IDLE";
-                }
+                    el = null;
+                    c = new Coordinate(e.getX(), e.getY());
+                    Coordinate cor = new Coordinate(0, 0);
+                    int i = 0;
+                    boolean found = false;
+                    while(i < view.c.size() && !found)
+                    {
+                       cor = view.c.get(i);
+                       if (cor.equal(c))
+                       {
+                           System.out.println(cor.equal(c));
+                           found = true;
+                           el = view.elements.get(cor);
+                       }
+                       i++;
+                    }
+                    if (el!=null){
+                        progi.proj.elements.remove(el.ID);
+                        view.elements.remove(cor);
+                    }
+                     view.c.remove(cor);
+                     view.repaint();
+                     flag = "IDLE";
+                    }
+
+                   
+                
                 if (flag.equals("SW")) {
                     int i = progi.proj.AddSwitch();
                     c = new Coordinate(e.getX(), e.getY());
