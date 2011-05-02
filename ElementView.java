@@ -113,10 +113,16 @@ public class ElementView extends Canvas {
         while (it.hasNext()) {
             Coordinate cord = (Coordinate) it.next();
             AElement elem = elements.get(cord);
-            String key = new String(elem.toString());
+            String key = elem.toString();
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
             g.setColor(Color.BLACK);
             g.drawString("ID: "+elem.GetID(), cord.getX()+13, cord.getY()-3);
+            if (key.equals("Generator")){
+                Generator gen = (Generator) elem;
+                g.setFont(new Font("Arial", 0, 12));
+                g.drawString(gen.rate2(), cord.getX()+24, cord.getY()+60);
+
+            }
         }
         for(int i = 0; i< wires.size();i++){
             g.setColor(Color.BLACK);

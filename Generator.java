@@ -9,14 +9,14 @@ public class Generator extends ASource {
 
     public Generator(int[] rate, int ID) {
         this.ID = ID;       //a sorszmáot egyenlővé teszi a paraméterrel
-	counter = 0;
+        counter = 0;
         nums = rate;
         value = nums[0];
 
         outputs = new HashMap<Integer, PinOut>();
         outputs.put(0, new PinOut(this, 0));      //kreál egy kimenő lábat
 
-        System.out.println("A hálózathoz sikeresen hozzáadott egy Generator-t, melynek id-je:"+ID);       //kiírat
+        System.out.println("A hálózathoz sikeresen hozzáadott egy Generator-t, melynek id-je:" + ID);       //kiírat
     }
 
     public int GetID() {
@@ -26,17 +26,20 @@ public class Generator extends ASource {
 
     public void SetValue() {
 
-          this.Shift();
-          value = nums[counter];
+        this.Shift();
+        value = nums[counter];
 
 //        System.out.println(this + " | SetValue() | CALL");           //kiírat
     }
 
     public void Shift() {       //az elem léptető függvénye, változtatja a kimenő értéket a benne tárolt számsor alapján
-	if(counter < nums.length-1)	//amíg nem érünk a tömb végére léptetjük a countert
-                counter++;
-        else                            //ha végére értünk, akkor előről kezdjük a lépegetést
-                counter=0;
+        if (counter < nums.length - 1) //amíg nem érünk a tömb végére léptetjük a countert
+        {
+            counter++;
+        } else //ha végére értünk, akkor előről kezdjük a lépegetést
+        {
+            counter = 0;
+        }
 
 //        System.out.println(this + " | Shift() | CALL");      //kiírat
     }
@@ -60,7 +63,22 @@ public class Generator extends ASource {
     @Override
     public String toFile2() {
         String s = "";
-        for (int i = 0; i< nums.length; i++) s+=nums[i];
+        for (int i = 0; i < nums.length; i++) {
+            s += nums[i];
+        }
         return s;
+    }
+
+    public String rate() {
+        String r = "";
+        for (int i = 0; i < nums.length - 1; i++) {
+            r += nums[i];
+        }
+        return r;
+    }
+
+    public String rate2() {
+        String r = "" + nums[counter];
+        return r;
     }
 }
