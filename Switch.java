@@ -43,7 +43,7 @@ public class Switch extends ASource {
 
      @Override
     public String toFile1() {
-       return "Switch ";
+       return "AddSwitch ";
     }
 
     @Override
