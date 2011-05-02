@@ -15,6 +15,7 @@ public class Project {
     private Set<Integer> setOfLeds;
     private Set<Integer> setOfGenerators;
     private Map<Integer, Composite> composites;
+    public ArrayList<Wire> wires;
     /*------------------------- Osztaly kezelo fgv -------------------------*/
 
     public Project() {
@@ -24,6 +25,7 @@ public class Project {
         this.setOfLeds = new HashSet<Integer>();                 //egy hashsetet kreál
         this.composites = new HashMap<Integer, Composite>();                 //egy hashsetet kreál
         this.setOfGenerators = new HashSet<Integer>();          //egy hashsetet kreál
+        this.wires = new ArrayList<Wire>();
     }
 
    
@@ -258,6 +260,7 @@ public class Project {
 
         Wire tmp = new Wire(TmpGate1.inputs.get(Gate1Pin), TmpGate2.outputs.get(Element2Pin), ID);
         elements.put(ID, tmp);
+        wires.add(tmp);
         TmpGate1.inputs.get(Gate1Pin).SetWire(tmp);
         TmpGate2.outputs.get(Element2Pin).SetWire(ID, tmp);
         ++ID;
