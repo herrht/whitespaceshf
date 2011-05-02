@@ -5,6 +5,7 @@ import java.util.*;
 public class Inverter extends AGate {
 
     public Inverter(int ID) {
+        this.inputnum = 1;
         this.ID = ID;       //az elem sorszámát egyenlővé teszi a paraméterrel
         this.value = 0;              //inicializáláskor 0-ba állítja az elem értékét
 

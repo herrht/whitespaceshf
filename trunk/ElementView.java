@@ -7,12 +7,15 @@ public class ElementView extends Canvas {
 
     public HashMap<Coordinate, AElement> elements;
     private HashMap<String, Image> elementImages;
+    public ArrayList<WireCoordinate> wires;
     public ArrayList<Coordinate> c;
     public Iterator it;
+
 
     public ElementView() {
 
         c = new ArrayList<Coordinate>();
+        wires = new ArrayList<WireCoordinate>();
         elements = new HashMap<Coordinate, AElement>();
         elementImages = new HashMap<String, Image>();
 //        this.setSize(1000, 1000);
@@ -98,7 +101,7 @@ public class ElementView extends Canvas {
 
         it = c.iterator();
         if (elements.isEmpty()) {
-            g.setColor(Color.white);
+            g.setColor(Color.WHITE);
             g.fillRect(6, 6, 978, 528);
         }
         while (it.hasNext()) {
@@ -106,6 +109,11 @@ public class ElementView extends Canvas {
             AElement elem = elements.get(cord);
             String key = new String(elem.toString());
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
+        }
+        for(int i = 0; i< wires.size();i++){
+            g.setColor(Color.BLACK);
+            g.drawLine(wires.get(i).getX(), wires.get(i).getY(), wires.get(i).getX2(), wires.get(i).getY2());
+//            System.out.println(wires.get(i).getX()+" "+ wires.get(i).getY()+" "+wires.get(i).getX2()+" "+wires.get(i).getY2());
         }
 
     }

@@ -29,7 +29,7 @@ public class ProgramController extends JPanel implements ActionListener {
         view = v;
         progi = new Program();
         progi.view = view;
-        progi.NewProject();        
+        progi.NewProject();
         flag = "IDLE";
         view.addMouseListener(new MouseAdapter() {
 
@@ -83,7 +83,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     view.elements.put(c, el);
                     view.c.add(c);
                     view.repaint();
-
+                    el = null;
                     flag = "IDLE";
                 }
                 if (flag.equals("F1")) {
@@ -93,7 +93,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     view.elements.put(c, el);
                     view.c.add(c);
                     view.repaint();
-
+                    el = null;
                     flag = "IDLE";
                 }
                 if (flag.equals("GEN")) {
@@ -228,34 +228,120 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("Oscilloscope")) {
             flag = "OSC";
         } else if (tmp.getText().equals("Wire")) {
-            popin = null;
+
+            el = null;
+            Coordinate co = new Coordinate(0, 0);
+            Coordinate co2 = new Coordinate(0, 0);
+            WireCoordinate wc = new WireCoordinate(0, 0, 0, 0);
+           
             int w1, w2, w3, w4 = 0;
+            popin = null;
             pop("A forrás IDje:");
-            if (popin == null)return;
+            if (popin == null) {
+                return;
+            }
             w3 = popval;
             Collection ids = progi.proj.elements.keySet();
-            while (!ids.contains(w3) || popin == null){
+            while (!ids.contains(w3) || popin == null) {
                 pop("Nincs ilyen IDjű elem!");
-                w3 = popval;}
+                w3 = popval;
+            }
+            
             w4 = 0;
             pop("A Cél IDje:");
             w1 = popval;
-            while (!ids.contains(w1) || popin == null){
+            while (!ids.contains(w1) || popin == null) {
                 pop("Nincs ilyen IDjű elem!");
-                w1 = popval;}
+                w1 = popval;
+            }
+            System.out.println(popval);
             popval = -1;
             pop("A Cél melyik lábához akarod kötni?:");
-            
-            w2 =popval;
+
+            w2 = popval;
             AGate g = (AGate) progi.proj.elements.get(w1);
-            while (popval<0 || popval > g.getInputnum() || popin ==null){
+            while (popval < 0 || popval > g.getInputnum() || popin == null) {
                 pop("Nincs ilyen IDjű láb!");
                 w2 = popval;
             }
+            System.out.println(popval);
             progi.proj.AddWire(w1, w2, w3, w4);
+            
+            el = progi.proj.elements.get(w3);
+            int i = 0;
+            boolean found = false;
 
+            while (i < view.c.size() - 1 || !found) {
+                System.out.println(found);
+                co = view.c.get(i);
+                if (el == view.elements.get(co)) {
+                    found = true;
+                }
+                i++;
+            }
+            
+            System.out.println(view.elements.get(co));
+            wc.setX2(co.getX() + 50);
+            wc.setY2(co.getY() + 25);
 
+            el = progi.proj.elements.get(w1);
+            i = 0;
+
+            found = false;
+            while (i < view.c.size() - 1 || !found) {
+                co2 = view.c.get(i);
+
+                if (el == view.elements.get(co2)) {
+                    found = true;
+                }
+                i++;
+            }
+            System.out.println(co2.getX()+" "+co2.getY());
+            System.out.println(el);
+            AGate gt = (AGate) el;
+            wc.setX(co2.getX());
+
+            wc.setX(co2.getX());
+
+            if (gt.getInputnum() == 1) {
+                wc.setY(co2.getY() + 25);
+            } else if (gt.getInputnum() == 2) {
+                if (w2 == 0) {
+                    wc.setY(co2.getY() + 12);
+                }
+                if (w2 == 1) {
+                    wc.setY(co2.getY() + 37);
+                }
+
+            } else if (gt.getInputnum() == 3) {
+                if (w2 == 0) {
+                    wc.setY(co2.getY() + 12);
+                }
+                if (w2 == 1) {
+                    wc.setY(co2.getY() + 25);
+                }
+                if (w2 == 2) {
+                    wc.setY(co2.getY() + 37);
+                }
+            } else if (gt.getInputnum() == 4) {
+                if (w2 == 0) {
+                    wc.setY(co2.getY());
+                }
+                if (w2 == 1) {
+                    wc.setY(co2.getY() + 12);
+                }
+                if (w2 == 2) {
+                    wc.setY(co2.getY() + 25);
+                }
+                if (w2 == 3) {
+                    wc.setY(co2.getY() + 50);
+                }
+            }
+            view.wires.add(wc);
+            System.out.println(wc.getX()+" "+ wc.getY()+" "+wc.getX2()+" "+wc.getY2());
+            view.repaint();
             flag = "IDLE";
+            return;
         } else if (tmp.getText().equals("Delete")) {
             flag = "DEL";
         } else if (tmp.getText().equals("Switch")) {
@@ -266,7 +352,7 @@ public class ProgramController extends JPanel implements ActionListener {
 
     public void pop(String s) {
         popval = -1;
-        popin = JOptionPane.showInputDialog(null, s );
+        popin = JOptionPane.showInputDialog(null, s);
         if (popin != null) {
             try {
                 popval = Integer.valueOf(popin);
@@ -303,6 +389,7 @@ public class ProgramController extends JPanel implements ActionListener {
         }
     }
     public static String newline = System.getProperty("line.separator");
+
     public void save(File f) {
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(f.getPath()));
@@ -311,13 +398,13 @@ public class ProgramController extends JPanel implements ActionListener {
             while (it.hasNext()) {
                 Coordinate cord = (Coordinate) it.next();
                 AElement elem = view.elements.get(cord);
-                command+=elem.toFile1();
-                command+=cord;
-                command+=elem.toFile2();
+                command += elem.toFile1();
+                command += cord;
+                command += elem.toFile2();
                 System.out.println(cord);
-                command+=newline;                
+                command += newline;
                 out.write(command);
-                command ="";
+                command = "";
             }
             out.close();
         } catch (IOException ex) {
@@ -325,7 +412,7 @@ public class ProgramController extends JPanel implements ActionListener {
         }
     }
 
-    public void freqi(){
+    public void freqi() {
         int freqi = 0;
         popin = JOptionPane.showInputDialog(null, "Hány millisecenként legyen órajel?");
         if (popin != null) {
