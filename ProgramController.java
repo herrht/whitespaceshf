@@ -137,35 +137,35 @@ public class ProgramController extends JPanel implements ActionListener {
 
                     flag = "IDLE";
                 }
-                
+
                 if (flag.equals("DEL")) {
+
+
                     el = null;
                     c = new Coordinate(e.getX(), e.getY());
                     Coordinate cor = new Coordinate(0, 0);
                     int i = 0;
                     boolean found = false;
-                    while(i < view.c.size() && !found)
-                    {
-                       cor = view.c.get(i);
-                       if (cor.equal(c))
-                       {
-                           System.out.println(cor.equal(c));
-                           found = true;
-                           el = view.elements.get(cor);
-                       }
-                       i++;
+                    while (i < view.c.size() && !found) {
+                        cor = view.c.get(i);
+                        if (cor.equal(c)) {
+                            System.out.println(cor.equal(c));
+                            found = true;
+                            el = view.elements.get(cor);
+                        }
+                        i++;
                     }
-                    if (el!=null){
+                    if (el != null) {
                         progi.proj.elements.remove(el.ID);
                         view.elements.remove(cor);
-                    }
-                     view.c.remove(cor);
-                     view.repaint();
-                     flag = "IDLE";
-                    }
+                        view.c.remove(cor);
+                    }                    
+                    view.repaint();
+                    flag = "IDLE";
+                }
 
-                   
-                
+
+
                 if (flag.equals("SW")) {
                     int i = progi.proj.AddSwitch();
                     c = new Coordinate(e.getX(), e.getY());
@@ -345,8 +345,8 @@ public class ProgramController extends JPanel implements ActionListener {
                 out.write(command);
                 command = "";
             }
-            for (int i = 0; i<progi.proj.wires.size();i++){
-                out.write(progi.proj.wires.get(i).toString()+newline);
+            for (int i = 0; i < progi.proj.wires.size(); i++) {
+                out.write(progi.proj.wires.get(i).toString() + newline);
             }
             out.close();
         } catch (IOException ex) {

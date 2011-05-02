@@ -38,6 +38,8 @@ public class Coordinate {
    public String toString(){
        return x+" "+y+" ";
    }
-
+   public boolean equal(Coordinate c){
+       return ((x<=c.getX()) && (c.getX()<=(x+50)) && (y<=c.getY()) && (c.getY()<=(y+50)));
+   }
 
 }
