@@ -137,7 +137,7 @@ public class ElementView extends Canvas {
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
             g.setColor(Color.BLACK);
             g.drawString("ID: "+elem.GetID(), cord.getX()+13, cord.getY()-3);
-            if (key.substring(0, 9).equals("Generator")){
+            if (key.substring(0, 2).equals("Ge")){
                 Generator gen = (Generator) elem;
                 g.setFont(new Font("Arial", 0, 12));
                 g.drawString(gen.rate2(), cord.getX()+24, cord.getY()+60);
