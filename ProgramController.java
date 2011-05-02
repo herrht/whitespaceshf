@@ -230,11 +230,9 @@ public class ProgramController extends JPanel implements ActionListener {
             flag = "OSC";
         } else if (tmp.getText().equals("Wire")) {
 
-            el = null;
-            Coordinate co = new Coordinate(0, 0);
-            Coordinate co2 = new Coordinate(0, 0);
-            WireCoordinate wc = new WireCoordinate(0, 0, 0, 0);
-           
+            
+
+
             int w1, w2, w3, w4 = 0;
             popin = null;
             pop("A forrás IDje:");
@@ -247,7 +245,7 @@ public class ProgramController extends JPanel implements ActionListener {
                 pop("Nincs ilyen IDjű elem!");
                 w3 = popval;
             }
-            
+
             w4 = 0;
             pop("A Cél IDje:");
             w1 = popval;
@@ -265,80 +263,10 @@ public class ProgramController extends JPanel implements ActionListener {
                 pop("Nincs ilyen IDjű láb!");
                 w2 = popval;
             }
-            System.out.println(popval);
+
             progi.proj.AddWire(w1, w2, w3, w4);
-            
-            el = progi.proj.elements.get(w3);
-            int i = 0;
-            boolean found = false;
+            AddWireToView(w1, w2, w3, w4);
 
-            while (i < view.c.size() && !found) {
-                System.out.println(found);
-                co = view.c.get(i);
-                if (el == view.elements.get(co)) {
-                    found = true;
-                }
-                i++;
-            }
-            
-            wc.setX2(co.getX() + 50);
-            wc.setY2(co.getY() + 25);
-
-            el = progi.proj.elements.get(w1);
-            i = 0;
-            found = false;
-
-            while (i < view.c.size() && !found) {
-                co2 = view.c.get(i);
-
-                if (el == view.elements.get(co2)) {
-                    found = true;
-                }
-                i++;
-            }
-            System.out.println(co2.getX()+" "+co2.getY());
-            System.out.println(el);
-            AGate gt = (AGate) el;
-            wc.setX(co2.getX());
-
-            wc.setX(co2.getX());
-
-            if (gt.getInputnum() == 1) {
-                wc.setY(co2.getY() + 25);
-            } else if (gt.getInputnum() == 2) {
-                if (w2 == 0) {
-                    wc.setY(co2.getY() + 12);
-                }
-                if (w2 == 1) {
-                    wc.setY(co2.getY() + 37);
-                }
-
-            } else if (gt.getInputnum() == 3) {
-                if (w2 == 0) {
-                    wc.setY(co2.getY() + 12);
-                }
-                if (w2 == 1) {
-                    wc.setY(co2.getY() + 25);
-                }
-                if (w2 == 2) {
-                    wc.setY(co2.getY() + 37);
-                }
-            } else if (gt.getInputnum() == 4) {
-                if (w2 == 0) {
-                    wc.setY(co2.getY());
-                }
-                if (w2 == 1) {
-                    wc.setY(co2.getY() + 12);
-                }
-                if (w2 == 2) {
-                    wc.setY(co2.getY() + 25);
-                }
-                if (w2 == 3) {
-                    wc.setY(co2.getY() + 50);
-                }
-            }
-            view.wires.add(wc);
-            System.out.println(wc.getX()+" "+ wc.getY()+" "+wc.getX2()+" "+wc.getY2());
             view.repaint();
             flag = "IDLE";
             return;
@@ -379,7 +307,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     param[i] = darabolt[i + 1];
                 }
 //                for(int i =0; i<count-1; i++) System.out.println(param[i]);
-                Command cmd = new Command(progi.proj, darabolt[0], param, view);
+                Command cmd = new Command(progi.proj, darabolt[0], param, view, this);
                 cmd.run();
             }
             in.close();
@@ -424,5 +352,83 @@ public class ProgramController extends JPanel implements ActionListener {
         }
         System.out.println(freqi);
         progi.SetFreq(freqi);
+    }
+
+    public void AddWireToView(int w1, int w2, int w3, int w4) {
+        el = null;
+        Coordinate co = new Coordinate(0, 0);
+        Coordinate co2 = new Coordinate(0, 0);
+        WireCoordinate wc = new WireCoordinate(0, 0, 0, 0);
+        el = progi.proj.elements.get(w3);
+        int i = 0;
+        boolean found = false;
+
+        while (i < view.c.size() && !found) {
+            System.out.println(found);
+            co = view.c.get(i);
+            if (el == view.elements.get(co)) {
+                found = true;
+            }
+            i++;
+        }
+
+        wc.setX2(co.getX() + 50);
+        wc.setY2(co.getY() + 25);
+
+        el = progi.proj.elements.get(w1);
+        i = 0;
+        found = false;
+
+        while (i < view.c.size() && !found) {
+            co2 = view.c.get(i);
+
+            if (el == view.elements.get(co2)) {
+                found = true;
+            }
+            i++;
+        }
+        System.out.println(co2.getX() + " " + co2.getY());
+        System.out.println(el);
+        AGate gt = (AGate) el;
+        wc.setX(co2.getX());
+
+        wc.setX(co2.getX());
+
+        if (gt.getInputnum() == 1) {
+            wc.setY(co2.getY() + 25);
+        } else if (gt.getInputnum() == 2) {
+            if (w2 == 0) {
+                wc.setY(co2.getY() + 12);
+            }
+            if (w2 == 1) {
+                wc.setY(co2.getY() + 37);
+            }
+
+        } else if (gt.getInputnum() == 3) {
+            if (w2 == 0) {
+                wc.setY(co2.getY() + 12);
+            }
+            if (w2 == 1) {
+                wc.setY(co2.getY() + 25);
+            }
+            if (w2 == 2) {
+                wc.setY(co2.getY() + 37);
+            }
+        } else if (gt.getInputnum() == 4) {
+            if (w2 == 0) {
+                wc.setY(co2.getY());
+            }
+            if (w2 == 1) {
+                wc.setY(co2.getY() + 12);
+            }
+            if (w2 == 2) {
+                wc.setY(co2.getY() + 25);
+            }
+            if (w2 == 3) {
+                wc.setY(co2.getY() + 50);
+            }
+        }
+        view.wires.add(wc);
+
     }
 }

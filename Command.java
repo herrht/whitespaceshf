@@ -17,8 +17,10 @@ public class Command {
     String par[];
     Project proj;
     ElementView view;
+    ProgramController pc;
 
-    Command(Project proj, String name, String par[], ElementView view) {
+    Command(Project proj, String name, String par[], ElementView view, ProgramController pc) {
+        this.pc = pc;
         this.proj = proj;
         this.name = name;
         this.par = par; //a konstruktorban megadott paramétert bemásoljuk a parancs paraméterlistájába.
@@ -118,6 +120,7 @@ public class Command {
             }
             if (name.equals("AddWire")) {
                 proj.AddWire(param[0], param[1], param[2], param[3]);
+                pc.AddWireToView(param[0], param[1], param[2], param[3]);
             }
 
             if (name.equals("Start")) {
