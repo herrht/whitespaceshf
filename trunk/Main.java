@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.UIManager;
 
 public class Main
 {
@@ -11,6 +12,10 @@ public class Main
     public static void main(String[] args) throws IOException
     {   //A program fő része, itt hozzuk létre  projectet, és választunk tesztesetet
 
+        try
+        {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (Exception e) { }
         // ---- NewProject ----
         //System.out.println("\nMain | Program | progi | Program() | CALL");
         ProgramView pw = new ProgramView();
