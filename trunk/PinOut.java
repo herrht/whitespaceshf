@@ -43,6 +43,6 @@ public class PinOut extends Pin {
 
     @Override
     public String toString() {
-        return ""+elem;
+        return ""+elem.GetID()+" "+ID;
     }
 }

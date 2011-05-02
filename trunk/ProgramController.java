@@ -230,7 +230,6 @@ public class ProgramController extends JPanel implements ActionListener {
             flag = "OSC";
         } else if (tmp.getText().equals("Wire")) {
 
-            
 
 
             int w1, w2, w3, w4 = 0;
@@ -263,7 +262,7 @@ public class ProgramController extends JPanel implements ActionListener {
                 pop("Nincs ilyen IDjű láb!");
                 w2 = popval;
             }
-
+            System.out.println(popval);
             progi.proj.AddWire(w1, w2, w3, w4);
             AddWireToView(w1, w2, w3, w4);
 
@@ -310,6 +309,7 @@ public class ProgramController extends JPanel implements ActionListener {
                 Command cmd = new Command(progi.proj, darabolt[0], param, view, this);
                 cmd.run();
             }
+
             in.close();
         } catch (Exception e) // EOFException elkapása
         {
@@ -333,6 +333,9 @@ public class ProgramController extends JPanel implements ActionListener {
                 command += newline;
                 out.write(command);
                 command = "";
+            }
+            for (int i = 0; i<progi.proj.wires.size();i++){
+                out.write(progi.proj.wires.get(i).toString()+newline);
             }
             out.close();
         } catch (IOException ex) {
@@ -359,6 +362,7 @@ public class ProgramController extends JPanel implements ActionListener {
         Coordinate co = new Coordinate(0, 0);
         Coordinate co2 = new Coordinate(0, 0);
         WireCoordinate wc = new WireCoordinate(0, 0, 0, 0);
+
         el = progi.proj.elements.get(w3);
         int i = 0;
         boolean found = false;
@@ -429,6 +433,5 @@ public class ProgramController extends JPanel implements ActionListener {
             }
         }
         view.wires.add(wc);
-
     }
 }

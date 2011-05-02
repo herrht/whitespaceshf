@@ -33,7 +33,7 @@ public class Wire extends AElement {
 
     @Override
     public String toString() {
-        return "Wire" + ID + " between " + input + " and " + output;
+        return "AddWire " + output + input;
     }
 
     @Override

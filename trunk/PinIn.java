@@ -29,6 +29,6 @@ public class PinIn extends Pin {
 
     @Override
     public String toString() {
-        return ""+elem;
+        return ""+elem.GetID()+" "+ID+" ";
     }
 }
