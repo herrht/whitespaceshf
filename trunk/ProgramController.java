@@ -50,14 +50,15 @@ public class ProgramController extends JPanel implements ActionListener {
                         }
                         i++;
                     }
-                    try{
-                    if (el.toString().equals("Switch0") || el.toString().equals("Switch1")) {
-                        Switch sw = (Switch) progi.proj.elements.get(el.ID);
-                        sw.SwitchOutput();
+                    try {
+                        if (el.toString().equals("Switch0") || el.toString().equals("Switch1")) {
+                            Switch sw = (Switch) progi.proj.elements.get(el.ID);
+                            sw.SwitchOutput();
 
+                        }
+                    } catch (Exception exc) {
                     }
-                    }
-                    catch(Exception exc){}
+                    ;
                     view.repaint();
 
                 } else {
@@ -123,7 +124,23 @@ public class ProgramController extends JPanel implements ActionListener {
                         flag = "IDLE";
                     }
                     if (flag.equals("GEN")) {
-                        int[] rate = {0, 1}; // majd meg kell írni a beolvasását valahogy
+                        pop("Mi legyen a generatorban? (01110)");
+                        int[] rate = new int[popin.length()];
+                        for (int i = 0; i < popin.length(); i++) {
+                            try {
+                                rate[i] = Character.digit(popin.charAt(i), 10);
+                                if (rate[i] > 1 || rate[i] < 0) {
+                                    throw new Exception();
+                                }
+                            } catch (Exception exc) {
+                                JOptionPane.showMessageDialog(null, "0 vagy 1 számok szerepelhetnek csak!","HIBA",1);
+                                return;
+                            }
+
+
+
+                        }
+
                         int i = progi.proj.AddGenerator(rate);
                         c = new Coordinate(e.getX(), e.getY());
                         AElement el = (AElement) progi.proj.elements.get(i);
