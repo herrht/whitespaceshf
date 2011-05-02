@@ -109,6 +109,8 @@ public class ElementView extends Canvas {
             AElement elem = elements.get(cord);
             String key = new String(elem.toString());
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
+            g.setColor(Color.BLACK);
+            g.drawString("ID: "+elem.GetID(), cord.getX()+13, cord.getY()+15);
         }
         for(int i = 0; i< wires.size();i++){
             g.setColor(Color.BLACK);
