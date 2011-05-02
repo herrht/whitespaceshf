@@ -18,8 +18,8 @@ public class ProgramController extends JPanel implements ActionListener {
     private AElement el;
     private JFileChooser fc;
     private Dialog dial;
-    private int size;
-    private String beolv;
+    private int popval;
+    private String popin;
 
     public ProgramController(ElementView v) {
 
@@ -37,12 +37,12 @@ public class ProgramController extends JPanel implements ActionListener {
             public void mouseClicked(MouseEvent e) {
                 if (flag.equals("AND")) {
 
-                    pop();
-                    while ((size < 2 || size > 4) && beolv != null) {
-                        pop();
+                    pop("Hány bemenete legyen a kapunak? (2-4)");
+                    while ((popval < 2 || popval > 4) && popin != null) {
+                        pop("A bemenetnek 2 és 4 között kell lennie");
                     }
-                    if (size != 0) {
-                        int i = progi.proj.AddAnd(size);
+                    if (popval != -1) {
+                        int i = progi.proj.AddAnd(popval);
                         c = new Coordinate(e.getX(), e.getY());
                         AElement el = (AElement) progi.proj.elements.get(i);
                         view.elements.put(c, el);
@@ -52,12 +52,12 @@ public class ProgramController extends JPanel implements ActionListener {
                     flag = "IDLE";
                 }
                 if (flag.equals("OR")) {
-                    pop();
-                    while ((size < 2 || size > 4) && beolv != null) {
-                        pop();
+                    pop("Hány bemenete legyen a kapunak? (2-4)");
+                    while ((popval < 2 || popval > 4) && popin != null) {
+                        pop("A bemenetnek 2 és 4 között kell lennie");
                     }
-                    if (size != 0) {
-                        int i = progi.proj.AddOr(size);
+                    if (popval != -1) {
+                        int i = progi.proj.AddOr(popval);
                         c = new Coordinate(e.getX(), e.getY());
                         AElement el = (AElement) progi.proj.elements.get(i);
                         view.elements.put(c, el);
@@ -228,7 +228,34 @@ public class ProgramController extends JPanel implements ActionListener {
         } else if (tmp.getText().equals("Oscilloscope")) {
             flag = "OSC";
         } else if (tmp.getText().equals("Wire")) {
-            flag = "WIRE1";
+            popin = null;
+            int w1, w2, w3, w4 = 0;
+            pop("A forrás IDje:");
+            if (popin == null)return;
+            w3 = popval;
+            Collection ids = progi.proj.elements.keySet();
+            while (!ids.contains(w3) || popin == null){
+                pop("Nincs ilyen IDjű elem!");
+                w3 = popval;}
+            w4 = 0;
+            pop("A Cél IDje:");
+            w1 = popval;
+            while (!ids.contains(w1) || popin == null){
+                pop("Nincs ilyen IDjű elem!");
+                w1 = popval;}
+            popval = -1;
+            pop("A Cél melyik lábához akarod kötni?:");
+            
+            w2 =popval;
+            AGate g = (AGate) progi.proj.elements.get(w1);
+            while (popval<0 || popval > g.getInputnum() || popin ==null){
+                pop("Nincs ilyen IDjű láb!");
+                w2 = popval;
+            }
+            progi.proj.AddWire(w1, w2, w3, w4);
+
+
+            flag = "IDLE";
         } else if (tmp.getText().equals("Delete")) {
             flag = "DEL";
         } else if (tmp.getText().equals("Switch")) {
@@ -237,14 +264,14 @@ public class ProgramController extends JPanel implements ActionListener {
 
     }
 
-    public void pop() {
-        size = 0;
-        beolv = JOptionPane.showInputDialog(null, "Mekkora legyen a kapu? (2-4)");
-        if (beolv != null) {
+    public void pop(String s) {
+        popval = -1;
+        popin = JOptionPane.showInputDialog(null, s );
+        if (popin != null) {
             try {
-                size = Integer.valueOf(beolv);
+                popval = Integer.valueOf(popin);
             } catch (Exception ex) {
-                pop();
+                pop("Számot kell beírni!");
             }
         }
     }
@@ -300,10 +327,10 @@ public class ProgramController extends JPanel implements ActionListener {
 
     public void freqi(){
         int freqi = 0;
-        beolv = JOptionPane.showInputDialog(null, "Hány millisecenként legyen órajel?");
-        if (beolv != null) {
+        popin = JOptionPane.showInputDialog(null, "Hány millisecenként legyen órajel?");
+        if (popin != null) {
             try {
-                freqi = Integer.valueOf(beolv);
+                freqi = Integer.valueOf(popin);
             } catch (Exception ex) {
                 freqi();
             }
