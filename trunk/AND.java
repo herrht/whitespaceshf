@@ -21,7 +21,7 @@ public class AND extends AGate {
     }
 
     public int GetID() {
-        System.out.println(this + " | GetID() | CALL\n");       //kiírat
+//        System.out.println(this + " | GetID() | CALL\n");       //kiírat
         return this.ID;         //visszaadja az elem sorszámát
     }
 
