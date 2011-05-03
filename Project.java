@@ -57,9 +57,11 @@ public class Project {
             int tmp = (Integer) it.next();
             elements.get(tmp).SetValue();
         }
+
         it = this.setOfGenerators.iterator();
         while (it.hasNext()) //a generátorokra meghívja a Shift() fgvnyt
         {
+
             int tmp = (Integer) it.next();
             elements.get(tmp).SetValue();
         }

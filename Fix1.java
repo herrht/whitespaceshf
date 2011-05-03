@@ -15,17 +15,17 @@ public class Fix1 extends ASource {
     }
 
     public int GetID() {
-        System.out.println(this + " | GetID() | CALL");        //kiírat
+//        System.out.println(this + " | GetID() | CALL");        //kiírat
         return this.ID;             //visszaadja az elem sorszámát
     }
 
     public void SetValue() {
 		value = 1;
-        System.out.println(this + " | SetValue() | CALL| RETURN");       //kiírat
+//        System.out.println(this + " | SetValue() | CALL| RETURN");       //kiírat
     }
 
     public void Delete() {
-        System.out.println(this + " | Delete() | Fix1 torles fuggvenye ");     //kiírat
+//        System.out.println(this + " | Delete() | Fix1 torles fuggvenye ");     //kiírat
         outputs.get(0).Delete();        //törli a kimenő lábat
         outputs.clear();
         //Megpusztítjuk saját magunkat
