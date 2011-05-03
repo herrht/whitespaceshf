@@ -199,6 +199,7 @@ public class ProgramController extends JPanel implements ActionListener {
                             i++;
                         }
                         if (el != null) {
+                            progi.proj.elements.get(el.ID).Delete();
                             progi.proj.elements.remove(el.ID);
                             view.elements.remove(cor);
                             view.c.remove(cor);
@@ -368,23 +369,11 @@ public class ProgramController extends JPanel implements ActionListener {
     public void pop(String s) {
         popval = -1;
         popin = JOptionPane.showInputDialog(null, s);
-
-
-
-
         if (popin != null) {
             try {
                 popval = Integer.valueOf(popin);
-
-
-
-
             } catch (Exception ex) {
                 pop("Számot kell beírni!");
-
-
-
-
             }
         }
     }
@@ -394,59 +383,27 @@ public class ProgramController extends JPanel implements ActionListener {
         view.elements.clear();
         view.c.clear();
         view.repaint();
-
-
-
-
         try {
             FileReader fr = new FileReader(f);
             BufferedReader in = new BufferedReader(fr);   //beolvasandó fájl megadása
             String sor = new String();
-
-
-
-
             while ((sor = in.readLine()) != null) {
                 String darabolt[] = sor.split(" ");
-
-
-
-
                 int count = darabolt.length;
                 String param[] = new String[count - 1];
-
-
-
-
                 for (int i = 0; i
                         < count - 1; i++) {
                     param[i] = darabolt[i + 1];
-
-
-
-
                 }
 //                for(int i =0; i<count-1; i++) System.out.println(param[i]);
                 Command cmd = new Command(progi.proj, darabolt[0], param, view, this);
                 cmd.run();
-
-
-
-
             }
 
             in.close();
-
-
-
-
         } catch (Exception e) // EOFException elkapása
         {
             System.out.println("A fájl beolvasása végetért!");
-
-
-
-
         }
     }
     public static String newline = System.getProperty("line.separator");
@@ -456,10 +413,6 @@ public class ProgramController extends JPanel implements ActionListener {
             BufferedWriter out = new BufferedWriter(new FileWriter(f.getPath()));
             Iterator it = view.c.iterator();
             String command = "";
-
-
-
-
             while (it.hasNext()) {
                 Coordinate cord = (Coordinate) it.next();
                 AElement elem = view.elements.get(cord);
@@ -470,63 +423,29 @@ public class ProgramController extends JPanel implements ActionListener {
                 command += newline;
                 out.write(command);
                 command = "";
-
-
-
-
             }
             for (int i = 0; i
                     < progi.proj.wires.size(); i++) {
                 out.write(progi.proj.wires.get(i).toString() + newline);
-
-
-
-
             }
             out.close();
-
-
-
-
-
-
         } catch (IOException ex) {
             Logger.getLogger(ProgramController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-
-
-    }
+ }
 
     public void freqi() {
         int freqi = 0;
         popin = JOptionPane.showInputDialog(null, "Hány millisecenként legyen órajel?");
-
-
-
-
         if (popin != null) {
             try {
                 freqi = Integer.valueOf(popin);
-
-
-
-
             } catch (Exception ex) {
                 freqi();
-
-
-
-
             }
         }
         System.out.println(freqi);
         progi.SetFreq(freqi);
-
-
-
-
     }
 
     public void AddWireToView(int w1, int w2, int w3, int w4) {
@@ -536,40 +455,15 @@ public class ProgramController extends JPanel implements ActionListener {
         WireCoordinate wc = new WireCoordinate(0, 0, 0, 0);
 
         el = progi.proj.elements.get(w3);
-
-
-
-
         int i = 0;
-
-
-
-
         boolean found = false;
-
-
-
-
-
         while (i < view.c.size() && !found) {
             System.out.println(found);
             co = view.c.get(i);
-
-
-
-
             if (el == view.elements.get(co)) {
                 found = true;
-
-
-
-
             }
             i++;
-
-
-
-
         }
 
         wc.setX2(co.getX() + 50);
@@ -578,118 +472,52 @@ public class ProgramController extends JPanel implements ActionListener {
         el = progi.proj.elements.get(w1);
         i = 0;
         found = false;
-
-
-
-
-
         while (i < view.c.size() && !found) {
             co2 = view.c.get(i);
-
-
-
-
-
             if (el == view.elements.get(co2)) {
                 found = true;
-
-
-
-
             }
             i++;
-
-
-
-
         }
         System.out.println(co2.getX() + " " + co2.getY());
         System.out.println(el);
         AGate gt = (AGate) el;
         wc.setX(co2.getX());
-
         wc.setX(co2.getX());
-
-
-
-
-
         if (gt.getInputnum() == 1) {
             wc.setY(co2.getY() + 25);
-
-
-
-
         } else if (gt.getInputnum() == 2) {
             if (w2 == 0) {
                 wc.setY(co2.getY() + 12);
-
-
-
-
             }
             if (w2 == 1) {
                 wc.setY(co2.getY() + 37);
-
-
-
-
             }
 
         } else if (gt.getInputnum() == 3) {
             if (w2 == 0) {
                 wc.setY(co2.getY() + 12);
-
-
-
-
             }
             if (w2 == 1) {
                 wc.setY(co2.getY() + 25);
-
-
-
-
             }
             if (w2 == 2) {
                 wc.setY(co2.getY() + 37);
-
-
-
-
             }
         } else if (gt.getInputnum() == 4) {
             if (w2 == 0) {
                 wc.setY(co2.getY());
-
-
-
-
             }
             if (w2 == 1) {
                 wc.setY(co2.getY() + 12);
-
-
-
-
             }
             if (w2 == 2) {
                 wc.setY(co2.getY() + 25);
-
-
-
-
             }
             if (w2 == 3) {
                 wc.setY(co2.getY() + 50);
-
-
-
-
             }
         }
         view.wires.add(wc);
-
-
     }
 }

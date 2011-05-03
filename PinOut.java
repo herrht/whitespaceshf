@@ -15,7 +15,8 @@ public class PinOut extends Pin {
     }
 
     public void Delete() {      //az láb törlő függvénye
-        System.out.println("PinOut | Delete() | PinOut torles fuggvenye ");     //kiírat
+        w.clear();
+//        System.out.println("PinOut | Delete() | PinOut torles fuggvenye ");     //kiírat
         //Megpusztítjuk saját magunkat
     }
 

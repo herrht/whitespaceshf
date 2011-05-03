@@ -50,6 +50,7 @@ public class Generator extends ASource {
     public void Delete() {       //az elem törlő függvénye, törli a kimenő lábát
         System.out.println(this + " | Delete() | Generator torles fuggvenye ");
         outputs.get(0).Delete();        //törli a kimenő lábat
+        outputs.clear();
         //Megpusztítjuk saját magunkat
     }
 

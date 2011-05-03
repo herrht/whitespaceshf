@@ -33,6 +33,7 @@ public class Oscilloscope extends AGate {
     public void Delete() {       //az elem törlő függvénye amely törli az elem bemenő lábát
         System.out.println(this + " | Delete() | Oscilloscope torles fuggvenye ");
         inputs.get(0).Delete();
+        inputs.clear();
         //Megpusztítjuk saját magunkat
     }
 

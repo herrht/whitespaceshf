@@ -45,6 +45,8 @@ public class AND extends AGate {
         }
         outputs.get(0).Delete();        //törli a kimenő lábat
         //Megpusztítjuk saját magunkat
+        outputs.clear();
+        inputs.clear();
     }
 
     @Override

@@ -27,6 +27,7 @@ public class Fix0 extends ASource {
     public void Delete() {
         System.out.println(this + " | Delete() | Fix0 torles fuggvenye ");     //kiírat
         outputs.get(0).Delete();        //törli a kimenő lábat
+        outputs.clear();
         //Megpusztítjuk saját magunkat
     }
 

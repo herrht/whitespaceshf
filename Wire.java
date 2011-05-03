@@ -24,11 +24,7 @@ public class Wire extends AElement {
     }
 
     public void Delete() {       //a wire törlő függvénye, ami törli a wiret, de a lábakat nem, mivel azokat még az elemek használják
-        System.out.println("Wire | Delete() | Wire torles fuggvenye ");     //kiírat
-//        input.Delete();
-//        output.Delete();
-        // Láb törlés nem kell, hiszen az adott elem még használja
-        //Megpusztítjuk saját magunkat
+
     }
 
     @Override

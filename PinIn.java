@@ -12,7 +12,7 @@ public class PinIn extends Pin {
     }
 
     public void Delete() {       //a láb törlő függvénye
-        System.out.println(this + " | Delete() | PinIn torles fuggvenye ");       //kiírat
+        w = null;       //kiírat
         //Megpusztítjuk saját magunkat
     }
 
