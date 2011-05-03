@@ -41,23 +41,40 @@ public class ProgramView extends JPanel {
     public ProgramView() {
 
         and = new JButton("And");
+        and.setToolTipText("Add a new AND gate to the project.");
         or = new JButton("Or");
+        and.setToolTipText("Add a new OR gate to the project.");
         np = new JButton("NewProject");
+        np.setToolTipText("Create a new project.");
         save = new JButton("Save");
+        save.setToolTipText("Save the current project.");
         load = new JButton("Load");
+        load.setToolTipText("Load an existing project.");
         fix0 = new JButton("Fix0");
+        fix0.setToolTipText("Add a new FIX0 to the project.");
         fix1 = new JButton("Fix1");
+        fix1.setToolTipText("Add a new FIX1 to the project.");
         generator = new JButton("Generator");
+        generator.setToolTipText("Add a new Generator to the project.");
         composite = new JButton("Composite");
         led = new JButton("Led");
+        led.setToolTipText("Add a new Led to the project.");
         start = new JButton("Start");
+        start.setToolTipText("Start the simulation.");
         stop = new JButton("Stop");
+        stop.setToolTipText("Stop the simulation.");
         setfreq = new JButton("Setfreq");
+        setfreq.setToolTipText("Setup the frequency of the simulation.");
         inv = new JButton("Inverter");
+        inv.setToolTipText("Add a new Inverter to the project.");
         oscill = new JButton("Oscilloscope");
+        oscill.setToolTipText("Add a new Oscilloscope to the project");
         wire = new JButton("Wire");
+        wire.setToolTipText("Connect the elements with a wire.");
         delete = new JButton("Delete");
+        delete.setToolTipText("Delete an existing element.");
         sw = new JButton("Switch");
+        sw.setToolTipText("Add a Switch to the project.");
 
         view = new ElementView();
         pc = new ProgramController(view);
