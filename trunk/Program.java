@@ -31,25 +31,7 @@ public class Program implements ActionListener {
         tester = new Test(proj);       //egy új tesztet kreál
     }
 
-    public void SaveProject() throws IOException //a project mentés függvénye
-    {
-        /*
-        FileWriter fstream = new FileWriter("out.txt");
-        BufferedWriter out = new BufferedWriter(fstream);
-        //out.write(proj.elements.get(0).toString() + "\n");
 
-        out.close();
-         */ //fajl beolvasas em kell valszeg, ide biztos nem
-
-    }
-
-    public void LoadProject() throws IOException //a project töltés függvénye
-    {
-
-
-
-
-    }
     public void actionPerformed(ActionEvent actionEvent) {
         proj.Start();
         view.repaint();

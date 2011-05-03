@@ -23,12 +23,14 @@ public class Led extends AGate {
     public void Delete() {                                  //az elem törlő függvénye amely törli az elem bemenő lábát
         System.out.println(this + " | Delete() | Led torles fuggvenye ");
         inputs.get(0).Delete();
+        inputs.clear();
         //Megpusztítjuk saját magunkat
     }
 
      public void SetValue() {
         value = inputs.get(0).GetValue();    //meghívja a bemenő lábára a GetValue függvényt és egyenlővé teszi a valuet
         System.out.println("A "+this+" értéke:"+value);
+
 
 
 //        System.out.println(this + " | SetValue() | CALL");           //kiírat

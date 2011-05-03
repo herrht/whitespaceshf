@@ -57,6 +57,8 @@ public class OR extends AGate {
             inputs.get(i).Delete();
         }
         outputs.get(0).Delete();        //törli a kimenő lábat
+        outputs.clear();
+        inputs.clear();
         //Megpusztítjuk saját magunkat
     }
 

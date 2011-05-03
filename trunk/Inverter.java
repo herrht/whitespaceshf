@@ -35,6 +35,8 @@ public class Inverter extends AGate {
         System.out.println(this + " | Delete() | Inverter torles fuggvenye ");
         inputs.get(0).Delete();
         outputs.get(0).Delete();        //törli a kimenő lábat
+        outputs.clear();
+        inputs.clear();
         //Megpusztítjuk saját magunkat
     }
 

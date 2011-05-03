@@ -32,6 +32,7 @@ public class Switch extends ASource {
     public void Delete() {       //az elem törlő függvénye
         System.out.println(this + " | Delete() | Switch torles fuggvenye ");     //kiírat
         outputs.get(0).Delete();        //törli a kimenő lábat
+        outputs.clear();
         //Megpusztítjuk saját magunkat
     }
 
