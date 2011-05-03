@@ -55,7 +55,7 @@ public class Generator extends ASource {
 
     @Override
     public String toString() {
-        System.out.println("Generator"+rotation);
+//        System.out.println("Generator"+rotation);
         return "Generator"+rotation;
     }
 

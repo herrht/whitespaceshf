@@ -26,7 +26,7 @@ public class Oscilloscope extends AGate {
     }
 
     public int GetID() {
-        System.out.println(this + " | GetID() | CALL");     //kiírat
+//        System.out.println(this + " | GetID() | CALL");     //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 
@@ -53,8 +53,8 @@ public class Oscilloscope extends AGate {
     public int[] getNums(){
         int [] n;
         
-        if (nums.size()<5) n = new int[nums.size()];
-        else n = new int[5];
+        if (nums.size()<6) n = new int[nums.size()];
+        else n = new int[6];
         
         for (int i =0 ; i<n.length; i++)
         {

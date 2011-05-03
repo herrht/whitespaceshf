@@ -163,26 +163,48 @@ public class ElementView extends Canvas {
 
         g.drawRect(c.getX(), c.getY(), 200, 70);
 
-        int[] x = new int[fNumPoints];
-        int[] y = osc;
+        int[] x = new int[fNumPoints*2];
+        int[] y = new int[(fNumPoints)*2];
 
         // Select horizontal step size
-        double x_del = ((double) fWidth) / (fNumPoints - 1);
+        double x_del = (double) fWidth / (fNumPoints*2);
 
         // Find coordinates of the display center
-        int x_offset = fWidth / 2;
-        int y_offset = fHeight / 2;
+//        int x_offset = fWidth / 2;
+//        int y_offset = fHeight / 2;
 
         // Choose amplitude for the sine curve
         
 
         // Create a sine curve from a sequence
         // of short line segments
-        for (int i = 0; i < fNumPoints; i++) {
+        if (fNumPoints !=0)x[0] =c.getX();
+        for (int i = 1; i < fNumPoints*2; i+=2) {
             x[i] = (int) (i * x_del+c.getX());
-            if (y[i] == 0) y[i]+=c.getY()+60;
-            if (y[i] == 1) y[i]+=c.getY()+10;
+//            System.out.println("x["+i+"]="+x[i]);
+         }
+
+        for (int i = 2; i < fNumPoints*2; i+=2) {
+            x[i] = x[i-1];
+//            System.out.println("x["+i+"]="+x[i]);
+         }
+        
+        int j = 0;
+        for(int i= 0; i< (fNumPoints)*2; i+=2){
+            if (osc[j] == 0) y[i]+=c.getY()+60;
+            if (osc[j] == 1) y[i]+=c.getY()+10;
+            j++;
         }
+        j =0;
+         for(int i= 1; i< (fNumPoints)*2; i+=2){
+            if (osc[j] == 0) y[i]+=c.getY()+60;
+            if (osc[j] == 1) y[i]+=c.getY()+10;
+            j++;
+        }
+
+//        for(int i=0; i<(fNumPoints)*2; i++){
+//            System.out.println("y["+i+"]="+y[i]);
+//        }
         
         // Set the line color to red
         g.setColor(Color.red);
