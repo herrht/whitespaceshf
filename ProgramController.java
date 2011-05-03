@@ -302,11 +302,12 @@ public class ProgramController extends JPanel implements ActionListener {
                                 progi.proj.elements.remove(el.ID);
                                 view.elements.remove(cor);
                                 view.c.remove(cor);
+                                view.repaint();
+                                flag = "IDLE";
                             
                        }
-                        view.repaint();
-                        flag = "IDLE";
-                    }
+                       
+                   
 
 
 
@@ -321,7 +322,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     }
 
                 }
-            
+            }
         });
 
     }
