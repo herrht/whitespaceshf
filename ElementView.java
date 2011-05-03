@@ -157,14 +157,14 @@ public class ElementView extends Canvas {
     }
 
     public void paintOscill(Graphics g, Coordinate c, int[] osc) {
-        int fWidth =200, fHeight= 100;
+        int fWidth =220, fHeight= 100;
         int fNumPoints = osc.length;
         double fFactor= 2.0 * Math.PI / fWidth;
 
         g.drawRect(c.getX(), c.getY(), 200, 70);
 
         int[] x = new int[fNumPoints*2];
-        int[] y = new int[(fNumPoints)*2];
+        int[] y = new int[fNumPoints*2];
 
         // Select horizontal step size
         double x_del = (double) fWidth / (fNumPoints*2);
@@ -210,7 +210,7 @@ public class ElementView extends Canvas {
         g.setColor(Color.red);
 
         // Draw curve with single call to drawPolyline
-        g.drawPolyline(x, y, fNumPoints);
+        g.drawPolyline(x, y, fNumPoints*2);
 
         // Change the line color and draw the x-y axes
         g.setColor(Color.green);
