@@ -366,11 +366,11 @@ public class ProgramController extends JPanel implements ActionListener {
 
         } else if (tmp.getText().equals("NewProject")) {
             if (!flag.equals("RUNNING")) {
+                
+                view.wires.clear();
                 view.elements.clear();
                 view.c.clear();
-                view.wires.clear();
-                progi.NewProject();
-                view.wires.clear();
+                progi.NewProject();                
                 view.repaint();
             }
 
@@ -384,12 +384,16 @@ public class ProgramController extends JPanel implements ActionListener {
                 }
             }
         } else if (tmp.getText().equals("Load")) {
+                view.wires.clear();
+                view.elements.clear();
+                view.c.clear();
             if (!flag.equals("RUNNING")) {
                 int returnVal = fc.showOpenDialog(ProgramController.this);
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     File file = fc.getSelectedFile();
                     load(file);
                 }
+
             }
         } else if (tmp.getText().equals("Composite")) {
             if (!flag.equals("RUNNING")) {
