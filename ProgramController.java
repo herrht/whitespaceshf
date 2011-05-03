@@ -210,6 +210,7 @@ public class ProgramController extends JPanel implements ActionListener {
                                 DeleteWireFromView(cord);
                                 
                                 if (gt.getInputnum() == 1) {
+                                    cord.setX(cor.getX());
                                     cord.setY(cor.getY() + 25);
                                     DeleteWireFromView(cord);
                                 }
