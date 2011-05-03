@@ -133,7 +133,7 @@ public class ProgramController extends JPanel implements ActionListener {
                                     throw new Exception();
                                 }
                             } catch (Exception exc) {
-                                JOptionPane.showMessageDialog(null, "0 vagy 1 számok szerepelhetnek csak!","HIBA",1);
+                                JOptionPane.showMessageDialog(null, "0 vagy 1 számok szerepelhetnek csak!", "HIBA", 1);
                                 return;
                             }
 
@@ -231,229 +231,140 @@ public class ProgramController extends JPanel implements ActionListener {
 
 
 
-
         if (tmp.getText().equals("And")) {
-            flag = "AND";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                flag = "AND";
+            }
 
         } else if (tmp.getText().equals("Or")) {
-            flag = "OR";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                flag = "OR";
+            }
 
         } else if (tmp.getText().equals("Inverter")) {
-            flag = "INV";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                flag = "INV";
+            }
 
         } else if (tmp.getText().equals("Fix0")) {
-            flag = "F0";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                flag = "F0";
+            }
 
         } else if (tmp.getText().equals("Fix1")) {
-            flag = "F1";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                flag = "F1";
+            }
 
         } else if (tmp.getText().equals("Generator")) {
-            flag = "GEN";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                flag = "GEN";
+            }
 
         } else if (tmp.getText().equals("NewProject")) {
-            view.elements.clear();
-            view.c.clear();
-            view.wires.clear();
-            progi.NewProject();
-            view.repaint();
-
-
-
+            if (!flag.equals("RUNNING")) {
+                view.elements.clear();
+                view.c.clear();
+                view.wires.clear();
+                progi.NewProject();
+                view.repaint();
+            }
 
         } else if (tmp.getText().equals("Save")) {
-            fc.setDialogType(JFileChooser.SAVE_DIALOG);
-
-
-
-
-            int returnVal = fc.showSaveDialog(ProgramController.this);
-
-
-
-
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fc.getSelectedFile();
-                save(
-                        file);
-
-
-
-
+            if (!flag.equals("RUNNING")) {
+                fc.setDialogType(JFileChooser.SAVE_DIALOG);
+                int returnVal = fc.showSaveDialog(ProgramController.this);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File file = fc.getSelectedFile();
+                    save(file);
+                }
             }
         } else if (tmp.getText().equals("Load")) {
-            int returnVal = fc.showOpenDialog(ProgramController.this);
-
-
-
-
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fc.getSelectedFile();
-                load(
-                        file);
-
-
-
-
+            if (!flag.equals("RUNNING")) {
+                int returnVal = fc.showOpenDialog(ProgramController.this);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File file = fc.getSelectedFile();
+                    load(file);
+                }
+            }
+        } else if (tmp.getText().equals("Composite")) {
+            if (!flag.equals("RUNNING")) {
+                flag = "COMP";
             }
 
-        } else if (tmp.getText().equals("Composite")) {
-            flag = "COMP";
-
-
-
-
         } else if (tmp.getText().equals("Led")) {
-            flag = "LED";
+            if (!flag.equals("RUNNING")) {
+                flag = "LED";
+            }
 
+        } else if (tmp.getText().equals("Oscilloscope")) {
+            if (!flag.equals("RUNNING")) {
+                flag = "OSC";
+            }
 
+        } else if (tmp.getText().equals("Wire")) {
 
+            if (!flag.equals("RUNNING")) {
+                int w1, w2, w3, w4 = 0;
+                popin = null;
+                pop("A forrás IDje:");
+                if (popin == null) {
+                    return;
+                }
+                w3 = popval;
+                Collection ids = progi.proj.elements.keySet();
+                while (!ids.contains(w3) || popin == null) {
+                    pop("Nincs ilyen IDjű elem!");
+                    w3 = popval;
+                }
+                w4 = 0;
+                pop("A Cél IDje:");
+                w1 = popval;
+                while (!ids.contains(w1) || popin == null) {
+                    pop("Nincs ilyen IDjű elem!");
+                    w1 = popval;
+                }
+                System.out.println(popval);
+                popval = -1;
+                pop("A Cél melyik lábához akarod kötni?:");
+                w2 = popval;
+                AGate g = (AGate) progi.proj.elements.get(w1);
+                while (popval < 0 || popval > g.getInputnum() || popin == null) {
+                    pop("Nincs ilyen IDjű láb!");
+                    w2 = popval;
+                }
+                System.out.println(popval);
+                progi.proj.AddWire(w1, w2, w3, w4);
+                AddWireToView(
+                        w1, w2, w3, w4);
 
+                view.repaint();
+                flag = "IDLE";
+                return;
+            }
+        } else if (tmp.getText().equals("Delete")) {
+            if (!flag.equals("RUNNING")) {
+                flag = "DEL";
+            }
+        } else if (tmp.getText().equals("Switch")) {
+            if (!flag.equals("RUNNING")) {
+                flag = "SW";
+            }
         } else if (tmp.getText().equals("Start")) {
-            progi.t.start();
-            view.repaint();
-            flag = "RUNNING";
-
-
-
+            if (!flag.equals("RUNNING")) {
+                progi.t.start();
+                view.repaint();
+                flag = "RUNNING";
+            }
 
         } else if (tmp.getText().equals("Stop")) {
             progi.t.stop();
             flag = "IDLE";
-
-
-
-
         } else if (tmp.getText().equals("Setfreq")) {
             freqi();
-
-
-
-
-        } else if (tmp.getText().equals("Oscilloscope")) {
-            flag = "OSC";
-
-
-
-
-        } else if (tmp.getText().equals("Wire")) {
-
-
-
-            int w1, w2, w3, w4 = 0;
-            popin = null;
-            pop(
-                    "A forrás IDje:");
-
-
-
-
-            if (popin == null) {
-                return;
-
-
-
-
-            }
-            w3 = popval;
-            Collection ids = progi.proj.elements.keySet();
-
-
-
-
-            while (!ids.contains(w3) || popin == null) {
-                pop("Nincs ilyen IDjű elem!");
-                w3 = popval;
-
-
-
-
-            }
-
-            w4 = 0;
-            pop(
-                    "A Cél IDje:");
-            w1 = popval;
-
-
-
-
-            while (!ids.contains(w1) || popin == null) {
-                pop("Nincs ilyen IDjű elem!");
-                w1 = popval;
-
-
-
-
-            }
-            System.out.println(popval);
-            popval = -1;
-            pop(
-                    "A Cél melyik lábához akarod kötni?:");
-
-            w2 = popval;
-            AGate g = (AGate) progi.proj.elements.get(w1);
-
-
-
-
-            while (popval < 0 || popval > g.getInputnum() || popin == null) {
-                pop("Nincs ilyen IDjű láb!");
-                w2 = popval;
-
-
-
-
-            }
-            System.out.println(popval);
-            progi.proj.AddWire(w1, w2, w3, w4);
-            AddWireToView(
-                    w1, w2, w3, w4);
-
-            view.repaint();
-            flag = "IDLE";
-
-
-
-
-            return;
-
-
-
-
-        } else if (tmp.getText().equals("Delete")) {
-            flag = "DEL";
-
-
-
-
-        } else if (tmp.getText().equals("Switch")) {
-            flag = "SW";
-
-
-
-
         }
-
+    
     }
-
     public void pop(String s) {
         popval = -1;
         popin = JOptionPane.showInputDialog(null, s);
