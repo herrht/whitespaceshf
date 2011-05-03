@@ -67,10 +67,10 @@ public class ElementView extends Canvas {
         id++;
         elementImages.put("Led1", led1);
 
-//        Image osci = toolkit.getImage(getClass().getResource("Images/osci.png"));
-//        mediaTracker.addImage(osci, id);
-//        id++;
-//        elementImages.put("Oscilloscope", osci);
+        Image osci = toolkit.getImage(getClass().getResource("Images/oscillo.png"));
+        mediaTracker.addImage(osci, id);
+        id++;
+        elementImages.put("Oscilloscope", osci);
 
         Image comp = toolkit.getImage(getClass().getResource("Images/comp.png"));
         mediaTracker.addImage(comp, id);
@@ -112,7 +112,7 @@ public class ElementView extends Canvas {
         g.drawImage(elementImages.get("Fix1"), 5000, 5000, null);
         g.drawImage(elementImages.get("Led0"), 5000, 5000, null);
         g.drawImage(elementImages.get("Led1"), 5000, 5000, null);
-//        g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
+        g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
         g.drawImage(elementImages.get("Composite"), 5000, 5000, null);
         for (int i = 1; i < 5; i++) {
             g.drawImage(elementImages.get("Generator" + i), 5000, 5000, null);
@@ -161,7 +161,7 @@ public class ElementView extends Canvas {
         int fNumPoints = osc.length;
         double fFactor= 2.0 * Math.PI / fWidth;
 
-        g.drawRect(c.getX(), c.getY(), 200, 70);
+//        g.drawRect(c.getX(), c.getY(), 200, 70);
 
         int[] x = new int[fNumPoints*2];
         int[] y = new int[fNumPoints*2];
@@ -178,9 +178,9 @@ public class ElementView extends Canvas {
 
         // Create a sine curve from a sequence
         // of short line segments
-        if (fNumPoints !=0)x[0] =c.getX();
+        if (fNumPoints !=0)x[0] =c.getX()+10;
         for (int i = 1; i < fNumPoints*2; i+=2) {
-            x[i] = (int) (i * x_del+c.getX());
+            x[i] = (int) (i * x_del+c.getX()+5);
 //            System.out.println("x["+i+"]="+x[i]);
          }
 
@@ -191,14 +191,14 @@ public class ElementView extends Canvas {
         
         int j = 0;
         for(int i= 0; i< (fNumPoints)*2; i+=2){
-            if (osc[j] == 0) y[i]+=c.getY()+60;
-            if (osc[j] == 1) y[i]+=c.getY()+10;
+            if (osc[j] == 0) y[i]+=c.getY()+65;
+            if (osc[j] == 1) y[i]+=c.getY()+15;
             j++;
         }
         j =0;
          for(int i= 1; i< (fNumPoints)*2; i+=2){
-            if (osc[j] == 0) y[i]+=c.getY()+60;
-            if (osc[j] == 1) y[i]+=c.getY()+10;
+            if (osc[j] == 0) y[i]+=c.getY()+65;
+            if (osc[j] == 1) y[i]+=c.getY()+15;
             j++;
         }
 

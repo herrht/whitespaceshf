@@ -84,9 +84,7 @@ public class ProgramView extends JPanel {
         or.addActionListener(pc);
         np.addActionListener(pc);
         save.addActionListener(pc);
-        load.addActionListener(pc);
-
-        
+        load.addActionListener(pc);        
         fix0.addActionListener(pc);
         fix1.addActionListener(pc);
         generator.addActionListener(pc);
