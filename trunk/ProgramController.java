@@ -192,18 +192,118 @@ public class ProgramController extends JPanel implements ActionListener {
                         while (i < view.c.size() && !found) {
                             cor = view.c.get(i);
                             if (cor.equal(c)) {
-                                System.out.println(cor.equal(c));
+//                                System.out.println(cor.equal(c));
                                 found = true;
                                 el = view.elements.get(cor);
                             }
-                            i++;
+                             i++;
+
                         }
+                        Coordinate cord = new Coordinate(0, 0);
                         if (el != null) {
-                            progi.proj.elements.get(el.ID).Delete();
-                            progi.proj.elements.remove(el.ID);
-                            view.elements.remove(cor);
-                            view.c.remove(cor);
-                        }
+                            if (el.toString().equals("And") || el.toString().equals("Or") || el.toString().equals("Inverter"))
+                            {
+                                AGate gt = (AGate) el;
+
+                                cord.setX(cor.getX() + 50);
+                                cord.setY(cor.getY() + 25);
+                                DeleteWireFromView(cord);
+                                
+                                if (gt.getInputnum() == 1) {
+                                    cord.setY(cor.getY() + 25);
+                                    DeleteWireFromView(cord);
+                                }
+                                if (gt.getInputnum() == 2) {
+                                    cord.setX(cor.getX() + 50);
+                                    cord.setY(cor.getY() + 12);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX() + 50);
+                                    cord.setY(cor.getY() + 37);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    DeleteWireFromView(cord);
+
+                                }
+                                if (gt.getInputnum() == 3) {
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 12);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 25);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX()+50);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 37);
+                                    DeleteWireFromView(cord);
+
+
+                                }
+                                if (gt.getInputnum() == 4) {
+
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY());
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 12);
+                                    DeleteWireFromView(cord);
+
+                                    
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 25);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 37);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX());
+                                    cord.setY(cor.getY() + 50);
+                                    DeleteWireFromView(cord);
+
+                                    cord.setX(cor.getX()+50);
+                                    cord.setY(cor.getY() + 25);
+                                    DeleteWireFromView(cord);
+
+                                }
+                                                               
+                            }
+                            if (el.toString().equals("Led0") ||el.toString().equals("Led1") || el.toString().equals("Oscilloscope"))
+                            {
+                                AGate gt = (AGate) el;
+                                System.out.println(cor.equal(c));
+
+                                cord.setX(cor.getX());
+                                cord.setY(cor.getY()+25);
+                                System.out.println(cord.getX());
+                                DeleteWireFromView(cord);
+                             }
+                            if (el.toString().equals("Fix1") || el.toString().equals("Fix1") || el.toString().equals("Generator1")|| el.toString().equals("Switch0")|| el.toString().equals("Switch1") || el.toString().equals("Generator3") || el.toString().equals("Generator3") || el.toString().equals("Generator4") || el.toString().equals("Generator5"))
+                            {
+                                
+                                System.out.println(cor.equal(c));
+
+                                cord.setX(cor.getX()+50);
+                                cord.setY(cor.getY()+25);
+                                System.out.println(cord.getX());
+                                DeleteWireFromView(cord);
+                            }
+                            }
+                                progi.proj.elements.get(el.ID).Delete();
+                                progi.proj.elements.remove(el.ID);
+                                view.elements.remove(cor);
+                                view.c.remove(cor);
+                            
+                       }
                         view.repaint();
                         flag = "IDLE";
                     }
@@ -221,7 +321,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     }
 
                 }
-            }
+            
         });
 
     }
@@ -336,8 +436,7 @@ public class ProgramController extends JPanel implements ActionListener {
                 }
                 System.out.println(popval);
                 progi.proj.AddWire(w1, w2, w3, w4);
-                AddWireToView(
-                        w1, w2, w3, w4);
+                AddWireToView(w1, w2, w3, w4);
 
                 view.repaint();
                 flag = "IDLE";
@@ -519,5 +618,27 @@ public class ProgramController extends JPanel implements ActionListener {
             }
         }
         view.wires.add(wc);
+    }
+    public void DeleteWireFromView(Coordinate cord){
+        System.out.println("A paraméterül kapott coordináta: "+cord.getX()+" "+cord.getY());
+
+        if (!view.wires.isEmpty()) {
+            for (int i = 0; i < view.wires.size(); i++) {
+                System.out.println("View coord: " + view.wires.get(i).getX() + " " + view.wires.get(i).getY() + " " + view.wires.get(i).getX2() + " " + view.wires.get(i).getY2());
+                if (view.wires.get(i).getX() == cord.getX() && view.wires.get(i).getY() == cord.getY()) {
+                    view.wires.remove(i);
+
+                }
+            }
+        }
+        if (!view.wires.isEmpty()) {
+            for (int i = 0; i < view.wires.size(); i++) {
+                System.out.println("View coord: " + view.wires.get(i).getX() + " " + view.wires.get(i).getY() + " " + view.wires.get(i).getX2() + " " + view.wires.get(i).getY2());
+                if (view.wires.get(i).getX2() == cord.getX() && view.wires.get(i).getY2() == cord.getY()) {
+                    view.wires.remove(i);
+
+                }
+            }
+        }
     }
 }

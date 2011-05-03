@@ -16,12 +16,12 @@ public class Led extends AGate {
     }
 
     public int GetID() {
-        System.out.println(this + " |GetID() | CALL");      //kiírat
+//        System.out.println(this + " |GetID() | CALL");      //kiírat
         return this.ID;                                     //visszaadja az elem sorszámát
     }
 
     public void Delete() {                                  //az elem törlő függvénye amely törli az elem bemenő lábát
-        System.out.println(this + " | Delete() | Led torles fuggvenye ");
+//        System.out.println(this + " | Delete() | Led torles fuggvenye ");
         inputs.get(0).Delete();
         inputs.clear();
         //Megpusztítjuk saját magunkat

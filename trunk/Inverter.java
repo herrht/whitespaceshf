@@ -19,7 +19,7 @@ public class Inverter extends AGate {
     }
 
     public int GetID() {
-        System.out.println(this + " |GetID() | CALL");        //kiírat
+//        System.out.println(this + " |GetID() | CALL");        //kiírat
         return this.ID;     //visszaadja az elem sorszámát
     }
 
@@ -32,7 +32,7 @@ public class Inverter extends AGate {
     }
 
     public void Delete() {       //az elem törlő függvénye, törli a be - és kimenő lábait
-        System.out.println(this + " | Delete() | Inverter torles fuggvenye ");
+//        System.out.println(this + " | Delete() | Inverter torles fuggvenye ");
         inputs.get(0).Delete();
         outputs.get(0).Delete();        //törli a kimenő lábat
         outputs.clear();
