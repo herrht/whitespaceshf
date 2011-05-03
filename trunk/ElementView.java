@@ -11,7 +11,6 @@ public class ElementView extends Canvas {
     public ArrayList<Coordinate> c;
     public Iterator it;
 
-
     public ElementView() {
 
         c = new ArrayList<Coordinate>();
@@ -68,10 +67,10 @@ public class ElementView extends Canvas {
         id++;
         elementImages.put("Led1", led1);
 
-        Image osci = toolkit.getImage(getClass().getResource("Images/osci.png"));
-        mediaTracker.addImage(osci, id);
-        id++;
-        elementImages.put("Oscilloscope", osci);
+//        Image osci = toolkit.getImage(getClass().getResource("Images/osci.png"));
+//        mediaTracker.addImage(osci, id);
+//        id++;
+//        elementImages.put("Oscilloscope", osci);
 
         Image comp = toolkit.getImage(getClass().getResource("Images/comp.png"));
         mediaTracker.addImage(comp, id);
@@ -99,7 +98,7 @@ public class ElementView extends Canvas {
         id++;
         elementImages.put("Generator4", gen4);
 
-       
+
     }
 
     @Override
@@ -113,10 +112,10 @@ public class ElementView extends Canvas {
         g.drawImage(elementImages.get("Fix1"), 5000, 5000, null);
         g.drawImage(elementImages.get("Led0"), 5000, 5000, null);
         g.drawImage(elementImages.get("Led1"), 5000, 5000, null);
-        g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
+//        g.drawImage(elementImages.get("Oscilloscope"), 5000, 5000, null);
         g.drawImage(elementImages.get("Composite"), 5000, 5000, null);
-        for (int i = 1; i<5; i++){
-            g.drawImage(elementImages.get("Generator"+i), 5000, 5000, null);
+        for (int i = 1; i < 5; i++) {
+            g.drawImage(elementImages.get("Generator" + i), 5000, 5000, null);
         }
 
         g.setColor(Color.white);
@@ -136,19 +135,63 @@ public class ElementView extends Canvas {
             String key = elem.toString();
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
             g.setColor(Color.BLACK);
-            g.drawString("ID: "+elem.GetID(), cord.getX()+13, cord.getY()-3);
-            if (key.substring(0, 2).equals("Ge")){
+            g.drawString("ID: " + elem.GetID(), cord.getX() + 13, cord.getY() - 3);
+            if (key.substring(0, 2).equals("Ge")) {
                 Generator gen = (Generator) elem;
                 g.setFont(new Font("Arial", 0, 12));
-                g.drawString(gen.rate2(), cord.getX()+24, cord.getY()+60);
+                g.drawString(gen.rate2(), cord.getX() + 24, cord.getY() + 60);
 
             }
+            if (key.equals("Oscilloscope")) {
+                Oscilloscope osc = (Oscilloscope) elem;
+                paintOscill(g, cord, osc.getNums());
+            }
         }
-        for(int i = 0; i< wires.size();i++){
+        for (int i = 0; i < wires.size(); i++) {
             g.setColor(Color.BLACK);
             g.drawLine(wires.get(i).getX(), wires.get(i).getY(), wires.get(i).getX2(), wires.get(i).getY2());
 //            System.out.println(wires.get(i).getX()+" "+ wires.get(i).getY()+" "+wires.get(i).getX2()+" "+wires.get(i).getY2());
         }
 
+
+    }
+
+    public void paintOscill(Graphics g, Coordinate c, int[] osc) {
+        int fWidth =200, fHeight= 100;
+        int fNumPoints = osc.length;
+        double fFactor= 2.0 * Math.PI / fWidth;
+
+        g.drawRect(c.getX(), c.getY(), 200, 70);
+
+        int[] x = new int[fNumPoints];
+        int[] y = osc;
+
+        // Select horizontal step size
+        double x_del = ((double) fWidth) / (fNumPoints - 1);
+
+        // Find coordinates of the display center
+        int x_offset = fWidth / 2;
+        int y_offset = fHeight / 2;
+
+        // Choose amplitude for the sine curve
+        
+
+        // Create a sine curve from a sequence
+        // of short line segments
+        for (int i = 0; i < fNumPoints; i++) {
+            x[i] = (int) (i * x_del+c.getX());
+            if (y[i] == 0) y[i]+=c.getY()+60;
+            if (y[i] == 1) y[i]+=c.getY()+10;
+        }
+        
+        // Set the line color to red
+        g.setColor(Color.red);
+
+        // Draw curve with single call to drawPolyline
+        g.drawPolyline(x, y, fNumPoints);
+
+        // Change the line color and draw the x-y axes
+        g.setColor(Color.green);
+        
     }
 }

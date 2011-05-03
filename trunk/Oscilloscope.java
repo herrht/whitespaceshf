@@ -5,13 +5,14 @@ import java.util.*;
 public class Oscilloscope extends AGate {
 
 
-    protected Set<Integer> stash;
+    protected ArrayList<Integer> nums;
 
 
 
     public Oscilloscope(int ID) {
         this.ID = ID;       //az elem sorszámát egyenlővé teszi a paraméterrel
         inputnum = 1;
+        nums = new ArrayList<Integer>();
         inputs = new HashMap<Integer, PinIn>(1);
         inputs.put(0, new PinIn(this, 0));      //kreál egy bemenő lábat
         value = 0;
@@ -20,8 +21,8 @@ public class Oscilloscope extends AGate {
     }
 
     public void SetValue(){
-    stash.add(inputs.get(0).GetValue());    //hozzáadja a tároló elemeihez a láb értékét
-    value = inputs.get(0).GetValue();       //beállítja a valuet (nem tudom kelle majd, de miért ne?)
+        nums.add(inputs.get(0).GetValue());    //hozzáadja a tároló elemeihez a láb értékét
+        value = inputs.get(0).GetValue();       //beállítja a valuet (nem tudom kelle majd, de miért ne?)
     }
 
     public int GetID() {
@@ -48,5 +49,17 @@ public class Oscilloscope extends AGate {
     @Override
     public String toFile2() {
         return "";
+    }
+    public int[] getNums(){
+        int [] n;
+        
+        if (nums.size()<5) n = new int[nums.size()];
+        else n = new int[5];
+        
+        for (int i =0 ; i<n.length; i++)
+        {
+            n[i] = nums.get(nums.size()-1-i);
+        }
+        return n;
     }
 }
