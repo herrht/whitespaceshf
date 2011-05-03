@@ -11,6 +11,7 @@ public class Oscilloscope extends AGate {
 
     public Oscilloscope(int ID) {
         this.ID = ID;       //az elem sorszámát egyenlővé teszi a paraméterrel
+        inputnum = 1;
         inputs = new HashMap<Integer, PinIn>(1);
         inputs.put(0, new PinIn(this, 0));      //kreál egy bemenő lábat
         value = 0;
