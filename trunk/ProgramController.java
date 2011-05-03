@@ -370,6 +370,7 @@ public class ProgramController extends JPanel implements ActionListener {
                 view.c.clear();
                 view.wires.clear();
                 progi.NewProject();
+                view.wires.clear();
                 view.repaint();
             }
 
