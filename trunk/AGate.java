@@ -21,5 +21,5 @@ public abstract class AGate extends AElement {
              inputs.get(i).resetValue();
          }
      }
-     
+    
 }
