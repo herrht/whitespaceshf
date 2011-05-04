@@ -16,6 +16,10 @@ public abstract class AGate extends AElement {
      public boolean pinIsUsed(int i){
          return inputs.get(i).used();
      }
-
+     public void resetPins(){
+         for (int i = 0; i <inputnum; i++){
+             inputs.get(i).resetValue();
+         }
+     }
      
 }

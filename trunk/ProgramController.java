@@ -441,7 +441,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     pop("Nincs ilyen IDjű láb!");
                     w2 = popval;
                 }
-                System.out.println(popval);
+
                 if (g.pinIsUsed(w2)){
                     JOptionPane.showMessageDialog(null, "Az a láb már foglalt", "Error", JOptionPane.ERROR_MESSAGE);
                     return;

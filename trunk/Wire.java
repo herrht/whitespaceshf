@@ -24,7 +24,8 @@ public class Wire extends AElement {
     }
 
     public void Delete() {       //a wire törlő függvénye, ami törli a wiret, de a lábakat nem, mivel azokat még az elemek használják
-
+        output.getElement().resetPins();
+        output.removeWire();
     }
 
     @Override

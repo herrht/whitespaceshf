@@ -25,7 +25,7 @@ public class PinIn extends Pin {
 
     public void SetWire(Wire w)
     {
-        this.w = w;      //beállítja a wire-t
+        w.Delete();      //beállítja a wire-t
     }
 
     @Override
@@ -35,4 +35,15 @@ public class PinIn extends Pin {
     public boolean used(){
         return w != null;
     }
+    public void removeWire(){
+        this.w = null;
+    }
+
+    public void resetValue() {
+        value = 0;
+    }
+    public AGate getElement(){
+        return (AGate) elem;
+    }
+
 }
