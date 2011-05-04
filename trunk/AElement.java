@@ -27,6 +27,7 @@ public abstract class AElement {
         this.ready = true;
     }
 
+
     public abstract int GetID();
 
     public abstract void SetValue();

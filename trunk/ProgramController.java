@@ -442,12 +442,18 @@ public class ProgramController extends JPanel implements ActionListener {
                     w2 = popval;
                 }
                 System.out.println(popval);
+                if (g.pinIsUsed(w2)){
+                    JOptionPane.showMessageDialog(null, "Az a láb már foglalt", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 progi.proj.AddWire(w1, w2, w3, w4);
                 AddWireToView(w1, w2, w3, w4);
+                
 
                 view.repaint();
                 flag = "IDLE";
-                return;
+               
             }
         } else if (tmp.getText().equals("Delete")) {
             if (!flag.equals("RUNNING")) {
