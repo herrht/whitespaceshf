@@ -39,7 +39,7 @@ public class AND extends AGate {
     }
 
     public void Delete() {           //törli a kapi ki- és bementi lábait
-        System.out.println(this + " | Delete() | And torles fuggvenye ");
+//        System.out.println(this + " | Delete() | And torles fuggvenye ");
         for (int i = 0; i < inputnum; i++) {
             inputs.get(i).Delete();
         }
@@ -48,6 +48,7 @@ public class AND extends AGate {
         outputs.clear();
         inputs.clear();
     }
+
 
     @Override
     public String toString() {

@@ -15,6 +15,12 @@ public class PinOut extends Pin {
     }
 
     public void Delete() {      //az láb törlő függvénye
+        Collection c = w.keySet();
+        Iterator it = c.iterator();
+        while (it.hasNext()){
+            Integer key = (Integer)it.next();
+            w.get(key).Delete();
+        }
         w.clear();
 //        System.out.println("PinOut | Delete() | PinOut torles fuggvenye ");     //kiírat
         //Megpusztítjuk saját magunkat
