@@ -5,6 +5,7 @@ public class PinIn extends Pin {
     protected Wire w;               //itt tároljuk el, hogy a láb melyik wire-hez tartozik
 
     public PinIn(AElement e, int id) {
+        this.w = null;
         this.ID = id;        //beállítja az elem sorszámát a paraméterre
         this.elem = e;       //beállítja, hogy melyik elemhez tartozik a láb
         
@@ -30,5 +31,8 @@ public class PinIn extends Pin {
     @Override
     public String toString() {
         return ""+elem.GetID()+" "+ID+" ";
+    }
+    public boolean used(){
+        return w != null;
     }
 }

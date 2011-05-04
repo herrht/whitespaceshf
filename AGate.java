@@ -13,6 +13,9 @@ public abstract class AGate extends AElement {
          return inputnum;
      }
 
+     public boolean pinIsUsed(int i){
+         return inputs.get(i).used();
+     }
 
      
 }
