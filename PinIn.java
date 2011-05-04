@@ -13,7 +13,9 @@ public class PinIn extends Pin {
     }
 
     public void Delete() {       //a láb törlő függvénye
-        w = null;       //kiírat
+        w.Delete();
+        w = null;
+        //kiírat
         //Megpusztítjuk saját magunkat
     }
 
@@ -25,7 +27,7 @@ public class PinIn extends Pin {
 
     public void SetWire(Wire w)
     {
-        w.Delete();      //beállítja a wire-t
+        this.w = w;      //beállítja a wire-t
     }
 
     @Override
