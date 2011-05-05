@@ -13,7 +13,7 @@ public class PinIn extends Pin {
     }
 
     public void Delete() {       //a láb törlő függvénye
-        w.Delete();
+        if(w!=null) w.Delete();
         w = null;
         //kiírat
         //Megpusztítjuk saját magunkat

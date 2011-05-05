@@ -384,10 +384,11 @@ public class ProgramController extends JPanel implements ActionListener {
                 }
             }
         } else if (tmp.getText().equals("Load")) {
+                
+            if (!flag.equals("RUNNING")) {
                 view.wires.clear();
                 view.elements.clear();
                 view.c.clear();
-            if (!flag.equals("RUNNING")) {
                 int returnVal = fc.showOpenDialog(ProgramController.this);
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     File file = fc.getSelectedFile();
@@ -420,26 +421,42 @@ public class ProgramController extends JPanel implements ActionListener {
                     return;
                 }
                 w3 = popval;
+
                 Collection ids = progi.proj.elements.keySet();
-                while (!ids.contains(w3) || popin == null) {
+
+                while (!ids.contains(w3)) {
                     pop("Nincs ilyen IDjű elem!");
                     w3 = popval;
+                    if (popin == null) {
+                    return;}
                 }
                 w4 = 0;
                 pop("A Cél IDje:");
+                if (popin == null) {
+                    return;}
                 w1 = popval;
-                while (!ids.contains(w1) || popin == null) {
+                while (!ids.contains(w1)) {
                     pop("Nincs ilyen IDjű elem!");
+                    if (popin == null) {
+                    return;
+                }
                     w1 = popval;
                 }
                 System.out.println(popval);
                 popval = -1;
                 pop("A Cél melyik lábához akarod kötni?:");
+                if (popin == null) {
+                    return;}
                 w2 = popval;
                 AGate g = (AGate) progi.proj.elements.get(w1);
-                while (popval < 0 || popval > g.getInputnum() || popin == null) {
+                while (popval < 0 || popval > g.getInputnum()) {
+                    if (popin == null) {
+                    return;
+                }
                     pop("Nincs ilyen IDjű láb!");
                     w2 = popval;
+                    if (popin == null) {
+                    return;}
                 }
 
                 if (g.pinIsUsed(w2)){
