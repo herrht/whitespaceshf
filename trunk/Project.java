@@ -30,10 +30,10 @@ public class Project {
 
    
 
-    public void Start()                 // A project start függvénye: a szimuláció
+    public boolean Start()                 // A project start függvénye: a szimuláció
     {
         // if (óraütés) && (!stop), akkor:
-        this.Simulation();
+        return this.Simulation();
         //else wait/return
     }
 
@@ -42,30 +42,34 @@ public class Project {
         // Leállítja a szimulációt (a Start függvény ne fusson tovább)
     }
 
-    public int Simulation() //a project start függvénye: a szimuláció
+    public boolean Simulation() //a project start függvénye: a szimuláció
     {
 //        System.out.println("Project | start() | szimuláció indítása");      //kiírat
 
-        Set<Map.Entry<Integer, AElement>> set = elements.entrySet();
-        for (Map.Entry<Integer, AElement> me : set) {
-            me.getValue().SetReady();
-        }
+        try {
+            Set<Map.Entry<Integer, AElement>> set = elements.entrySet();
+            for (Map.Entry<Integer, AElement> me : set) {
+                me.getValue().SetReady();
+            }
 
-        Iterator it = this.setOfLeds.iterator();
-        while (it.hasNext()) //a ledekre meghívja a SetValue függvényt
-        {
-            int tmp = (Integer) it.next();
-            elements.get(tmp).SetValue();
-        }
+            Iterator it = this.setOfLeds.iterator();
+            while (it.hasNext()) //a ledekre meghívja a SetValue függvényt
+            {
+                int tmp = (Integer) it.next();
+                elements.get(tmp).SetValue();
+            }
 
-        it = this.setOfGenerators.iterator();
-        while (it.hasNext()) //a generátorokra meghívja a Shift() fgvnyt
-        {
+            it = this.setOfGenerators.iterator();
+            while (it.hasNext()) //a generátorokra meghívja a Shift() fgvnyt
+            {
 
-            int tmp = (Integer) it.next();
-            elements.get(tmp).SetValue();
+                int tmp = (Integer) it.next();
+                elements.get(tmp).SetValue();
+            }
+        } catch (Exception e) {
+            return false;
         }
-        return 1;
+        return true;
     }
 
     /*------------------------- Elemek torles, listazas -------------------------*/

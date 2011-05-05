@@ -482,9 +482,15 @@ public class ProgramController extends JPanel implements ActionListener {
             }
         } else if (tmp.getText().equals("Start")) {
             if (!flag.equals("RUNNING")) {
+                if (!progi.proj.Start()){
+                    JOptionPane.showMessageDialog(null, "Nincs minden bemenet használatban!", "Error", 0);
+                    flag = "IDLE";
+                    return;
+                }
                 progi.t.start();
                 view.repaint();
                 flag = "RUNNING";
+                
             }
 
         } else if (tmp.getText().equals("Stop")) {
