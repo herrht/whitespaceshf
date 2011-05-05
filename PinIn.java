@@ -22,9 +22,13 @@ public class PinIn extends Pin {
     public void SetValue() {
 //        System.out.println(this + " | PinIn SetValue()|CALL");       //kiírat
 
-        if (w!=null) {
-            value = w.GetValue();       //beállítja a láb értékét a wire értékvel
-        }
+       
+           
+            value = w.GetValue();
+
+       
+       //beállítja a láb értékét a wire értékvel
+        
         //System.out.println(this + " | PinIn SetValue()|RETURN");     //kiírat
     }
 
@@ -49,6 +53,9 @@ public class PinIn extends Pin {
     }
     public AGate getElement(){
         return (AGate) elem;
+    }
+    public Wire getWire(){
+        return w;
     }
 
 }

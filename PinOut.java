@@ -29,9 +29,9 @@ public class PinOut extends Pin {
     public void SetValue() {
 //        System.out.println(this + " | PinOut SetValue()|CALL");     //kiírat
 
-        if (w!=null) {
+        
             value = elem.GetValue();    //egyenlővé teszi a láb értékét az elem értékével
-        }
+        
         //System.out.println(this + " | PinOut SetValue()|RETURN");       //kiírat
     }
 
