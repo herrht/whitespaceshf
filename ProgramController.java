@@ -288,7 +288,7 @@ public class ProgramController extends JPanel implements ActionListener {
                                 System.out.println(cord.getX());
                                 DeleteWireFromView(cord);
                              }
-                            if (el.toString().equals("Fix1") || el.toString().equals("Fix1") || el.toString().equals("Generator1")|| el.toString().equals("Switch0")|| el.toString().equals("Switch1") || el.toString().equals("Generator3") || el.toString().equals("Generator3") || el.toString().equals("Generator4") || el.toString().equals("Generator5"))
+                            if (el.toString().equals("Fix1") || el.toString().equals("Fix0") || el.toString().equals("Generator1")|| el.toString().equals("Switch0")|| el.toString().equals("Switch1") || el.toString().equals("Generator2") || el.toString().equals("Generator3") || el.toString().equals("Generator4") || el.toString().equals("Generator5"))
                             {
                                 
                                 System.out.println(cor.equal(c));
