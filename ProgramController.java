@@ -61,67 +61,79 @@ public class ProgramController extends JPanel implements ActionListener {
 
                 } else {
                     if (flag.equals("AND")) { //Ha a falg AND (az and gombot nyomtuk meg) akkor hozzáadunk egy és kaput a projecthez.
-
-                        pop("Hány bemenete legyen a kapunak? (2-4)"); // Megkérdezzük a felhasználótól, hogy hány bemenete legyen a kapunak
-                        while ((popval < 2 || popval > 4) && popin != null) { //Ha nem 2 és 4 közötti számot adott meg
-                            pop("A bemenetnek 2 és 4 között kell lennie!");   //akkor bekérjük újra.
+                     
+                       if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            pop("Hány bemenete legyen a kapunak? (2-4)"); // Megkérdezzük a felhasználótól, hogy hány bemenete legyen a kapunak
+                            while ((popval < 2 || popval > 4) && popin != null) { //Ha nem 2 és 4 közötti számot adott meg
+                                pop("A bemenetnek 2 és 4 között kell lennie!");   //akkor bekérjük újra.
+                            }
+                            if (popval != -1) {
+                                int i = progi.proj.AddAnd(popval); //Hozzáadunk a projecthez egy És kaput a bekért számú bementtel és eltároljuk az idjét egy segédváltozóba
+                                c = new Coordinate(e.getX(), e.getY()); //lekérjük a kattintás koordinátáját
+                                AElement el = (AElement) progi.proj.elements.get(i); //eltároljuk a az újonnan létrehozott elemet egy segédváltozóban
+                                view.elements.put(c, el); //betesszük az elementview elemjei közé a koordinátával
+                                view.c.add(c); //a koordináták közé betesszük a koordinátát
+                                view.repaint(); //újrarajzoljuk az elementviewt, hogy megjelenjen az elem.
+                            }
+                            flag = "IDLE"; //a flaget beállítjuk üresjáratra
                         }
-                        if (popval != -1) {
-                            int i = progi.proj.AddAnd(popval); //Hozzáadunk a projecthez egy És kaput a bekért számú bementtel és eltároljuk az idjét egy segédváltozóba
-                            c = new Coordinate(e.getX(), e.getY()); //lekérjük a kattintás koordinátáját
-                            AElement el = (AElement) progi.proj.elements.get(i); //eltároljuk a az újonnan létrehozott elemet egy segédváltozóban
-                            view.elements.put(c, el); //betesszük az elementview elemjei közé a koordinátával
-                            view.c.add(c); //a koordináták közé betesszük a koordinátát
-                            view.repaint(); //újrarajzoljuk az elementviewt, hogy megjelenjen az elem.
-                        }
-                        flag = "IDLE"; //a flaget beállítjuk üresjáratra
+                        
                     }
                     if (flag.equals("OR")) { //Teljesen ugyanúgy működik mint az és kapu hozzáadása.
-                        pop("Hány bemenete legyen a kapunak? (2-4)");
-                        while ((popval < 2 || popval > 4) && popin != null) {
-                            pop("A bemenetnek 2 és 4 között kell lennie%");
+                        if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            pop("Hány bemenete legyen a kapunak? (2-4)");
+                            while ((popval < 2 || popval > 4) && popin != null) {
+                                pop("A bemenetnek 2 és 4 között kell lennie%");
+                            }
+                            if (popval != -1) {
+                                int i = progi.proj.AddOr(popval);
+                                c = new Coordinate(e.getX(), e.getY());
+                                AElement el = (AElement) progi.proj.elements.get(i);
+                                view.elements.put(c, el);
+                                view.c.add(c);
+                                view.repaint();
+                            }
+                            flag = "IDLE";
                         }
-                        if (popval != -1) {
-                            int i = progi.proj.AddOr(popval);
+                    }
+                    if (flag.equals("INV")) { //Ha invertert adunk hozzá.
+                       if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            int i = progi.proj.AddInverter(); //Hozzáadunk egy invertert a projecthez, az id-jét eltároljuk egy segédváltozóba.
+                            c = new Coordinate(e.getX(), e.getY()); //A kattintás koordinátáját eltároljuk egy segédváltozóba.
+                            AElement el = (AElement) progi.proj.elements.get(i); //Az elemet eltároljuk egy segédbe
+                            view.elements.put(c, el); //hozzáaadjuk ez elementviewhoz a koordináta-elem párost
+                            view.c.add(c); //A koordinátát hozzáadjuk az elementview koordináta listájához.
+                            view.repaint(); //újrarajzoljuk az ElementViewt hogy megjelenjen a változás.
+
+                            flag = "IDLE"; //A flaget visszaállítjuk üresjáratra.
+                        }
+                    }
+                    if (flag.equals("F0")) { //Ugyanúgy működik, mint az inverter
+                        if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            int i = progi.proj.AddFix0();
                             c = new Coordinate(e.getX(), e.getY());
                             AElement el = (AElement) progi.proj.elements.get(i);
                             view.elements.put(c, el);
                             view.c.add(c);
                             view.repaint();
+                            el = null;
+                            flag = "IDLE";
                         }
-                        flag = "IDLE";
-                    }
-                    if (flag.equals("INV")) { //Ha invertert adunk hozzá.
-                        int i = progi.proj.AddInverter(); //Hozzáadunk egy invertert a projecthez, az id-jét eltároljuk egy segédváltozóba.
-                        c = new Coordinate(e.getX(), e.getY()); //A kattintás koordinátáját eltároljuk egy segédváltozóba.
-                        AElement el = (AElement) progi.proj.elements.get(i); //Az elemet eltároljuk egy segédbe
-                        view.elements.put(c, el); //hozzáaadjuk ez elementviewhoz a koordináta-elem párost
-                        view.c.add(c); //A koordinátát hozzáadjuk az elementview koordináta listájához.
-                        view.repaint(); //újrarajzoljuk az ElementViewt hogy megjelenjen a változás.
-
-                        flag = "IDLE"; //A flaget visszaállítjuk üresjáratra.
-                    }
-                    if (flag.equals("F0")) { //Ugyanúgy működik, mint az inverter
-                        int i = progi.proj.AddFix0();
-                        c = new Coordinate(e.getX(), e.getY());
-                        AElement el = (AElement) progi.proj.elements.get(i);
-                        view.elements.put(c, el);
-                        view.c.add(c);
-                        view.repaint();
-                        el = null;
-                        flag = "IDLE";
                     }
                     if (flag.equals("F1")) { //Ugyanúgy működik, mint az inverter
-                        int i = progi.proj.AddFix1();
-                        c = new Coordinate(e.getX(), e.getY());
-                        AElement el = (AElement) progi.proj.elements.get(i);
-                        view.elements.put(c, el);
-                        view.c.add(c);
-                        view.repaint();
-                        el = null;
-                        flag = "IDLE";
+                       if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            int i = progi.proj.AddFix1();
+                            c = new Coordinate(e.getX(), e.getY());
+                            AElement el = (AElement) progi.proj.elements.get(i);
+                            view.elements.put(c, el);
+                            view.c.add(c);
+                            view.repaint();
+                            el = null;
+                            flag = "IDLE";
+                        }
                     }
                     if (flag.equals("GEN")) { //Generátor hozzáadása.
+                        if(e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485){
                         pop("Mi legyen a generatorban? (01110)"); //Bekérjük a shiftelgetni kívánt jelsorozatot.
                         int[] rate = new int[popin.length()]; //eltároljuk egy tömbbe egyesével a a bekért értékeket
                         for (int i = 0; i < popin.length(); i++) {
@@ -144,36 +156,43 @@ public class ProgramController extends JPanel implements ActionListener {
                         view.repaint(); //újrarazoljuk az ElementView-t.
 
                         flag = "IDLE"; //Üresjáratba állítjuk a flaget.
+                        }
                     }
                     if (flag.equals("COMP")) { //Ugyanúgy működik, mint az inverter.
-                        int i = progi.proj.AddComposite();
-                        c = new Coordinate(e.getX(), e.getY());
-                        AElement el = (AElement) progi.proj.elements.get(i);
-                        view.elements.put(c, el);
-                        view.c.add(c);
-                        view.repaint();
+                        if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            int i = progi.proj.AddComposite();
+                            c = new Coordinate(e.getX(), e.getY());
+                            AElement el = (AElement) progi.proj.elements.get(i);
+                            view.elements.put(c, el);
+                            view.c.add(c);
+                            view.repaint();
 
-                        flag = "IDLE";
+                            flag = "IDLE";
+                        }
                     }
                     if (flag.equals("LED")) { //Ugyanúgy működik, mint az Inverter
-                        int i = progi.proj.AddLed();
-                        c = new Coordinate(e.getX(), e.getY());
-                        AElement el = (AElement) progi.proj.elements.get(i);
-                        view.elements.put(c, el);
-                        view.c.add(c);
-                        view.repaint();
+                        if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            int i = progi.proj.AddLed();
+                            c = new Coordinate(e.getX(), e.getY());
+                            AElement el = (AElement) progi.proj.elements.get(i);
+                            view.elements.put(c, el);
+                            view.c.add(c);
+                            view.repaint();
 
-                        flag = "IDLE";
+                            flag = "IDLE";
+                        }
                     }
                     if (flag.equals("OSC")) { //Úgyanúgy működik, mint a Led
-                        int i = progi.proj.AddOscilloscope();
-                        c = new Coordinate(e.getX(), e.getY());
-                        AElement el = (AElement) progi.proj.elements.get(i);
-                        view.elements.put(c, el);
-                        view.c.add(c);
-                        view.repaint();
+                       if (e.getX()>5 && e.getY()>5 && e.getX()<725 && e.getY()<445) {
+                            int i = progi.proj.AddOscilloscope();
+                            c = new Coordinate(e.getX(), e.getY());
+                            AElement el = (AElement) progi.proj.elements.get(i);
+                            view.elements.put(c, el);
+                            view.c.add(c);
+                            view.repaint();
 
-                        flag = "IDLE";
+                            flag = "IDLE";
+                        }
                     }
 
                     if (flag.equals("DEL")) { //Egy elem törlése
@@ -295,13 +314,15 @@ public class ProgramController extends JPanel implements ActionListener {
 
 
                     if (flag.equals("SW")) { //Ugyanaz, mint az Inverter hozzáadása
-                        int i = progi.proj.AddSwitch();
-                        c = new Coordinate(e.getX(), e.getY());
-                        AElement el = (AElement) progi.proj.elements.get(i);
-                        view.elements.put(c, el);
-                        view.c.add(c);
-                        view.repaint();
-                        flag = "IDLE";
+                        if (e.getX()>5 && e.getY()>5 && e.getX()<935 && e.getY()<485) {
+                            int i = progi.proj.AddSwitch();
+                            c = new Coordinate(e.getX(), e.getY());
+                            AElement el = (AElement) progi.proj.elements.get(i);
+                            view.elements.put(c, el);
+                            view.c.add(c);
+                            view.repaint();
+                            flag = "IDLE";
+                        }
                     }
 
                 }
