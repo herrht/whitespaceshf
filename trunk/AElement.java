@@ -26,7 +26,9 @@ public abstract class AElement {
     public void SetReady() {
         this.ready = true;
     }
-
+    public int GetOutputNum(){
+        return outputs.size();
+    }
 
     public abstract int GetID();
 

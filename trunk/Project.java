@@ -13,7 +13,7 @@ public class Project {
     
     private int ID;                                         //a sorszámot tároló integer
     public Set<Integer> setOfLeds;
-    private Set<Integer> setOfGenerators;
+    public Set<Integer> setOfGenerators;
     private Map<Integer, Composite> composites;
     public ArrayList<Wire> wires;
     /*------------------------- Osztaly kezelo fgv -------------------------*/

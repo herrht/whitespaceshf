@@ -214,14 +214,18 @@ public class ProgramController extends JPanel implements ActionListener {
 
                         }
                         Coordinate cord = new Coordinate(0, 0); //Létrehozunk egy segédkoordinátát
+                          cord.setX(cor.getX() + 50); //A segédváltozót beállítjuk a kimeneti pinjéhez.
+                          cord.setY(cor.getY() + 25);
+
+                          for (int out = 0; out<=el.GetOutputNum();out++){
+                            DeleteWireFromView(cord);
+                          } //Töröljük a kimeneti pinhez tartozó vezetékekett.
                         if (el != null) { //Ha nem találtunk elemet akkor nem csinálunk semmit.
                             if (el.toString().equals("And") || el.toString().equals("Or") || el.toString().equals("Inverter")) //Ha és kapu, Or vagy Inverter a kattintott elem akkor
                             {
                                 AGate gt = (AGate) el; //átkasztoljuk AGate-té
 
-                                cord.setX(cor.getX() + 50); //A segédváltozót beállítjuk a kimeneti pinjéhez.
-                                cord.setY(cor.getY() + 25);
-                                DeleteWireFromView(cord); //Töröljük a kimeneti pinhez tartozó vezetéket.
+                             
                                 
                                 if (gt.getInputnum() == 1) { //Ha 1 bemenete van, akkor töröljük a bemenethez tartozó vezetéket
                                     cord.setX(cor.getX()); //Az X koordináta megyegyezik az elem X koordinátájával
@@ -299,6 +303,7 @@ public class ProgramController extends JPanel implements ActionListener {
                                 cord.setX(cor.getX()+50); //Töröljük a kimenetének a vezetékét
                                 cord.setY(cor.getY()+25);
                                 DeleteWireFromView(cord);
+                                if(el.toString().startsWith("Generator")) progi.proj.setOfGenerators.remove(el.GetID());
                             }
                             }
                                 progi.proj.elements.get(el.ID).Delete(); //töröljük az elemet
@@ -449,7 +454,7 @@ public class ProgramController extends JPanel implements ActionListener {
                     return;}
                 w2 = popval;
                 AGate g = (AGate) progi.proj.elements.get(w1);
-                while (popval < 0 || popval > g.getInputnum()) { //Ha 0-nál kisebb és a kapu méreténél nagyonn számot adunk meg
+                while (popval < 0 || popval > g.getInputnum()-1) { //Ha 0-nál kisebb és a kapu méreténél nagyonn számot adunk meg
                     if (popin == null) {
                     return;
                 }
@@ -482,11 +487,17 @@ public class ProgramController extends JPanel implements ActionListener {
             }
         } else if (tmp.getText().equals("Start")) { //Ha a Startra kattintunk
             if (!flag.equals("RUNNING")) {          // és még nem fut
+                if(progi.proj.setOfLeds.isEmpty()){
+                   JOptionPane.showMessageDialog(null, "A hálózat nem tartalmaz megjelenítőt!", "Error", 0);
+                   flag = "IDLE";
+                   return;
+                }
                 if (!progi.proj.Start()){ //meghívjuk a project Start fvét, ha ez hamissal tér vissza, akkor van lógó bemenet
                     JOptionPane.showMessageDialog(null, "Nincs minden bemenet használatban!", "Error", 0); //és dob egy hibaüzenetet, majd kilép
                     flag = "IDLE";
                     return;
                 }
+
                 progi.t.start(); //elindítja a szimulációt
                 view.repaint();
                 flag = "RUNNING";
