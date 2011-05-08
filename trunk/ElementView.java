@@ -5,10 +5,10 @@ import java.util.*;
 
 public class ElementView extends Canvas {
 
-    public HashMap<Coordinate, AElement> elements;
-    private HashMap<String, Image> elementImages;
-    public ArrayList<WireCoordinate> wires;
-    public ArrayList<Coordinate> c;
+    public HashMap<Coordinate, AElement> elements; //az elemek Mapja
+    private HashMap<String, Image> elementImages; //a képek Mapja
+    public ArrayList<WireCoordinate> wires; //a vezetékek tömbje
+    public ArrayList<Coordinate> c; //a koordináták tömbje
     public Iterator it;
 
     public ElementView() {
@@ -18,6 +18,8 @@ public class ElementView extends Canvas {
         elements = new HashMap<Coordinate, AElement>();
         elementImages = new HashMap<String, Image>();
 //        this.setSize(1000, 1000);
+
+        //-----------------------*Képek beolvasása*-----------------------------
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         MediaTracker mediaTracker = new MediaTracker(this);
         int id = 0;
@@ -103,6 +105,7 @@ public class ElementView extends Canvas {
 
     @Override
     public void paint(Graphics g) {
+        //------------*Kirajzoljuk az összes képet a képernyő nem látható részére, ezáltal később gyorsabb lesz a kirjazolás*--------------------
         g.drawImage(elementImages.get("And"), 5000, 5000, null);
         g.drawImage(elementImages.get("Or"), 5000, 5000, null);
         g.drawImage(elementImages.get("Inverter"), 5000, 5000, null);
@@ -119,9 +122,9 @@ public class ElementView extends Canvas {
         }
 
         g.setColor(Color.white);
-        g.fillRect(0, 0, 1000, 620);
+        g.fillRect(0, 0, 1000, 620);//Letöröljük a Canvast
         g.setColor(Color.black);
-        g.drawRect(5, 5, 980, 530);
+        g.drawRect(5, 5, 980, 530); //Létrehozzuk a fekete keretet
         g.setColor(Color.white);
 
         it = c.iterator();
@@ -129,25 +132,25 @@ public class ElementView extends Canvas {
             g.setColor(Color.WHITE);
             g.fillRect(6, 6, 978, 528);
         }
-        while (it.hasNext()) {
+        while (it.hasNext()) { //Végigmegyünk az elemeken és megjelíntjük a megfelelő képet
             Coordinate cord = (Coordinate) it.next();
             AElement elem = elements.get(cord);
             String key = elem.toString();
             g.drawImage(elementImages.get(key), cord.getX(), cord.getY(), null);
             g.setColor(Color.BLACK);
-            g.drawString("ID: " + elem.GetID(), cord.getX() + 13, cord.getY() - 3);
-            if (key.substring(0, 2).equals("Ge")) {
+            g.drawString("ID: " + elem.GetID(), cord.getX() + 13, cord.getY() - 3); //kiírjuk az elemk fölé az idjüket
+            if (key.substring(0, 2).equals("Ge")) { //A generátorok alá kiírjuk a következő logikai értéket ami meg fog jelenni a kimenetén
                 Generator gen = (Generator) elem;
                 g.setFont(new Font("Arial", 0, 12));
                 g.drawString(gen.rate2(), cord.getX() + 24, cord.getY() + 60);
 
             }
-            if (key.equals("Oscilloscope")) {
+            if (key.equals("Oscilloscope")) { //Ha oscilloszkó van meghívjuk a paintOscill fv-t-
                 Oscilloscope osc = (Oscilloscope) elem;
                 paintOscill(g, cord, osc.getNums());
             }
         }
-        for (int i = 0; i < wires.size(); i++) {
+        for (int i = 0; i < wires.size(); i++) { //Kirajzoljuk a vezetékeket
             g.setColor(Color.BLACK);
             g.drawLine(wires.get(i).getX(), wires.get(i).getY(), wires.get(i).getX2(), wires.get(i).getY2());
 //            System.out.println(wires.get(i).getX()+" "+ wires.get(i).getY()+" "+wires.get(i).getX2()+" "+wires.get(i).getY2());
@@ -156,37 +159,25 @@ public class ElementView extends Canvas {
 
     }
 
-    public void paintOscill(Graphics g, Coordinate c, int[] osc) {
+    public void paintOscill(Graphics g, Coordinate c, int[] osc) { //Az oscilloszkóp négszögjelének kirajzolása.
         int fWidth =220, fHeight= 100;
         int fNumPoints = osc.length;
         double fFactor= 2.0 * Math.PI / fWidth;
 
-//        g.drawRect(c.getX(), c.getY(), 200, 70);
 
         int[] x = new int[fNumPoints*2];
         int[] y = new int[fNumPoints*2];
 
-        // Select horizontal step size
+
         double x_del = (double) fWidth / (fNumPoints*2);
 
-        // Find coordinates of the display center
-//        int x_offset = fWidth / 2;
-//        int y_offset = fHeight / 2;
-
-        // Choose amplitude for the sine curve
-        
-
-        // Create a sine curve from a sequence
-        // of short line segments
         if (fNumPoints !=0)x[0] =c.getX()+10;
         for (int i = 1; i < fNumPoints*2; i+=2) {
             x[i] = (int) (i * x_del+c.getX()+5);
-//            System.out.println("x["+i+"]="+x[i]);
          }
 
         for (int i = 2; i < fNumPoints*2; i+=2) {
             x[i] = x[i-1];
-//            System.out.println("x["+i+"]="+x[i]);
          }
         
         int j = 0;
@@ -202,18 +193,9 @@ public class ElementView extends Canvas {
             j++;
         }
 
-//        for(int i=0; i<(fNumPoints)*2; i++){
-//            System.out.println("y["+i+"]="+y[i]);
-//        }
-        
-        // Set the line color to red
         g.setColor(Color.red);
-
-        // Draw curve with single call to drawPolyline
         g.drawPolyline(x, y, fNumPoints*2);
 
-        // Change the line color and draw the x-y axes
-        g.setColor(Color.green);
         
     }
 }

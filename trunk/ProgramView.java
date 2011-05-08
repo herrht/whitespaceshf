@@ -12,36 +12,38 @@ import javax.swing.*;
  *
  * @author Burgosz
  */
+
+//A program kinézetéért felelős osztály. Ez egy JPanel.
 public class ProgramView extends JPanel {
 
-    public ElementView view;
-    public JPanel Buttonpane;
-    public JButton and;
-    public JButton or;
-    public JButton np;
-    public JButton save;
-    public JButton load;
-    public JButton fix0;
-    public JButton fix1;
-    public JButton generator;
-    public JButton composite;
-    public JButton led;
-    public JButton start;
-    public JButton stop;
-    public JButton setfreq;
-    public JButton inv;
-    public JButton oscill;
-    public JButton wire;
-    public JButton delete;
-    public JButton help;
-    public JButton sw;
+    private ElementView view; //Az elemeket megjelenítő objektumra mutató pointer
+    private JPanel Buttonpane; // A gombokat megjelenítő panel
+    private JButton and;       // A megfelelő funkciókat megvalósító gombok
+    private JButton or;
+    private JButton np;
+    private JButton save;
+    private JButton load;
+    private JButton fix0;
+    private JButton fix1;
+    private JButton generator;
+    private JButton composite;
+    private JButton led;
+    private JButton start;
+    private JButton stop;
+    private JButton setfreq;
+    private JButton inv;
+    private JButton oscill;
+    private JButton wire;
+    private JButton delete;
+    private JButton help;
+    private JButton sw;
     
-    public ProgramController pc;
+    private ProgramController pc; //A ProgramControllerre mutató pointer, ez fogja a gombokat kezelni.
 
     public ProgramView() {
 
-        and = new JButton("And");
-        and.setToolTipText("Add a new AND gate to the project.");
+        and = new JButton("And"); //And gomb létrehozása
+        and.setToolTipText("Add a new AND gate to the project."); //A gomb tooltipje
         or = new JButton("Or");
         and.setToolTipText("Add a new OR gate to the project.");
         np = new JButton("NewProject");
@@ -76,11 +78,11 @@ public class ProgramView extends JPanel {
         sw = new JButton("Switch");
         sw.setToolTipText("Add a Switch to the project.");
 
-        view = new ElementView();
-        pc = new ProgramController(view);
+        view = new ElementView(); //Új ElementView példányosítása.
+        pc = new ProgramController(view); //Új ProgramController példányosítása
 
-        and.addActionListener(pc);
-        and.setIgnoreRepaint(true);
+        and.addActionListener(pc); //A pc beállítása a gombok ActionListenerjének
+        and.setIgnoreRepaint(true); // A gomb villogásának kikapcsolása
         or.addActionListener(pc);
         np.addActionListener(pc);
         save.addActionListener(pc);
@@ -101,9 +103,9 @@ public class ProgramView extends JPanel {
 
 
 
-        Buttonpane = new JPanel();
-        Buttonpane.setLayout(new GridLayout(2, 8));
-        Buttonpane.add(np);
+        Buttonpane = new JPanel(); //A gombokat tároló panel létrehozása
+        Buttonpane.setLayout(new GridLayout(2, 8)); //A panel layoutjának beállítása (2x8-as táblázatban lesznek a gombok elrendezve
+        Buttonpane.add(np); //A gombok hozzáadása a panelhez
         Buttonpane.add(save);
         Buttonpane.add(load);
         Buttonpane.add(composite);
@@ -112,7 +114,6 @@ public class ProgramView extends JPanel {
         Buttonpane.add(sw);
         Buttonpane.add(oscill);
         Buttonpane.add(led);
-
         Buttonpane.add(start);
         Buttonpane.add(stop);
         Buttonpane.add(setfreq);
@@ -123,26 +124,27 @@ public class ProgramView extends JPanel {
         Buttonpane.add(generator);
         Buttonpane.add(wire);
 
-        setLayout(new BorderLayout());
-        add("North", Buttonpane);
+        setLayout(new BorderLayout()); //A ProgramView layoutjának beállítása.
+        add("North", Buttonpane); //Felülre kerülnek a gombok
         Buttonpane.setSize(1000, 20);
-        add("Center", view);
+        add("Center", view); //Alulra kerül a ProgramView
     }
 
+    //createFrame fv amely létrehozza az ablakot
     public void createFrame() {
-        JFrame frame = new JFrame("Electrical Network Development Suite 1.0");
+        JFrame frame = new JFrame("Electrical Network Development Suite 1.0"); //Az ablak címe
         frame.addWindowListener(
                 new WindowAdapter() {
 
             @Override
-                    public void windowClosing(WindowEvent e) {
+                    public void windowClosing(WindowEvent e) { //A bezárás gomb aktiválása
                         System.exit(0);
 
                     }
                 });
-        frame.add(this);
+        frame.add(this); //Az ablakhoz hozzáadjuk a ProgramView-t
         frame.setSize(1000, 620);
-        frame.setResizable(false);
-        frame.setVisible(true);
+        frame.setResizable(false); //Az ablak átméretezésének letiltása
+        frame.setVisible(true); //Az ablak láthatóságának beállítása
     }
 }
