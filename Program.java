@@ -24,6 +24,8 @@ public class Program implements ActionListener {
     public void NewProject() {
 //        System.out.println("Program | NewProject() | Uj projekt letrehozas");       //kiírat
         proj = new Project();       //egy új projectet kreál
+        proj.setOfLeds.clear();
+        proj.wires.clear();
     }
 
     public void NewTest() {
