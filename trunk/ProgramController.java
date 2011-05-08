@@ -291,6 +291,7 @@ public class ProgramController extends JPanel implements ActionListener {
                                 cord.setX(cor.getX()); //Töröljük a bemeneti vezetéket
                                 cord.setY(cor.getY()+25);
                                 DeleteWireFromView(cord);
+                                progi.proj.setOfLeds.remove(gt.GetID());
                              }
                             if (el.toString().equals("Fix1") || el.toString().equals("Fix0") || el.toString().equals("Generator1")|| el.toString().equals("Switch0")|| el.toString().equals("Switch1") || el.toString().equals("Generator2") || el.toString().equals("Generator3") || el.toString().equals("Generator4") || el.toString().equals("Generator5"))
                             {

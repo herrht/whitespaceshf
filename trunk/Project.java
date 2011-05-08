@@ -12,7 +12,7 @@ public class Project {
     public Map<Integer, AElement> elements;                 //elements.put(ID, new OR(inputnum));           // csak, hogy egybol lassuk
     
     private int ID;                                         //a sorszámot tároló integer
-    private Set<Integer> setOfLeds;
+    public Set<Integer> setOfLeds;
     private Set<Integer> setOfGenerators;
     private Map<Integer, Composite> composites;
     public ArrayList<Wire> wires;
